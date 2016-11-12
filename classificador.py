@@ -52,6 +52,7 @@ with open('AmostraAGOSTO - AMOSTRAAGO10003110-2.csv', newline='') as csvfile:
 		texto_classificado.append((row['TEXTO'],opiniao))
 
 print('texto_classificado=',texto_classificado)
+print('len(texto_classificado)=',len(texto_classificado))
 
 # 2.3. Lido diretamente a partir do Google Spreadsheet
 # TODO (ver gsheet.py)

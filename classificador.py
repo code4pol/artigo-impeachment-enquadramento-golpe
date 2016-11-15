@@ -42,8 +42,9 @@ def bag_of_words(sentence):
 
 # Transforma {	'pos' : ['texto1','texto2',...], 
 #				'neg' : ['texto',...]}
-# em {	'pos' : [{'plot':True, ':':True, 'teen':True ...}, {}, {}...], 
-#		'neg' : [{},{},...] }
+#
+# em 		 {	'pos' : [{'plot':True, ':':True, 'teen':True ...}, {}, {}...], 
+#				'neg' : [{},{},...] }
 def get_features(corpora):
 	features = collections.defaultdict(list)
 
@@ -52,11 +53,9 @@ def get_features(corpora):
 
 		# Pra cada texto da atual categoria
 		for corpus in corpora[category]:
-
 			features[category].append(bag_of_words(corpus))
 
-	return features  # { 'pos' : [{'plot':True, ':':True, 'teen':True ...}, {}, {}...], 
-					 #   'neg' : [{},{},...] }
+	return features  
 
 
 # Reparte as features classificadas em dois grupos: 
@@ -87,18 +86,6 @@ def split_features(lfeats, split=0.75):
 # 	else:
 # 		return {'golpe' : False}
 
-
-# def dump(obj):
-# 	for attr in dir(obj):
-# 		if hasattr( obj, attr ):
-# 			print( "obj.%s = %s" % (attr, getattr(obj, attr)))
-
-# from nltk.corpus import movie_reviews
-# print('movie_reviews=',dump(movie_reviews))
-# sys.exit()
-
-# print('label_feats_from_corpus=',label_feats_from_corpus('o peito do pedro é preto.'))
-# sys.exit()
 
 ####################
 # 2. Texto pre-classificado para treinamento e testes

@@ -5,10 +5,9 @@ import nltk
 import sys
 import collections
 
-# CATEGORIES = { PRO: 'pro', CONTRA: 'contra', INDIF: 'indiferente' }
 CATEGORIES = [ 'pro', 'contra', 'indiferente' ]
 
-from nltk.classify import apply_features
+# from nltk.classify import apply_features
 
 # print('bagofwords=',bag_of_words('um homem no ônibus nos perguntou se o motivo de estarmos de preto era o golpe.'))
 #
@@ -40,32 +39,20 @@ def bag_of_words(sentence):
 #                    renan = True           indefi : contra =     12.3 : 1.0
 #                       12 = True              pro : contra =     11.5 : 1.0
 
-# corp.categories()
-# corp.fileids(categories=[label])
-# corp.words(fileids=[fileid])
-def label_feats_from_corpus(corp, feature_detector=bag_of_words):
-	label_feats = collections.defaultdict(list)
-	# print('label_feats=',label_feats)
 
-	
-	# Para cada categoria
-	for label in categories: # ['neg', 'pos']
-		# Encontra todos os arquivos
-		for fileid in corp.fileids(categories=[label]): # ['pos/cv939_10583.txt', ..., 'pos/cv999_13106.txt']
-			# print('  fileid=',fileid)
-			words = corp.words(fileids=[fileid]) # ['plot', ':', 'two', 'teen', 'couples', 'go', 'to', 'a', 'church', 'party']
-			feats = feature_detector(words) # {'plot':True, ':':True, 'teen':True ...}
-			# print('  feats=',feats)
-			label_feats[label].append(feats) # { 'pos' : [{'plot':True, ':':True, 'teen':True ...}, {}, {}...], 'neg' : [] }
-			# print('  label_feats=',label_feats)
-
-	return label_feats
-
+# Transforma {	'pos' : ['texto1','texto2',...], 
+#				'neg' : ['texto',...]}
+# em {	'pos' : [{'plot':True, ':':True, 'teen':True ...}, {}, {}...], 
+#		'neg' : [{},{},...] }
 def get_features(corpora):
 	features = collections.defaultdict(list)
 
-	for category in corpora.keys(): # i.e pos, contra e indefinido
+	# Pra cada categoria .e pos, contra e indefinido
+	for category in corpora.keys(): 
+
+		# Pra cada texto da atual categoria
 		for corpus in corpora[category]:
+
 			features[category].append(bag_of_words(corpus))
 
 	return features  # { 'pos' : [{'plot':True, ':':True, 'teen':True ...}, {}, {}...], 
@@ -225,6 +212,20 @@ if __name__ == '__main__':
 	print('[%s] %s' % (classifier.classify(bag_of_words(texto)), texto))
 	texto = 'Ñ permitiremos q corruptos governem, não daremos paz nem um dia ,perseguiremos o Temer até na hora d colocar botox! https://t.co/LsgWDbnosM'
 	print('[%s] %s' % (classifier.classify(bag_of_words(texto)), texto))
+
+
+	texto = 'RT @JFMargarida: Juiz de Fora mantém a sua tradição democrática. Praça das estação contra o golpe #GolpeAquiNaoPassa https://t.co/LfIOsDaIVj'
+	probs = classifier.prob_classify(bag_of_words(texto))
+	probs = [ (label,probs.prob(label)) for label in probs.samples() ]
+	print('[%s] %s' % (probs, texto))
+	texto = 'Rio de Janeiro\n\nMST tranca a Dutra\n\nNa luta contra o golpe, a memória do massacre de Eldorado dos Carajás -20 anos https://t.co/26rk7OADEJ'
+	probs = classifier.prob_classify(bag_of_words(texto))
+	probs = [ (label,probs.prob(label)) for label in probs.samples() ]
+	print('[%s] %s' % (probs, texto))
+	texto = 'Ñ permitiremos q corruptos governem, não daremos paz nem um dia ,perseguiremos o Temer até na hora d colocar botox! https://t.co/LsgWDbnosM'
+	probs = classifier.prob_classify(bag_of_words(texto))
+	probs = [ (label,probs.prob(label)) for label in probs.samples() ]
+	print('[%s] %s' % (probs, texto))
 
 	i = 0
 	# Classificar tweets

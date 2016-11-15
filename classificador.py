@@ -5,20 +5,27 @@ import nltk
 import sys
 import collections
 
-CATEGORIES = [ 'pro', 'contra', 'indiferente' ]
+# CATEGORIES = [ 'pro', 'contra', 'indiferente' ]
 
 # from nltk.classify import apply_features
 
-# print('bagofwords=',bag_of_words('um homem no ônibus nos perguntou se o motivo de estarmos de preto era o golpe.'))
-#
+####################
+# 1. Funcao geradora de features
+
+# 1.1. Features muito muito simples
+# def impeachment_features(sentence):
+# 	if 'golpe' in sentence:
+# 		return {'golpe' : True}
+# 	else:
+# 		return {'golpe' : False}
+
+# 1.2. Estrategia de features com bag of words.
 # sentence= um homem no ônibus nos perguntou se o motivo de estarmos de preto era o golpe.
 # words= ['um', 'homem', 'no', 'ônibus', 'nos', 'perguntou', 'se', 'o', 'motivo', 'de', 'estarmos', 'de', 'preto', 'era', 'o', 'golpe']
 # bagofwords= {'se': True, 'motivo': True, 'era': True, 'de': True, 'o': True, 'golpe': True, 'um': True, 'nos': True, 'ônibus': True, 'homem': True, 'estarmos': True, 'no': True, 'perguntou': True, 'preto': True}
 def bag_of_words(sentence):
-	# print('sentence=',sentence)
 	# Tira a pontuacao e quebra em array de palavras
 	words = re.sub('[\.,!?…:\n]','',sentence).split(" ")
-	# print('words=',words)
 	return dict([(word, True) for word in words])
 	# TODO1 Remover stopwords
 	# TODO2 Incluir bigramas
@@ -40,6 +47,7 @@ def bag_of_words(sentence):
 #                       12 = True              pro : contra =     11.5 : 1.0
 
 
+# Funcao auxiliar
 # Transforma {	'pos' : ['texto1','texto2',...], 
 #				'neg' : ['texto',...]}
 #
@@ -58,6 +66,7 @@ def get_features(corpora):
 	return features  
 
 
+# Funcao auxiliar
 # Reparte as features classificadas em dois grupos: 
 # um para treinamento (75%) e outro para testes (25%).
 # Em ambos, quantidades identicas de features de cada
@@ -79,12 +88,7 @@ def split_features(lfeats, split=0.75):
 	
 	return train_feats, test_feats
 
-# 1. Funcao geradora de features
-# def impeachment_features(sentence):
-# 	if 'golpe' in sentence:
-# 		return {'golpe' : True}
-# 	else:
-# 		return {'golpe' : False}
+
 
 
 ####################

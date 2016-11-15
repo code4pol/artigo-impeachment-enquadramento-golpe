@@ -95,53 +95,63 @@ def split_features(lfeats, split=0.75):
 # 2. Texto pre-classificado para treinamento e testes
 
 # 2.1. Hard coded no codigo
-# texto_classificado = [	("um homem no ônibus nos perguntou se o motivo de estarmos de preto era o golpe. n saímos c essa intenção, mas n é que encaixa perfeitamente..","contra"),
-# 						("pirando legal na batatinha: 'o golpe é homofóbico e racista'. - paaaaaaaaaaaaara tudo que eu quero… ","pro"),
-# 						("@o_antagonista golpe é isso, ferir a constituição.","contra"),
-# 						("golpe é eu não estar te chupando agora!","pro"),
-# 						("@stf_oficial fracassa perante a sociedade brasileira. #somostodosgolpistas ","pro"),
-# 						("impitma sem crime é golpe ","contra"),]
+# def load_preclassified_corpora():
+	# return {
+	# 	'pro' : ["pirando legal na batatinha: 'o golpe é homofóbico e racista'. - paaaaaaaaaaaaara tudo que eu quero… ",
+	# 			 "golpe é eu não estar te chupando agora!",
+	# 			 "@stf_oficial fracassa perante a sociedade brasileira. #somostodosgolpistas "],
+	# 	'contra' : ["um homem no ônibus nos perguntou se o motivo de estarmos de preto era o golpe. n saímos c essa intenção, mas n é que encaixa perfeitamente..",
+	# 				"@o_antagonista golpe é isso, ferir a constituição.",
+	# 				"impitma sem crime é golpe "],
+	# 	'indeciso' : []
+	# }
 
-if __name__ == '__main__':
 
-	# 2.2. Carregado a partir do CSV
-	classified_corpora = collections.defaultdict(list) # { 'pro' : ['texto1', 'texto2', ...], 'contra' : []...}
+# 2.2. Carregado a partir do CSV
+def load_preclassified_corpora(filename):
+	classified_corpora = collections.defaultdict(list) # um dict como outro qualquer, que atribuiu 
+													   # uma lista vazia automaticamente a novas chaves
+													   # criadas, evitando fazer d['k'] = {} 
+													   # So isso :-)
 
-	with open('AmostraAGOSTO - AMOSTRAAGO10003110-2.csv', newline='') as csvfile:
+	with open(filename, newline='') as csvfile:
 		
-		# 2.2.1. Ler CSV como Array e acessar os campos atraves de indices: row[0], row[1]...
+		# 2.2.1. Como acessar os campos do CSV
+
+		# 2.2.1.1 Ler CSV como Array e acessar os campos atraves de indices: row[0], row[1]...
 		# reader = csv.reader(csvfile, delimiter=',', quotechar='"')
 
-		# 2.2.2. Ler como Dict e acessar os campos atraves de chaves: row['nome'], row['endereco']...
+		# 2.2.1.2. Ler como Dict e acessar os campos atraves de chaves: row['nome'], row['endereco']...
 		reader = csv.DictReader(csvfile, delimiter=',', quotechar='"')
 
 		for row in reader:
-			# 2.2.1. 
+			# 2.2.1.1 
 			# print(row[4],row[5],row[6],row[7])
 
-			# 2.2.2.
+			# 2.2.1.2.
 			# print(row['TEXTO'],row['PRO'],row['CONTRA'],row['INDEFINIDO'],bag_of_words(row['TEXTO']))
 
 			if int(row['PRO']):
-				opiniao = 'pro'
+				label = 'pro'
 			elif int(row['CONTRA']):
-				opiniao = 'contra'
+				label = 'contra'
 			else:
-				opiniao = 'indefinido' 
+				label = 'indefinido' 
 			
-			# opiniao = True if row['PRO'] else False if row['CONTRA'] else Nil if row['INDEFINIDO']
 			
-			classified_corpora[opiniao].append(row['TEXTO'])
-			# texto_classificado.append((row['TEXTO'],opiniao))
+			classified_corpora[label].append(row['TEXTO'])
 
-	# print('texto_classificado=',texto_classificado)
-	# print('len(texto_classificado)=',len(texto_classificado))
 
 	classified_features = get_features(classified_corpora)
-	# 2.3. Lido diretamente a partir do Google Spreadsheet
-	# TODO (ver gsheet.py)
 
-	# print('classified_features=',classified_features)
+	return classified_features
+
+# 2.3. Lido diretamente a partir do Google Spreadsheet
+# TODO (ver gsheet.py)
+
+if __name__ == '__main__':
+
+	preclassified_features = load_preclassified_corpora('AmostraAGOSTO - AMOSTRAAGO10003110-2.csv')
 
 
 	####################
@@ -156,7 +166,7 @@ if __name__ == '__main__':
 	# test_features = apply_features(impeachment_features, classified_features[500:])
 
 
-	train_features, test_features = split_features(classified_features, split=0.75)
+	train_features, test_features = split_features(preclassified_features, split=0.75)
 	print('training_features=',len(train_features))
 	print('test_features=',len(test_features))
 

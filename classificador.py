@@ -19,6 +19,7 @@ import collections
 # 	else:
 # 		return {'golpe' : False}
 
+
 # 1.2. Estrategia de features com bag of words.
 # sentence= um homem no ônibus nos perguntou se o motivo de estarmos de preto era o golpe.
 # words= ['um', 'homem', 'no', 'ônibus', 'nos', 'perguntou', 'se', 'o', 'motivo', 'de', 'estarmos', 'de', 'preto', 'era', 'o', 'golpe']
@@ -45,6 +46,21 @@ def bag_of_words(sentence):
 #                      fez = True           indefi : contra =     12.3 : 1.0
 #                    renan = True           indefi : contra =     12.3 : 1.0
 #                       12 = True              pro : contra =     11.5 : 1.0
+
+# 15/11 21:12 - Com nova classificacao de Abril enviada pela Tayrine
+# Bagofwords ainda co stopwords
+# training_features= 726
+# test_features= 244
+# accuracy= 0.6598360655737705
+# most_informative_features= [('quando', True), ('vou', True), ('corao', True), ("sim'", True), ('dizer', True), ('imagina', True), ('deu', True), ('copa', True), ('10', True), ('manter', True), ('coisa', True), ("'eu", True), ('algum', True), ('militncia', True), ('sei', True), ('p', True), ('te', True), ('dias', True), ('proibido', True), ('&gt;', True), ('silvio', True), ('deixar', True), ('ai', True), ('funkeiros', True), ('perto', True), ('boca', True), ('entender', True), ('gritando', True), ('mesmo', True), ('faz', True), ('tu', True), ('realmente', True), ('total', True), ('segue', True), ('dinheiro', True), ('pouco', True), ('quanto', True), ('legalidade', True), ('sade', True), ('preo', True), ('ela', True), ('eu', True), ('#impeachmentday', True), ('hora', True), ('stf', True), ('eh', True), ('fala', True), ('democracia', True), ('#golpeaquinopassa', True), ('6', True), ('engraado', True), ('20', True), ('escolher', True), ('100', True), ('vida', True), ('continua', True), ('ok', True), ('costa', True), ('br', True), ('farsa', True), ('houver', True), ('quero', True), ('casa', True), ('juntos', True), ('moraes', True), ('amigos', True), ('for', True), ('bola', True), ('portal', True), ('querido', True), ('cozinha', True), ("'se", True), ('mostra', True), ('protestos', True), ('participar', True), ('gavies', True), ('3', True), ('voltar', True), ('pessoa', True), ('ba', True), ("'nunca", True), ('caia', True), ('numa', True), ('sero', True), ('senador', True), ("'no", True), ('@portalvermelho', True), ('indo', True), ('pr-golpe', True), ('vitria', True), ('transmitir', True), ('filha', True), ('ah', True), ('galera', True), ('tbm', True), ('oq', True), ('@brasil_de_fato', True), ('vejo', True), ('17/04', True), ('@folha', True)]
+# -------
+# Most Informative Features
+#                   quando = True              pro : contra =     20.0 : 1.0
+#                      vou = True              pro : contra =     14.7 : 1.0
+#                    corao = True              pro : contra =     14.7 : 1.0
+#                     sim' = True           indefi : contra =     14.6 : 1.0
+#                    dizer = True              pro : contra =     12.0 : 1.0
+
 
 # 1. Exemplo
 # [({:},),({:},)]
@@ -151,25 +167,25 @@ def load_preclassified_corpora(filename):
 # TODO (ver gsheet.py)
 
 def adhoc_classification_tests(classifier):
-	# texto = 'RT @JFMargarida: Juiz de Fora mantém a sua tradição democrática. Praça das estação contra o golpe #GolpeAquiNaoPassa https://t.co/LfIOsDaIVj'
-	# print('[%s] %s' % (classifier.classify(bag_of_words(texto)), texto))
-	# texto = 'Rio de Janeiro\n\nMST tranca a Dutra\n\nNa luta contra o golpe, a memória do massacre de Eldorado dos Carajás -20 anos https://t.co/26rk7OADEJ'
-	# print('[%s] %s' % (classifier.classify(bag_of_words(texto)), texto))
-	# texto = 'Ñ permitiremos q corruptos governem, não daremos paz nem um dia ,perseguiremos o Temer até na hora d colocar botox! https://t.co/LsgWDbnosM'
-	# print('[%s] %s' % (classifier.classify(bag_of_words(texto)), texto))
+	texto = 'RT @JFMargarida: Juiz de Fora mantém a sua tradição democrática. Praça das estação contra o golpe #GolpeAquiNaoPassa https://t.co/LfIOsDaIVj'
+	print('[%s] %s' % (classifier.classify(bag_of_words(texto)), texto))
+	texto = 'Rio de Janeiro\n\nMST tranca a Dutra\n\nNa luta contra o golpe, a memória do massacre de Eldorado dos Carajás -20 anos https://t.co/26rk7OADEJ'
+	print('[%s] %s' % (classifier.classify(bag_of_words(texto)), texto))
+	texto = 'Ñ permitiremos q corruptos governem, não daremos paz nem um dia ,perseguiremos o Temer até na hora d colocar botox! https://t.co/LsgWDbnosM'
+	print('[%s] %s' % (classifier.classify(bag_of_words(texto)), texto))
 
-	# texto = 'RT @JFMargarida: Juiz de Fora mantém a sua tradição democrática. Praça das estação contra o golpe #GolpeAquiNaoPassa https://t.co/LfIOsDaIVj'
-	# probs = classifier.prob_classify(bag_of_words(texto))
-	# probs = [ (label,probs.prob(label)) for label in probs.samples() ]
-	# print('[%s] %s' % (probs, texto))
-	# texto = 'Rio de Janeiro\n\nMST tranca a Dutra\n\nNa luta contra o golpe, a memória do massacre de Eldorado dos Carajás -20 anos https://t.co/26rk7OADEJ'
-	# probs = classifier.prob_classify(bag_of_words(texto))
-	# probs = [ (label,probs.prob(label)) for label in probs.samples() ]
-	# print('[%s] %s' % (probs, texto))
-	# texto = 'Ñ permitiremos q corruptos governem, não daremos paz nem um dia ,perseguiremos o Temer até na hora d colocar botox! https://t.co/LsgWDbnosM'
-	# probs = classifier.prob_classify(bag_of_words(texto))
-	# probs = [ (label,probs.prob(label)) for label in probs.samples() ]
-	# print('[%s] %s' % (probs, texto))
+	texto = 'RT @JFMargarida: Juiz de Fora mantém a sua tradição democrática. Praça das estação contra o golpe #GolpeAquiNaoPassa https://t.co/LfIOsDaIVj'
+	probs = classifier.prob_classify(bag_of_words(texto))
+	probs = [ (label,probs.prob(label)) for label in probs.samples() ]
+	print('[%s] %s' % (probs, texto))
+	texto = 'Rio de Janeiro\n\nMST tranca a Dutra\n\nNa luta contra o golpe, a memória do massacre de Eldorado dos Carajás -20 anos https://t.co/26rk7OADEJ'
+	probs = classifier.prob_classify(bag_of_words(texto))
+	probs = [ (label,probs.prob(label)) for label in probs.samples() ]
+	print('[%s] %s' % (probs, texto))
+	texto = 'Ñ permitiremos q corruptos governem, não daremos paz nem um dia ,perseguiremos o Temer até na hora d colocar botox! https://t.co/LsgWDbnosM'
+	probs = classifier.prob_classify(bag_of_words(texto))
+	probs = [ (label,probs.prob(label)) for label in probs.samples() ]
+	print('[%s] %s' % (probs, texto))
 
 # def classify_text(classifier):
 	# i = 0
@@ -202,25 +218,26 @@ def adhoc_classification_tests(classifier):
 	# 			# print('%s,%s,%s' % (id, id_retweetado, texto_retweetado))
 	# 			print('%d,%s,%s' % (i,texto_retweetado, classifier.classify(impeachment_features(texto_retweetado))))
 
-def classify_text(classifier):
+# def classify_text(classifier):
 	# acessar o mongo
 	# db.tweets.aggregate([ {$project: { _id:0, text : "$retweeted_status.text"} } ])
 
 if __name__ == '__main__':
 
 	# Carregar os dados de treinamento e teste
-	preclassified_corpora = load_preclassified_corpora('AmostraAGOSTO - AMOSTRAAGO10003110-2.csv')
+	preclassified_corpora = load_preclassified_corpora('AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv')
+	# iconv -c -t UTF8 AmostraABRIL-AriadneeMarisaREVIS2.csv > AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv
+		# 'AmostraAGOSTO - AMOSTRAAGO10003110-2.csv'
 
 
 	# Cálculo das features dos textos preclassificados
-	preclassified_features = get_features(classified_corpora)
+	preclassified_features = get_features(preclassified_corpora)
 
 	# Treinamento do algoritmo
 	train_features, test_features = split_features(preclassified_features, split=0.75)
 	print('training_features=',len(train_features))
 	print('test_features=',len(test_features))
 
-					({'golpe':False},'pro')]
 
 	# ?????
 
@@ -243,14 +260,14 @@ if __name__ == '__main__':
 	print('accuracy=',nltk.classify.accuracy(classifier, test_features))
 
 	# Listagem das features mais relevantes
-	print('most_informative_features=',len(classifier.most_informative_features()))
+	print('most_informative_features=',classifier.most_informative_features())
 	print('-------')
 	classifier.show_most_informative_features(5)
 
 	# Testes ad-hoc
-	adhoc_classification_tests(classifier)
+	# adhoc_classification_tests(classifier)
 
 	# Classificacao da base de dados real
-	classify_text(classifier)
+	# classify_text(classifier)
 
 

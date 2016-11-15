@@ -46,8 +46,11 @@ def bag_of_words(sentence):
 #                    renan = True           indefi : contra =     12.3 : 1.0
 #                       12 = True              pro : contra =     11.5 : 1.0
 
+# 1. Exemplo
+# [({:},),({:},)]
+# features_treinamento = [({'golpe':True},'contra'),
+# 	
 
-# Funcao auxiliar
 # Transforma {	'pos' : ['texto1','texto2',...], 
 #				'neg' : ['texto',...]}
 #
@@ -142,93 +145,34 @@ def load_preclassified_corpora(filename):
 			classified_corpora[label].append(row['TEXTO'])
 
 
-	classified_features = get_features(classified_corpora)
-
-	return classified_features
+	return classified_corpora
 
 # 2.3. Lido diretamente a partir do Google Spreadsheet
 # TODO (ver gsheet.py)
 
-if __name__ == '__main__':
+def adhoc_classification_tests(classifier):
+	# texto = 'RT @JFMargarida: Juiz de Fora mantém a sua tradição democrática. Praça das estação contra o golpe #GolpeAquiNaoPassa https://t.co/LfIOsDaIVj'
+	# print('[%s] %s' % (classifier.classify(bag_of_words(texto)), texto))
+	# texto = 'Rio de Janeiro\n\nMST tranca a Dutra\n\nNa luta contra o golpe, a memória do massacre de Eldorado dos Carajás -20 anos https://t.co/26rk7OADEJ'
+	# print('[%s] %s' % (classifier.classify(bag_of_words(texto)), texto))
+	# texto = 'Ñ permitiremos q corruptos governem, não daremos paz nem um dia ,perseguiremos o Temer até na hora d colocar botox! https://t.co/LsgWDbnosM'
+	# print('[%s] %s' % (classifier.classify(bag_of_words(texto)), texto))
 
-	preclassified_features = load_preclassified_corpora('AmostraAGOSTO - AMOSTRAAGO10003110-2.csv')
+	# texto = 'RT @JFMargarida: Juiz de Fora mantém a sua tradição democrática. Praça das estação contra o golpe #GolpeAquiNaoPassa https://t.co/LfIOsDaIVj'
+	# probs = classifier.prob_classify(bag_of_words(texto))
+	# probs = [ (label,probs.prob(label)) for label in probs.samples() ]
+	# print('[%s] %s' % (probs, texto))
+	# texto = 'Rio de Janeiro\n\nMST tranca a Dutra\n\nNa luta contra o golpe, a memória do massacre de Eldorado dos Carajás -20 anos https://t.co/26rk7OADEJ'
+	# probs = classifier.prob_classify(bag_of_words(texto))
+	# probs = [ (label,probs.prob(label)) for label in probs.samples() ]
+	# print('[%s] %s' % (probs, texto))
+	# texto = 'Ñ permitiremos q corruptos governem, não daremos paz nem um dia ,perseguiremos o Temer até na hora d colocar botox! https://t.co/LsgWDbnosM'
+	# probs = classifier.prob_classify(bag_of_words(texto))
+	# probs = [ (label,probs.prob(label)) for label in probs.samples() ]
+	# print('[%s] %s' % (probs, texto))
 
-
-	####################
-	# 3. Cálculo das features dos textos classificados
-
-	# features = [ (impeachment_features(sentence),vote) for (sentence,vote) in texto_classificado ]
-	# training_features = features[:4]
-	# test_features = features[4:]
-
-	# Pra não colocar tudo na memória
-	# training_features = apply_features(impeachment_features, classified_features[:500])
-	# test_features = apply_features(impeachment_features, classified_features[500:])
-
-
-	train_features, test_features = split_features(preclassified_features, split=0.75)
-	print('training_features=',len(train_features))
-	print('test_features=',len(test_features))
-
-	# print('features=',features)
-	# print('training_features=',training_features)
-	# print('test_features=',test_features)
-
-	# 1. Exemplo
-	# [({:},),({:},)]
-	# features_treinamento = [({'golpe':True},'contra'),
-	# 						({'golpe':False},'pro')]
-
-	# 2. Jeito obvio
-	# features_treinamento = []
-	# for t in texto_classificado:
-	# 	text = t[0]
-	# 	vote = t[1]
-	# 	print('[%s] - [%s]' % (text,vote))
-	# 	features_treinamento.append((impeachment_features(text),vote))
-
-	# 3. Jeito pythoniano
-	# features_treinamento = [ (impeachment_features(sentence),vote) for (sentence,vote) in texto_classificado ]
-
-	# print('features_treinamento',features_treinamento)
-
-	# Criacao do classificador
-	classifier = nltk.NaiveBayesClassifier.train(train_features)
-
-	# Teste de duas sentenças
-	# print(classifier.classify(impeachment_features('É golpe')))			# contra
-	# print(classifier.classify(impeachment_features('É impeachment')))	# pro
-
-	# Verificação da acurácia
-	print('accuracy=',nltk.classify.accuracy(classifier, test_features))
-
-	print('most_informative_features=',len(classifier.most_informative_features()))
-	print('-------')
-	classifier.show_most_informative_features(5)
-
-	# testes
-	texto = 'RT @JFMargarida: Juiz de Fora mantém a sua tradição democrática. Praça das estação contra o golpe #GolpeAquiNaoPassa https://t.co/LfIOsDaIVj'
-	print('[%s] %s' % (classifier.classify(bag_of_words(texto)), texto))
-	texto = 'Rio de Janeiro\n\nMST tranca a Dutra\n\nNa luta contra o golpe, a memória do massacre de Eldorado dos Carajás -20 anos https://t.co/26rk7OADEJ'
-	print('[%s] %s' % (classifier.classify(bag_of_words(texto)), texto))
-	texto = 'Ñ permitiremos q corruptos governem, não daremos paz nem um dia ,perseguiremos o Temer até na hora d colocar botox! https://t.co/LsgWDbnosM'
-	print('[%s] %s' % (classifier.classify(bag_of_words(texto)), texto))
-
-
-	texto = 'RT @JFMargarida: Juiz de Fora mantém a sua tradição democrática. Praça das estação contra o golpe #GolpeAquiNaoPassa https://t.co/LfIOsDaIVj'
-	probs = classifier.prob_classify(bag_of_words(texto))
-	probs = [ (label,probs.prob(label)) for label in probs.samples() ]
-	print('[%s] %s' % (probs, texto))
-	texto = 'Rio de Janeiro\n\nMST tranca a Dutra\n\nNa luta contra o golpe, a memória do massacre de Eldorado dos Carajás -20 anos https://t.co/26rk7OADEJ'
-	probs = classifier.prob_classify(bag_of_words(texto))
-	probs = [ (label,probs.prob(label)) for label in probs.samples() ]
-	print('[%s] %s' % (probs, texto))
-	texto = 'Ñ permitiremos q corruptos governem, não daremos paz nem um dia ,perseguiremos o Temer até na hora d colocar botox! https://t.co/LsgWDbnosM'
-	probs = classifier.prob_classify(bag_of_words(texto))
-	probs = [ (label,probs.prob(label)) for label in probs.samples() ]
-	print('[%s] %s' % (probs, texto))
-
-	i = 0
+# def classify_text(classifier):
+	# i = 0
 	# Classificar tweets
 	# json_file = open('RT_democracia_golpe_Abr2016.txt','r')
 	# json_file = open('RT_democracia_golpe_Ago2016.txt','r')
@@ -257,4 +201,56 @@ if __name__ == '__main__':
 
 	# 			# print('%s,%s,%s' % (id, id_retweetado, texto_retweetado))
 	# 			print('%d,%s,%s' % (i,texto_retweetado, classifier.classify(impeachment_features(texto_retweetado))))
+
+def classify_text(classifier):
+	# acessar o mongo
+	# db.tweets.aggregate([ {$project: { _id:0, text : "$retweeted_status.text"} } ])
+
+if __name__ == '__main__':
+
+	# Carregar os dados de treinamento e teste
+	preclassified_corpora = load_preclassified_corpora('AmostraAGOSTO - AMOSTRAAGO10003110-2.csv')
+
+
+	# Cálculo das features dos textos preclassificados
+	preclassified_features = get_features(classified_corpora)
+
+	# Treinamento do algoritmo
+	train_features, test_features = split_features(preclassified_features, split=0.75)
+	print('training_features=',len(train_features))
+	print('test_features=',len(test_features))
+
+					({'golpe':False},'pro')]
+
+	# ?????
+
+	# 2. Jeito obvio
+	# features_treinamento = []
+	# for t in texto_classificado:
+	# 	text = t[0]
+	# 	vote = t[1]
+	# 	print('[%s] - [%s]' % (text,vote))
+	# 	features_treinamento.append((impeachment_features(text),vote))
+
+	# 3. Jeito pythoniano
+	# features_treinamento = [ (impeachment_features(sentence),vote) for (sentence,vote) in texto_classificado ]
+
+
+	# Criacao e treinamento do do classificador
+	classifier = nltk.NaiveBayesClassifier.train(train_features)
+
+	# Verificação da acurácia
+	print('accuracy=',nltk.classify.accuracy(classifier, test_features))
+
+	# Listagem das features mais relevantes
+	print('most_informative_features=',len(classifier.most_informative_features()))
+	print('-------')
+	classifier.show_most_informative_features(5)
+
+	# Testes ad-hoc
+	adhoc_classification_tests(classifier)
+
+	# Classificacao da base de dados real
+	classify_text(classifier)
+
 

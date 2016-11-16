@@ -5,6 +5,8 @@ import nltk
 import sys
 import collections
 
+from mongodb import MongoClient
+
 # from nltk.classify import apply_features
 
 ####################
@@ -185,18 +187,44 @@ def adhoc_classification_tests(classifier):
 	# 			# print('%s,%s,%s' % (id, id_retweetado, texto_retweetado))
 	# 			print('%d,%s,%s' % (i,texto_retweetado, classifier.classify(impeachment_features(texto_retweetado))))
 
-# def classify_text(classifier):
+def classify_text(classifier):
 	# acessar o mongo
-	# db.tweets.aggregate([ {$project: { _id:0, text : "$retweeted_status.text"} } ])
+	client = MongoClient()
+	db = client.impeachment
+
+	# Remove documentos da classificacao anterior
+	db.tweets_classificados.delete_many({})
+
+	# Busca apenas textos dos tweets
+	texts = db.tweets.aggregate([ {'$project': { '_id':0, 'text' : "$retweeted_status.text"} } ])
+
+	i = 0
+	# Classifica cada um dos textos e salva o resultado de volta no banco
+	for text in texts:
+		i += 1
+		print('Classificando tweet',i)
+		
+		probs = classifier.prob_classify(bag_of_words(texto))
+		texto_classificado = {
+			'texto': text,
+			'classeMaisProvavel': probs.max(),
+			'probabilidades' : {
+				'pro': probs.prob('pro'),
+				'contra': probs.prob('contra'),
+				'indefinido': probs.prob('indefinido'),
+			}
+		}
+		
+		db.tweets_classificados.insert_one(texto_classificado)
 
 if __name__ == '__main__':
 
 	# Carregar os dados de treinamento e teste
 	
-	# preclassified_corpora = load_preclassified_corpora('textos-preclassificados-abril-e-agosto-20161117.csv') 	# 48%
-	# preclassified_corpora = load_preclassified_corpora('AmostraAGOSTOREVIS1411.utf8.csv')            			# 50%
-	preclassified_corpora = load_preclassified_corpora('AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv') 			# 66%
-	# preclassified_corpora = load_preclassified_corpora(''AmostraAGOSTO - AMOSTRAAGO10003110-2.csv'') 			# 49%
+	# preclassified_corpora = load_preclassified_corpora('textos-preclassificados-abril-e-agosto-20161117.csv')	# 48%
+	# preclassified_corpora = load_preclassified_corpora('AmostraAGOSTOREVIS1411.utf8.csv')  # 50%
+	preclassified_corpora = load_preclassified_corpora('datasets/20161117/AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv') 	# 66%
+	# preclassified_corpora = load_preclassified_corpora(''AmostraAGOSTO - AMOSTRAAGO10003110-2.csv'') 	# 49%
 
 	# iconv -c -t UTF8 AmostraABRIL-AriadneeMarisaREVIS2.csv > AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv
 	# iconv -c -t UTF8 AmostraAGOSTOREVIS1411.csv > AmostraAGOSTOREVIS1411.utf8.csv
@@ -239,6 +267,6 @@ if __name__ == '__main__':
 	# adhoc_classification_tests(classifier)
 
 	# Classificacao da base de dados real
-	# classify_text(classifier)
+	classify_text(classifier)
 
 

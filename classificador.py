@@ -269,31 +269,38 @@ def classify_text(classifier):
 		text = doc['text']
 
 		i += 1
-		print('Classificando tweet %i (%s)' % (i,text))
+		# print('Classificando tweet %i (%s)' % (i,text))
 
 		probs = classifier.prob_classify(bag_of_words(text))
+
+		probabilidades = {}
+		for category in classifier.labels():
+			probabilidades[category] = probs.prob(category)
+
+			# {
+			# 	'pro': probs.prob('pro'),
+			# 	'contra': probs.prob('contra'),
+			# 	'indefinido': probs.prob('indefinido'),
+			# }
+
 		texto_classificado = {
 			'texto': text,
 			'classeMaisProvavel': probs.max(),
-			'probabilidades' : {
-				'pro': probs.prob('pro'),
-				'contra': probs.prob('contra'),
-				'indefinido': probs.prob('indefinido'),
-			}
+			'probabilidades' : probabilidades
 		}
 		
-		id_texto_classificado = db.tweets_classificados.insert_one(texto_classificado)
-		print("  Resultado da classificacao salvo no banco com id",id_texto_classificado)
+		id_texto_classificado = db.tweets_classificados_201611162016.insert_one(texto_classificado)
+		# print("  Resultado da classificacao salvo no banco com id",id_texto_classificado)
 
 
 if __name__ == '__main__':
 
 	# PASSO 1. Carregar os dados pre-classificados
 
-	filename = 'datasets/20161116/AmostraABRIL-AriadneeMarisaREDUZIDA.utf8.csv' # 60%, Enquadramento: 16.43
-	# filename = 'datasets/20161115/textos-preclassificados-abril-e-agosto-20161117.csv'	# 48%, Enquadramento: 17.69%
+	# filename = 'datasets/20161116/AmostraABRIL-AriadneeMarisaREDUZIDA.utf8.csv' # 60%, Enquadramento: 16.43
+	# filename = 'datasets/treinamento/20161115/textos-preclassificados-abril-e-agosto-20161117.csv'	# 48%, Enquadramento: 17.69%
 	# filename = 'datasets/20161115/AmostraAGOSTOREVIS1411.utf8.csv' # 50%, Enquadramento: 17.26%
-	# filename = 'datasets/20161115/AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv' # 66%, Enquadramento: 14.69%
+	filename = 'datasets/treinamento/20161115/AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv' # 66%, Enquadramento: 14.69%
 	# filename = 'datasets/AmostraAGOSTO - AMOSTRAAGO10003110-2.csv' # Apoio: 49%, Enquadramento: 14%
 
 	classification = 'apoio'
@@ -322,6 +329,6 @@ if __name__ == '__main__':
 	# adhoc_classification_tests(classifier)
 
 	# PASSO 6. Classificacao da base de dados real
-	# classify_text(classifier)
+	classify_text(classifier)
 
 

@@ -319,12 +319,37 @@ Testamos a acurácia com diferentes bases de treinamento:
 
 Vamos utilizar apenas o arquivo `AmostraABRIL-AriadneeMarisaREVIS2.xls` para fazer a classificação de Apoio.
 
-|# Textos|Tempo|# Pró|# Contra|# Indefinido|
-|--:|:--:|--:|--:|--:|
-|359.098|17:16.73|49.778|254.180|55.140|
+|Cenário|# Textos|Tempo|# Pró|# Contra|# Indefinido|
+|:--|--:|:--:|--:|--:|--:|
+|Todos os tweets de Abr|359.098|17:16.73|49.778 (14%)|254.180 (71%)|55.140 (15%)|
+|Todos de Abr com 'golp'|247.839|04:08.84|40.366 (16%)|162.769 (66%)|44.704 (18%)|
+
+Usamos o arquivo `textos-preclassificados-abril-e-agosto-20161117.csv` para rodar a classificação de enquadramento. Segue resultado das classes mais prováveis.
+
+Total de tweets: 359.098
+
+Total de tweets classificados (apenas aqueles com o termo 'golp'): 247.839
+
+Distribuição:
+
+|Classe|Qtd|
+|:--:|--:|
+|MINORIAS|60.953|
+|INTERNACIONAL|32.456|
+|HISTORIA|31.128|
+|ECONOMIA|21.834|
+|MOBILIZACAO|18.867|
+|IDEOLOGIA|18.729|
+|OUTROS|16.664|
+|DEMOCRACIA|13.913|
+|COTIDIANO|12.000|
+|OFENSAS|7.511|
+|MIDIA|7.376|
+|CORRUPCAO|6.408|
 
 Ainda tem muito o que ser feito, como
 
 * Agregar os dados também do período de agosto
 * Ajustar a geração de features pra classificação
-* Balancear as quantidades de cada categoria na base de treinamento.
+* ~Balancear as quantidades de cada categoria na base de treinamento.~
+* Consultas georeferenciadas

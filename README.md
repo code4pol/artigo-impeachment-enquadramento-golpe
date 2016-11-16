@@ -288,17 +288,36 @@ No entanto, nem todos os tweets seguem o idioma presente na proporiedade `lang`.
 
 # Classificação
 
-Foram realizadas até o momento 4 ciclos de classificação. Cada um com diferentes bases de treinamento:
+Testamos a acurácia com diferentes bases de treinamento:
+
+1. AmostraAGOSTO - AMOSTRAAGO10003110-2.csv
+2. AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv
+3. AmostraAGOSTOREVIS1411.utf8.csv
+4. textos-preclassificados-abril-e-agosto-2016111.csv (AmostraABRIL-AriadneeMarisaREVIS2.xls+AmostraAGOSTOREVIS1411.xls)
+5. AmostraABRIL-AriadneeMarisaREDUZIDA.utf8.csv (Planilha do Google v20161111)
+
+
+#### Classificação em termos de Apoio
 
 |Base de Treinamento|#Pros|#Contras|#Indiferente|Acurácia|
 |:--|--:|--:|--:|:--:|
-|Planilha do Google v20161111|133|655|195|49.39%|
-|AmostraABRIL-AriadneeMarisaREVIS2.xls|166|667|137|65.98%|
-|AmostraAGOSTOREVIS1411.xls|137|656|188|49.59%|
-|AmostraABRIL-AriadneeMarisaREVIS2.xls+AmostraAGOSTOREVIS1411.xls|303|1323|325|48.26%|
-|AmostraABRIL-AriadneeMarisaREDUZIDA|167|267|137|60.41%|
+|1|133|655|195|49.39%|
+|2|166|667|137|65.98%|
+|3|137|656|188|49.59%|
+|4|303|1323|325|48.26%|
+|5|167|267|137|60.41%|
 
-Vamos utilizar apenas o arquivo `AmostraABRIL-AriadneeMarisaREVIS2.xls` para fazer a classificação.
+#### Classificação em termos de Enquadramento
+
+|Base|#Dem|#Eco|#Min|#Cor|#Int|#Ide|#Cot|#Mid|#His|#Mob|#Ofe|#Out|Acurácia|
+|:--|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|:--:|
+|1|211|28|22|52|45|134|91|73|57|46|0|224|14.00%|
+|2|187|34|20|68|52|36|76|59|39|129|52|218|14.69%|
+|3|204|30|22|51|47|46|88|67|66|44|106|210|17.26%|
+|4|391|64|42|119|99|82|164|126|105|173|158|428|17.69%|
+|5|103|22|10|40|27|22|64|28|19|60|37|139|16.43%|
+
+Vamos utilizar apenas o arquivo `AmostraABRIL-AriadneeMarisaREVIS2.xls` para fazer a classificação de Apoio.
 
 |# Textos|Tempo|# Pró|# Contra|# Indefinido|
 |--:|:--:|--:|--:|--:|

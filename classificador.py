@@ -9,6 +9,103 @@ from pymongo import MongoClient
 
 # from nltk.classify import apply_features
 
+CATEGORY_GROUP = {
+	'apoio' : ['PRO','CONTRA','INDEFINIDO'],
+	'enquadramento' : ['DEMOCRACIA',
+					   'ECONOMIA',
+					   'MINORIAS',
+					   'CORRUPCAO',
+					   'INTERNACIONAL',
+					   'IDEOLOGIA',
+					   'COTIDIANO',
+					   'MIDIA',
+					   'HISTORIA',
+					   'MOBILIZACAO',
+					   'OUTROS',
+					   'OFENSAS']
+}
+
+
+
+# 1.1. Hard coded no codigo
+# def load_preclassified_corpora():
+	# return {
+	# 	'pro' : ["pirando legal na batatinha: 'o golpe é homofóbico e racista'. - paaaaaaaaaaaaara tudo que eu quero… ",
+	# 			 "golpe é eu não estar te chupando agora!",
+	# 			 "@stf_oficial fracassa perante a sociedade brasileira. #somostodosgolpistas "],
+	# 	'contra' : ["um homem no ônibus nos perguntou se o motivo de estarmos de preto era o golpe. n saímos c essa intenção, mas n é que encaixa perfeitamente..",
+	# 				"@o_antagonista golpe é isso, ferir a constituição.",
+	# 				"impitma sem crime é golpe "],
+	# 	'indeciso' : []
+	# }
+
+
+# 1.2. Carregado a partir do CSV
+def load_preclassified_corpora(filename,categories):
+	classified_corpora = collections.defaultdict(list) # um dict como outro qualquer, que atribuiu 
+													   # uma lista vazia automaticamente a novas chaves
+													   # criadas, evitando fazer d['k'] = {} 
+													   # So isso :-)
+
+	with open(filename, newline='') as csvfile:
+		
+		# 1.2.1. Como acessar os campos do CSV
+
+		# 1.2.1.1 Ler CSV como Array e acessar os campos atraves de indices: row[0], row[1]...
+		# reader = csv.reader(csvfile, delimiter=',', quotechar='"')
+
+		# 1.2.1.2. Ler como Dict e acessar os campos atraves de chaves: row['nome'], row['endereco']...
+		reader = csv.DictReader(csvfile, delimiter=',', quotechar='"')
+
+		for row in reader:
+			# 1.2.1.1 
+			# print(row[4],row[5],row[6],row[7])
+
+			# 1.2.1.2.
+			# print(row['TEXTO'],row['PRO'],row['CONTRA'],row['INDEFINIDO'],bag_of_words(row['TEXTO']))
+
+			# 'categories' eh utilizado para se definir qual classificacao 
+			# se deseja fazer. No nosso caso, temos duas possibilidades:
+			# quanto ao 'apoio' do tweet ao impeachment e quanto
+			# ao 'enquadramento' do tweet em uma taxonomia de termos
+			# por nos definida.
+			for category in categories:
+				if row[category] is not None and len(row[category]) and int(row[category]):
+					label = category
+
+				# O for acima eh a mesma coisa que a sequencia de ifs abaixo, 
+				# para o caso da classificacao por 'apoio':
+				#
+				# if int(row['PRO']):
+				# 	label = 'PRO'
+				# elif int(row['CONTRA']):
+				# 	label = 'CONTRA'
+				# elif int(row('INDEFINIDO']):
+				# 	label = 'INDEFINIDO' 
+			
+			
+			classified_corpora[label].append(row['TEXTO'])
+
+
+		print('|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|' % (len(classified_corpora['DEMOCRACIA']),
+														len(classified_corpora['ECONOMIA']),
+														len(classified_corpora['MINORIAS']),
+														len(classified_corpora['CORRUPCAO']),
+														len(classified_corpora['INTERNACIONAL']),
+														len(classified_corpora['IDEOLOGIA']),
+														len(classified_corpora['COTIDIANO']),
+														len(classified_corpora['MIDIA']),
+														len(classified_corpora['HISTORIA']),
+														len(classified_corpora['MOBILIZACAO']),
+														len(classified_corpora['OFENSAS']),
+														len(classified_corpora['OUTROS'])))
+
+
+	return classified_corpora
+
+# 1.3. Lido diretamente a partir do Google Spreadsheet
+# TODO (ver gsheet.py)
+
 ####################
 # 1. Funcao geradora de features
 
@@ -61,7 +158,7 @@ def get_features(corpora):
 # um para treinamento (75%) e outro para testes (25%).
 # Em ambos, quantidades identicas de features de cada
 # uma das categorias.
-def split_features(lfeats, split=0.75):
+def split_features(lfeats, split):
 	train_feats = []
 	test_feats = []
 
@@ -76,66 +173,14 @@ def split_features(lfeats, split=0.75):
 		# os 25% restantes, para teste
 		test_feats.extend([(feat, label) for feat in feats[cutoff:]])
 	
+	print('training_features=',len(train_feats))
+	print('test_features=',len(test_feats))
+
 	return train_feats, test_feats
 
 
 
 
-####################
-# 2. Texto pre-classificado para treinamento e testes
-
-# 2.1. Hard coded no codigo
-# def load_preclassified_corpora():
-	# return {
-	# 	'pro' : ["pirando legal na batatinha: 'o golpe é homofóbico e racista'. - paaaaaaaaaaaaara tudo que eu quero… ",
-	# 			 "golpe é eu não estar te chupando agora!",
-	# 			 "@stf_oficial fracassa perante a sociedade brasileira. #somostodosgolpistas "],
-	# 	'contra' : ["um homem no ônibus nos perguntou se o motivo de estarmos de preto era o golpe. n saímos c essa intenção, mas n é que encaixa perfeitamente..",
-	# 				"@o_antagonista golpe é isso, ferir a constituição.",
-	# 				"impitma sem crime é golpe "],
-	# 	'indeciso' : []
-	# }
-
-
-# 2.2. Carregado a partir do CSV
-def load_preclassified_corpora(filename):
-	classified_corpora = collections.defaultdict(list) # um dict como outro qualquer, que atribuiu 
-													   # uma lista vazia automaticamente a novas chaves
-													   # criadas, evitando fazer d['k'] = {} 
-													   # So isso :-)
-
-	with open(filename, newline='') as csvfile:
-		
-		# 2.2.1. Como acessar os campos do CSV
-
-		# 2.2.1.1 Ler CSV como Array e acessar os campos atraves de indices: row[0], row[1]...
-		# reader = csv.reader(csvfile, delimiter=',', quotechar='"')
-
-		# 2.2.1.2. Ler como Dict e acessar os campos atraves de chaves: row['nome'], row['endereco']...
-		reader = csv.DictReader(csvfile, delimiter=',', quotechar='"')
-
-		for row in reader:
-			# 2.2.1.1 
-			# print(row[4],row[5],row[6],row[7])
-
-			# 2.2.1.2.
-			# print(row['TEXTO'],row['PRO'],row['CONTRA'],row['INDEFINIDO'],bag_of_words(row['TEXTO']))
-
-			if int(row['PRO']):
-				label = 'pro'
-			elif int(row['CONTRA']):
-				label = 'contra'
-			else:
-				label = 'indefinido' 
-			
-			
-			classified_corpora[label].append(row['TEXTO'])
-
-
-	return classified_corpora
-
-# 2.3. Lido diretamente a partir do Google Spreadsheet
-# TODO (ver gsheet.py)
 
 def adhoc_classification_tests(classifier):
 	texto = 'RT @JFMargarida: Juiz de Fora mantém a sua tradição democrática. Praça das estação contra o golpe #GolpeAquiNaoPassa https://t.co/LfIOsDaIVj'
@@ -203,7 +248,9 @@ def classify_text(classifier):
 
 	# Busca apenas textos dos tweets
 	print('Buscando texto dos tweets retweetados...')
-	texts = db.tweets.aggregate([ {'$project': { '_id':0, 'text' : "$retweeted_status.text"} } ])
+	texts = db.tweets.aggregate([ 
+				{'$match': { 'retweeted_status.text' : { '$regex' : 'golp', '$options' : 'i' } } }, 
+				{'$project': { '_id':0, 'text' : "$retweeted_status.text"} } ])
 	print("XX tweets encontrados")
 
 	i = 0
@@ -231,39 +278,29 @@ def classify_text(classifier):
 
 if __name__ == '__main__':
 
-	# Carregar os dados de treinamento e teste
+	# PASSO 1. Carregar os dados pre-classificados
 
-	preclassified_corpora = load_preclassified_corpora('datasets/20161116/AmostraABRIL-AriadneeMarisaREDUZIDA.utf8.csv')	# 	
-	# preclassified_corpora = load_preclassified_corpora('datasets/20161115/textos-preclassificados-abril-e-agosto-20161117.csv')	# 48%
-	# preclassified_corpora = load_preclassified_corpora('datasets/20161115/AmostraAGOSTOREVIS1411.utf8.csv')  # 50%
-	# preclassified_corpora = load_preclassified_corpora('datasets/20161115/AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv') 	# 66%
-	# preclassified_corpora = load_preclassified_corpora('datasets/AmostraAGOSTO - AMOSTRAAGO10003110-2.csv') 	# 49%
+	# filename = 'datasets/20161116/AmostraABRIL-AriadneeMarisaREDUZIDA.utf8.csv' # 60%, Enquadramento: 16.43
+	# filename = 'datasets/20161115/textos-preclassificados-abril-e-agosto-20161117.csv'	# 48%, Enquadramento: 17.69%
+	# filename = 'datasets/20161115/AmostraAGOSTOREVIS1411.utf8.csv' # 50%, Enquadramento: 17.26%
+	# filename = 'datasets/20161115/AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv' # 66%, Enquadramento: 14.69%
+	# filename = 'datasets/AmostraAGOSTO - AMOSTRAAGO10003110-2.csv' # Apoio: 49%, Enquadramento: 14%
 
-	# Cálculo das features dos textos preclassificados
+	classification = CATEGORY_GROUP['apoio']
+	# classification = CATEGORY_GROUP['enquadramento']
+
+	preclassified_corpora = load_preclassified_corpora(filename,classification) 
+
+	# PASSO 2. Cálculo das features dos textos pre-classificados
 	preclassified_features = get_features(preclassified_corpora)
 
-	# Treinamento do algoritmo
+	# PASSO 3. Definição das bases de teste (75%) e treinamento (25%)
 	train_features, test_features = split_features(preclassified_features, split=0.75)
-	print('training_features=',len(train_features))
-	print('test_features=',len(test_features))
 
-
-	# 2. Jeito obvio
-	# features_treinamento = []
-	# for t in texto_classificado:
-	# 	text = t[0]
-	# 	vote = t[1]
-	# 	print('[%s] - [%s]' % (text,vote))
-	# 	features_treinamento.append((impeachment_features(text),vote))
-
-	# 3. Jeito pythoniano
-	# features_treinamento = [ (impeachment_features(sentence),vote) for (sentence,vote) in texto_classificado ]
-
-
-	# Criacao e treinamento do do classificador
+	# PASSO 4. Criacao e treinamento do classificador
 	classifier = nltk.NaiveBayesClassifier.train(train_features)
 
-	# Verificação da acurácia
+	# PASSO 5. Verificação da acurácia a partir da base de teste
 	print('accuracy=',nltk.classify.accuracy(classifier, test_features))
 
 	# Listagem das features mais relevantes
@@ -274,7 +311,7 @@ if __name__ == '__main__':
 	# Testes ad-hoc
 	# adhoc_classification_tests(classifier)
 
-	# Classificacao da base de dados real
+	# PASSO 6. Classificacao da base de dados real
 	# classify_text(classifier)
 
 

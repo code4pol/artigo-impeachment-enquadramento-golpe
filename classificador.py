@@ -41,7 +41,10 @@ CATEGORY_GROUP = {
 
 
 # 1.2. Carregado a partir do CSV
-def load_preclassified_corpora(filename,categories):
+def load_preclassified_corpora(filename,classification):
+
+	categories = CATEGORY_GROUP[classification]
+
 	classified_corpora = collections.defaultdict(list) # um dict como outro qualquer, que atribuiu 
 													   # uma lista vazia automaticamente a novas chaves
 													   # criadas, evitando fazer d['k'] = {} 
@@ -87,18 +90,25 @@ def load_preclassified_corpora(filename,categories):
 			classified_corpora[label].append(row['TEXTO'])
 
 
-		print('|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|' % (len(classified_corpora['DEMOCRACIA']),
-														len(classified_corpora['ECONOMIA']),
-														len(classified_corpora['MINORIAS']),
-														len(classified_corpora['CORRUPCAO']),
-														len(classified_corpora['INTERNACIONAL']),
-														len(classified_corpora['IDEOLOGIA']),
-														len(classified_corpora['COTIDIANO']),
-														len(classified_corpora['MIDIA']),
-														len(classified_corpora['HISTORIA']),
-														len(classified_corpora['MOBILIZACAO']),
-														len(classified_corpora['OFENSAS']),
-														len(classified_corpora['OUTROS'])))
+		if classification == 'apoio':
+			print('%s|%i|%i|%i||' % (filename,
+									len(classified_corpora['PRO']),
+									len(classified_corpora['CONTRA']),
+									len(classified_corpora['INDEFINIDO'])))
+		elif classification == 'enquadramento':
+			print('%s|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|' % (filename,
+															len(classified_corpora['DEMOCRACIA']),
+															len(classified_corpora['ECONOMIA']),
+															len(classified_corpora['MINORIAS']),
+															len(classified_corpora['CORRUPCAO']),
+															len(classified_corpora['INTERNACIONAL']),
+															len(classified_corpora['IDEOLOGIA']),
+															len(classified_corpora['COTIDIANO']),
+															len(classified_corpora['MIDIA']),
+															len(classified_corpora['HISTORIA']),
+															len(classified_corpora['MOBILIZACAO']),
+															len(classified_corpora['OFENSAS']),
+															len(classified_corpora['OUTROS'])))
 
 
 	return classified_corpora
@@ -280,14 +290,14 @@ if __name__ == '__main__':
 
 	# PASSO 1. Carregar os dados pre-classificados
 
-	# filename = 'datasets/20161116/AmostraABRIL-AriadneeMarisaREDUZIDA.utf8.csv' # 60%, Enquadramento: 16.43
+	filename = 'datasets/20161116/AmostraABRIL-AriadneeMarisaREDUZIDA.utf8.csv' # 60%, Enquadramento: 16.43
 	# filename = 'datasets/20161115/textos-preclassificados-abril-e-agosto-20161117.csv'	# 48%, Enquadramento: 17.69%
 	# filename = 'datasets/20161115/AmostraAGOSTOREVIS1411.utf8.csv' # 50%, Enquadramento: 17.26%
 	# filename = 'datasets/20161115/AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv' # 66%, Enquadramento: 14.69%
 	# filename = 'datasets/AmostraAGOSTO - AMOSTRAAGO10003110-2.csv' # Apoio: 49%, Enquadramento: 14%
 
-	classification = CATEGORY_GROUP['apoio']
-	# classification = CATEGORY_GROUP['enquadramento']
+	classification = 'apoio'
+	# classification = 'enquadramento'
 
 	preclassified_corpora = load_preclassified_corpora(filename,classification) 
 

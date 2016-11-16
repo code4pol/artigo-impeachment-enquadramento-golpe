@@ -228,13 +228,15 @@ def classify_text(classifier):
 		id_texto_classificado = db.tweets_classificados.insert_one(texto_classificado)
 		print("  Resultado da classificacao salvo no banco com id",id_texto_classificado)
 
+
 if __name__ == '__main__':
 
 	# Carregar os dados de treinamento e teste
-	
-	# preclassified_corpora = load_preclassified_corpora('datasets/20161117/textos-preclassificados-abril-e-agosto-20161117.csv')	# 48%
-	preclassified_corpora = load_preclassified_corpora('datasets/20161117/AmostraAGOSTOREVIS1411.utf8.csv')  # 50%
-	# preclassified_corpora = load_preclassified_corpora('datasets/20161117/AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv') 	# 66%
+
+	preclassified_corpora = load_preclassified_corpora('datasets/20161116/AmostraABRIL-AriadneeMarisaREDUZIDA.utf8.csv')	# 	
+	# preclassified_corpora = load_preclassified_corpora('datasets/20161115/textos-preclassificados-abril-e-agosto-20161117.csv')	# 48%
+	# preclassified_corpora = load_preclassified_corpora('datasets/20161115/AmostraAGOSTOREVIS1411.utf8.csv')  # 50%
+	# preclassified_corpora = load_preclassified_corpora('datasets/20161115/AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv') 	# 66%
 	# preclassified_corpora = load_preclassified_corpora('datasets/AmostraAGOSTO - AMOSTRAAGO10003110-2.csv') 	# 49%
 
 	# Cálculo das features dos textos preclassificados
@@ -245,8 +247,6 @@ if __name__ == '__main__':
 	print('training_features=',len(train_features))
 	print('test_features=',len(test_features))
 
-
-	# ?????
 
 	# 2. Jeito obvio
 	# features_treinamento = []

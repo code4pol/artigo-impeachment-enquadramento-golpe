@@ -296,6 +296,7 @@ Foram realizadas até o momento 4 ciclos de classificação. Cada um com diferen
 |AmostraABRIL-AriadneeMarisaREVIS2.xls|166|667|137|65.98%|
 |AmostraAGOSTOREVIS1411.xls|137|656|188|49.59%|
 |AmostraABRIL-AriadneeMarisaREVIS2.xls+AmostraAGOSTOREVIS1411.xls|303|1323|325|48.26%|
+|AmostraABRIL-AriadneeMarisaREDUZIDA|167|267|137|60.41%|
 
 Vamos utilizar apenas o arquivo `AmostraABRIL-AriadneeMarisaREVIS2.xls` para fazer a classificação.
 

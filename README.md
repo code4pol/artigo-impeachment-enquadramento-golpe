@@ -307,4 +307,4 @@ Ainda tem muito o que ser feito, como
 
 * Agregar os dados também do período de agosto
 * Ajustar a geração de features pra classificação
-* 
+* Balancear as quantidades de cada categoria na base de treinamento.

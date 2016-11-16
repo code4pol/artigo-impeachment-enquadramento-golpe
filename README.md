@@ -292,7 +292,7 @@ Foram realizadas até o momento 4 ciclos de classificação. Cada um com diferen
 
 |Base de Treinamento|#Pros|#Contras|#Indiferente|Acurácia|
 |:--|--:|--:|--:|:--:|
-|Planilha do Google v20161111|655|133|195|49.39%|
+|Planilha do Google v20161111|133|655|195|49.39%|
 |AmostraABRIL-AriadneeMarisaREVIS2.xls|166|667|137|65.98%|
 |AmostraAGOSTOREVIS1411.xls|137|656|188|49.59%|
 |AmostraABRIL-AriadneeMarisaREVIS2.xls+AmostraAGOSTOREVIS1411.xls|303|1323|325|48.26%|
@@ -302,3 +302,9 @@ Vamos utilizar apenas o arquivo `AmostraABRIL-AriadneeMarisaREVIS2.xls` para faz
 |# Textos|Tempo|# Pró|# Contra|# Indefinido|
 |--:|:--:|--:|--:|--:|
 |359.098|17:16.73|49.778|254.180|55.140|
+
+Ainda tem muito o que ser feito, como
+
+* Agregar os dados também do período de agosto
+* Ajustar a geração de features pra classificação
+* 

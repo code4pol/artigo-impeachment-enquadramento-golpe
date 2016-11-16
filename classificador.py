@@ -5,7 +5,7 @@ import nltk
 import sys
 import collections
 
-from mongodb import MongoClient
+from pymongo import MongoClient
 
 # from nltk.classify import apply_features
 
@@ -188,23 +188,31 @@ def adhoc_classification_tests(classifier):
 	# 			print('%d,%s,%s' % (i,texto_retweetado, classifier.classify(impeachment_features(texto_retweetado))))
 
 def classify_text(classifier):
+	print('Iniciando classificao dos textos do banco')
+
 	# acessar o mongo
+	print('Conectando ao Mongo...')
 	client = MongoClient()
 	db = client.impeachment
 
 	# Remove documentos da classificacao anterior
+	print('Removendo documentos da classificacao anterior...')
 	db.tweets_classificados.delete_many({})
 
 	# Busca apenas textos dos tweets
+	print('Buscando texto dos tweets retweetados...')
 	texts = db.tweets.aggregate([ {'$project': { '_id':0, 'text' : "$retweeted_status.text"} } ])
+	print("XX tweets encontrados")
 
 	i = 0
 	# Classifica cada um dos textos e salva o resultado de volta no banco
-	for text in texts:
+	for doc in texts:
+		text = doc['text']
+
 		i += 1
-		print('Classificando tweet',i)
-		
-		probs = classifier.prob_classify(bag_of_words(texto))
+		print('Classificando tweet %i (%s)' % (i,text))
+
+		probs = classifier.prob_classify(bag_of_words(text))
 		texto_classificado = {
 			'texto': text,
 			'classeMaisProvavel': probs.max(),
@@ -215,7 +223,8 @@ def classify_text(classifier):
 			}
 		}
 		
-		db.tweets_classificados.insert_one(texto_classificado)
+		id_texto_classificado = db.tweets_classificados.insert_one(texto_classificado)
+		print("  Resultado da classificacao salvo no banco com id",id_texto_classificado)
 
 if __name__ == '__main__':
 

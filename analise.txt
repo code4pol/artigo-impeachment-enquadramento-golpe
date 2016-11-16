@@ -3,11 +3,12 @@ $ mv amostraRTdemocgolpeabrFINAL.txt RT_democracia_golpe_Abr2016.txt
 $ file RT_democracia_golpe_Abr2016.txt
 RT_democracia_golpe_Abr2016.txt: ASCII text, with very long lines, with CRLF line terminators
 
-$ mv RTagosetdemocgolpe.txt RT_democracia_golpe_Ago2016.txt                                                      [ruby-head]
-alegomes@Alexandres-MBP ~/code/unb/enquadramentos $ file RT_democracia_golpe_Ago2016.txt                                                                           [ruby-head]
+$ mv RTagosetdemocgolpe.txt RT_democracia_golpe_Ago2016.txt
+
+$ file RT_democracia_golpe_Ago2016.txt
 RT_democracia_golpe_Ago2016.txt: ASCII text, with very long lines, with CRLF line terminators
 
-$ grep '\n' RT_democracia_golpe_Abr2016.txt | wc -l                                                              [ruby-head]
+$ grep '\n' RT_democracia_golpe_Abr2016.txt | wc -l
 0
 
 
@@ -1506,6 +1507,8 @@ db.tweets.aggregate([
 { "_id" : { "hashtag" : [ "BrasilContraOGolpe" ] }, "total" : 491 }
 { "_id" : { "hashtag" : [ "ALutaContinua" ] }, "total" : 470 }
 { "_id" : { "hashtag" : [ "ondeOsFracosNaoTêmVez" ] }, "total" : 464 }
+
+\{ "_id" : \{ "hashtag" : \[ "(.*?)" \] \}, "total" : (\d+) \}
 
 
 

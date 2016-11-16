@@ -5,8 +5,6 @@ import nltk
 import sys
 import collections
 
-# CATEGORIES = [ 'pro', 'contra', 'indiferente' ]
-
 # from nltk.classify import apply_features
 
 ####################
@@ -61,6 +59,19 @@ def bag_of_words(sentence):
 #                     sim' = True           indefi : contra =     14.6 : 1.0
 #                    dizer = True              pro : contra =     12.0 : 1.0
 
+# 16/11 08:36 - Com a nova classificacao de Agosto enviada pela Tayrine
+# Bagofwords ainda com stopwords
+# training_features= 735
+# test_features= 246
+# accuracy= 0.4959349593495935
+# most_informative_features= [('pt', True), ('#somostodosgolpistas', True), ('fez', True), ('lewandowski', True), ('manobra', True), ('dois', True), ('dando', True), ('ftima', True), ('dizer', True), ('william', True), ('collor', True), ('salvar', True), ('esses', True), ('12', True), ('dinheiro', True), ('te', True), ('pf', True), ('@o_antagonista', True), ('perde', True), ('deram', True), ('mulher', True), ('isto', True), ('venezuela', True), ('verdadeiro', True), ('homofbico', True), ('democracia', True), ('processo', True), ('porque', True), ('separao', True), ('renan', True), ('mesmo', True), ('constituio', True), ('pessoal', True), ('vendo', True), ('serviu', True), ('estava', True), ('inabilitao', True), ('certo', True), ('piada', True), ('poderia', True), ('passo', True), ('cedo', True), ('fatima', True), ('ri', True), ('deu', True), ('@ronaldocaiado', True), ('janaina', True), ('lolla', True), ('bonner', True), ('olha', True), ('deste', True), ('rs', True), ('palavras', True), ('defesa', True), ('votou', True), ('dias', True), ('continuar', True), ('anos', True), ('eua', True), ('voces', True), ('racista', True), ('juntos', True), ("'o", True), ('serem', True), ('di', True), ('urgente', True), ('paz', True), ('64', True), ("querida'", True), ('coisas', True), ('federal', True), ('amigos', True), ('lula', True), ('fui', True), ('limpa', True), ('ms', True), ('chegando', True), ('verso', True), ('populares', True), ('meios', True), ('dele', True), ('reclamando', True), ('confiar', True), ('faa', True), ('editorial', True), ('porm', True), ('august', True), ('internet', True), ('duro', True), ('x', True), ('elegvel', True), ('14', True), ('deciso', True), ('temos', True), ('fcil', True), ('comunista', True), ('@jannettepaz58', True), ('joaquim', True), ('prouni', True), ('rolar', True)]
+# -------
+# Most Informative Features
+#                       pt = True              pro : contra =     16.3 : 1.0
+#     #somostodosgolpistas = True              pro : contra =     16.3 : 1.0
+#                      fez = True           indefi : contra =     12.7 : 1.0
+#              lewandowski = True              pro : contra =     12.4 : 1.0
+#                  manobra = True              pro : contra =     11.2 : 1.0
 
 # 1. Exemplo
 # [({:},),({:},)]
@@ -225,10 +236,12 @@ def adhoc_classification_tests(classifier):
 if __name__ == '__main__':
 
 	# Carregar os dados de treinamento e teste
-	preclassified_corpora = load_preclassified_corpora('AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv')
-	# iconv -c -t UTF8 AmostraABRIL-AriadneeMarisaREVIS2.csv > AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv
-		# 'AmostraAGOSTO - AMOSTRAAGO10003110-2.csv'
+	preclassified_corpora = load_preclassified_corpora('AmostraAGOSTOREVIS1411.utf8.csv')
+	# preclassified_corpora = load_preclassified_corpora('AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv') # 66%
+	# preclassified_corpora = load_preclassified_corpora(''AmostraAGOSTO - AMOSTRAAGO10003110-2.csv'') # 49%
 
+	# iconv -c -t UTF8 AmostraABRIL-AriadneeMarisaREVIS2.csv > AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv
+	# iconv -c -t UTF8 AmostraAGOSTOREVIS1411.csv > AmostraAGOSTOREVIS1411.utf8.csv
 
 	# Cálculo das features dos textos preclassificados
 	preclassified_features = get_features(preclassified_corpora)

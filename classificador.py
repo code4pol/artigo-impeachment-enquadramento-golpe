@@ -47,6 +47,8 @@ def get_features(corpora):
 	# Pra cada categoria .e pos, contra e indefinido
 	for category in corpora.keys(): 
 
+		print(' %s: %d' % (category,len(corpora[category])))
+
 		# Pra cada texto da atual categoria
 		for corpus in corpora[category]:
 			features[category].append(bag_of_words(corpus))
@@ -230,10 +232,10 @@ if __name__ == '__main__':
 
 	# Carregar os dados de treinamento e teste
 	
-	# preclassified_corpora = load_preclassified_corpora('textos-preclassificados-abril-e-agosto-20161117.csv')	# 48%
-	# preclassified_corpora = load_preclassified_corpora('AmostraAGOSTOREVIS1411.utf8.csv')  # 50%
+	# preclassified_corpora = load_preclassified_corpora('datasets/20161117/textos-preclassificados-abril-e-agosto-20161117.csv')	# 48%
+	# preclassified_corpora = load_preclassified_corpora('datasets/20161117/AmostraAGOSTOREVIS1411.utf8.csv')  # 50%
 	preclassified_corpora = load_preclassified_corpora('datasets/20161117/AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv') 	# 66%
-	# preclassified_corpora = load_preclassified_corpora(''AmostraAGOSTO - AMOSTRAAGO10003110-2.csv'') 	# 49%
+	# preclassified_corpora = load_preclassified_corpora('datasets/AmostraAGOSTO - AMOSTRAAGO10003110-2.csv') 	# 49%
 
 	# iconv -c -t UTF8 AmostraABRIL-AriadneeMarisaREVIS2.csv > AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv
 	# iconv -c -t UTF8 AmostraAGOSTOREVIS1411.csv > AmostraAGOSTOREVIS1411.utf8.csv
@@ -276,6 +278,6 @@ if __name__ == '__main__':
 	# adhoc_classification_tests(classifier)
 
 	# Classificacao da base de dados real
-	classify_text(classifier)
+	# classify_text(classifier)
 
 

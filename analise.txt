@@ -1,0 +1,1578 @@
+$ mv amostraRTdemocgolpeabrFINAL.txt RT_democracia_golpe_Abr2016.txt
+
+$ file RT_democracia_golpe_Abr2016.txt
+RT_democracia_golpe_Abr2016.txt: ASCII text, with very long lines, with CRLF line terminators
+
+$ mv RTagosetdemocgolpe.txt RT_democracia_golpe_Ago2016.txt                                                      [ruby-head]
+alegomes@Alexandres-MBP ~/code/unb/enquadramentos $ file RT_democracia_golpe_Ago2016.txt                                                                           [ruby-head]
+RT_democracia_golpe_Ago2016.txt: ASCII text, with very long lines, with CRLF line terminators
+
+$ grep '\n' RT_democracia_golpe_Abr2016.txt | wc -l                                                              [ruby-head]
+0
+
+
+$ mongoimport --db impeachment --collection tweets --drop --file RT_democracia_golpe_Abr2016.txt
+2016-11-12T19:26:23.829-0200	connected to: localhost
+2016-11-12T19:26:23.831-0200	dropping: impeachment.tweets
+2016-11-12T19:26:26.807-0200	[........................] impeachment.tweets	34.6 MB/2.1 GB (1.6%)
+2016-11-12T19:26:29.807-0200	[........................] impeachment.tweets	69.2 MB/2.1 GB (3.3%)
+2016-11-12T19:26:32.807-0200	[#.......................] impeachment.tweets	105.1 MB/2.1 GB (5.0%)
+2016-11-12T19:26:35.806-0200	[#.......................] impeachment.tweets	138.2 MB/2.1 GB (6.5%)
+2016-11-12T19:26:38.807-0200	[#.......................] impeachment.tweets	172.8 MB/2.1 GB (8.2%)
+2016-11-12T19:26:41.805-0200	[##......................] impeachment.tweets	197.4 MB/2.1 GB (9.3%)
+2016-11-12T19:26:44.806-0200	[##......................] impeachment.tweets	207.3 MB/2.1 GB (9.8%)
+2016-11-12T19:26:47.809-0200	[##......................] impeachment.tweets	225.2 MB/2.1 GB (10.7%)
+2016-11-12T19:26:50.808-0200	[##......................] impeachment.tweets	241.9 MB/2.1 GB (11.5%)
+2016-11-12T19:26:53.834-0200	[##......................] impeachment.tweets	253.3 MB/2.1 GB (12.0%)
+2016-11-12T19:26:56.809-0200	[###.....................] impeachment.tweets	276.5 MB/2.1 GB (13.1%)
+2016-11-12T19:26:59.809-0200	[###.....................] impeachment.tweets	295.6 MB/2.1 GB (14.0%)
+2016-11-12T19:27:02.824-0200	[###.....................] impeachment.tweets	319.4 MB/2.1 GB (15.1%)
+2016-11-12T19:27:05.820-0200	[###.....................] impeachment.tweets	344.4 MB/2.1 GB (16.3%)
+2016-11-12T19:27:08.818-0200	[####....................] impeachment.tweets	358.7 MB/2.1 GB (17.0%)
+2016-11-12T19:27:11.812-0200	[####....................] impeachment.tweets	380.2 MB/2.1 GB (18.0%)
+2016-11-12T19:27:14.813-0200	[####....................] impeachment.tweets	398.3 MB/2.1 GB (18.9%)
+2016-11-12T19:27:17.942-0200	[####....................] impeachment.tweets	414.7 MB/2.1 GB (19.6%)
+2016-11-12T19:27:20.806-0200	[####....................] impeachment.tweets	430.4 MB/2.1 GB (20.4%)
+2016-11-12T19:27:23.805-0200	[#####...................] impeachment.tweets	449.3 MB/2.1 GB (21.3%)
+2016-11-12T19:27:26.807-0200	[#####...................] impeachment.tweets	483.8 MB/2.1 GB (22.9%)
+2016-11-12T19:27:29.809-0200	[#####...................] impeachment.tweets	513.0 MB/2.1 GB (24.3%)
+2016-11-12T19:27:32.803-0200	[######..................] impeachment.tweets	540.2 MB/2.1 GB (25.6%)
+2016-11-12T19:27:35.817-0200	[######..................] impeachment.tweets	560.1 MB/2.1 GB (26.5%)
+2016-11-12T19:27:38.823-0200	[######..................] impeachment.tweets	585.1 MB/2.1 GB (27.7%)
+2016-11-12T19:27:41.855-0200	[######..................] impeachment.tweets	589.6 MB/2.1 GB (27.9%)
+2016-11-12T19:27:44.812-0200	[######..................] impeachment.tweets	611.7 MB/2.1 GB (29.0%)
+2016-11-12T19:27:47.817-0200	[#######.................] impeachment.tweets	625.7 MB/2.1 GB (29.6%)
+2016-11-12T19:27:50.831-0200	[#######.................] impeachment.tweets	644.5 MB/2.1 GB (30.5%)
+2016-11-12T19:27:53.824-0200	[#######.................] impeachment.tweets	654.9 MB/2.1 GB (31.0%)
+2016-11-12T19:27:56.807-0200	[#######.................] impeachment.tweets	665.8 MB/2.1 GB (31.5%)
+2016-11-12T19:27:59.834-0200	[#######.................] impeachment.tweets	690.7 MB/2.1 GB (32.7%)
+2016-11-12T19:28:02.806-0200	[#######.................] impeachment.tweets	701.4 MB/2.1 GB (33.2%)
+2016-11-12T19:28:05.899-0200	[########................] impeachment.tweets	721.3 MB/2.1 GB (34.2%)
+2016-11-12T19:28:08.827-0200	[########................] impeachment.tweets	737.5 MB/2.1 GB (34.9%)
+2016-11-12T19:28:11.819-0200	[########................] impeachment.tweets	746.9 MB/2.1 GB (35.4%)
+2016-11-12T19:28:14.813-0200	[########................] impeachment.tweets	753.1 MB/2.1 GB (35.7%)
+2016-11-12T19:28:17.813-0200	[########................] impeachment.tweets	759.9 MB/2.1 GB (36.0%)
+2016-11-12T19:28:20.873-0200	[########................] impeachment.tweets	759.9 MB/2.1 GB (36.0%)
+2016-11-12T19:28:23.836-0200	[########................] impeachment.tweets	767.1 MB/2.1 GB (36.3%)
+2016-11-12T19:28:26.812-0200	[########................] impeachment.tweets	778.7 MB/2.1 GB (36.9%)
+2016-11-12T19:28:29.808-0200	[########................] impeachment.tweets	789.9 MB/2.1 GB (37.4%)
+2016-11-12T19:28:32.813-0200	[#########...............] impeachment.tweets	794.4 MB/2.1 GB (37.6%)
+2016-11-12T19:28:35.807-0200	[#########...............] impeachment.tweets	804.8 MB/2.1 GB (38.1%)
+2016-11-12T19:28:38.808-0200	[#########...............] impeachment.tweets	814.8 MB/2.1 GB (38.6%)
+2016-11-12T19:28:41.873-0200	[#########...............] impeachment.tweets	824.7 MB/2.1 GB (39.0%)
+2016-11-12T19:28:44.808-0200	[#########...............] impeachment.tweets	828.9 MB/2.1 GB (39.2%)
+2016-11-12T19:28:47.817-0200	[#########...............] impeachment.tweets	842.4 MB/2.1 GB (39.9%)
+2016-11-12T19:28:50.940-0200	[#########...............] impeachment.tweets	858.1 MB/2.1 GB (40.6%)
+2016-11-12T19:28:53.847-0200	[#########...............] impeachment.tweets	865.9 MB/2.1 GB (41.0%)
+2016-11-12T19:28:56.805-0200	[##########..............] impeachment.tweets	882.7 MB/2.1 GB (41.8%)
+2016-11-12T19:28:59.807-0200	[##########..............] impeachment.tweets	897.8 MB/2.1 GB (42.5%)
+2016-11-12T19:29:02.840-0200	[##########..............] impeachment.tweets	902.1 MB/2.1 GB (42.7%)
+2016-11-12T19:29:05.813-0200	[##########..............] impeachment.tweets	917.3 MB/2.1 GB (43.4%)
+2016-11-12T19:29:08.826-0200	[##########..............] impeachment.tweets	932.6 MB/2.1 GB (44.2%)
+2016-11-12T19:29:11.812-0200	[##########..............] impeachment.tweets	940.1 MB/2.1 GB (44.5%)
+2016-11-12T19:29:14.832-0200	[##########..............] impeachment.tweets	957.6 MB/2.1 GB (45.3%)
+2016-11-12T19:29:17.807-0200	[###########.............] impeachment.tweets	969.5 MB/2.1 GB (45.9%)
+2016-11-12T19:29:20.807-0200	[###########.............] impeachment.tweets	985.1 MB/2.1 GB (46.6%)
+2016-11-12T19:29:23.815-0200	[###########.............] impeachment.tweets	1001.7 MB/2.1 GB (47.4%)
+2016-11-12T19:29:26.825-0200	[###########.............] impeachment.tweets	1012.6 MB/2.1 GB (47.9%)
+2016-11-12T19:29:29.818-0200	[###########.............] impeachment.tweets	1.0 GB/2.1 GB (48.7%)
+2016-11-12T19:29:32.805-0200	[###########.............] impeachment.tweets	1.0 GB/2.1 GB (49.1%)
+2016-11-12T19:29:35.844-0200	[###########.............] impeachment.tweets	1.0 GB/2.1 GB (49.6%)
+2016-11-12T19:29:38.812-0200	[############............] impeachment.tweets	1.0 GB/2.1 GB (50.3%)
+2016-11-12T19:29:41.803-0200	[############............] impeachment.tweets	1.0 GB/2.1 GB (50.7%)
+2016-11-12T19:29:44.851-0200	[############............] impeachment.tweets	1.1 GB/2.1 GB (51.3%)
+2016-11-12T19:29:47.841-0200	[############............] impeachment.tweets	1.1 GB/2.1 GB (51.8%)
+2016-11-12T19:29:50.885-0200	[############............] impeachment.tweets	1.1 GB/2.1 GB (52.3%)
+2016-11-12T19:29:53.817-0200	[############............] impeachment.tweets	1.1 GB/2.1 GB (53.2%)
+2016-11-12T19:29:56.807-0200	[############............] impeachment.tweets	1.1 GB/2.1 GB (54.0%)
+2016-11-12T19:29:59.815-0200	[#############...........] impeachment.tweets	1.1 GB/2.1 GB (54.6%)
+2016-11-12T19:30:02.806-0200	[#############...........] impeachment.tweets	1.1 GB/2.1 GB (55.6%)
+2016-11-12T19:30:05.841-0200	[#############...........] impeachment.tweets	1.2 GB/2.1 GB (56.4%)
+2016-11-12T19:30:08.806-0200	[#############...........] impeachment.tweets	1.2 GB/2.1 GB (57.3%)
+2016-11-12T19:30:11.814-0200	[#############...........] impeachment.tweets	1.2 GB/2.1 GB (57.7%)
+2016-11-12T19:30:14.817-0200	[##############..........] impeachment.tweets	1.2 GB/2.1 GB (58.7%)
+2016-11-12T19:30:17.819-0200	[##############..........] impeachment.tweets	1.2 GB/2.1 GB (59.1%)
+2016-11-12T19:30:20.825-0200	[##############..........] impeachment.tweets	1.2 GB/2.1 GB (60.0%)
+2016-11-12T19:30:23.818-0200	[##############..........] impeachment.tweets	1.3 GB/2.1 GB (60.8%)
+2016-11-12T19:30:26.883-0200	[##############..........] impeachment.tweets	1.3 GB/2.1 GB (61.8%)
+2016-11-12T19:30:29.805-0200	[##############..........] impeachment.tweets	1.3 GB/2.1 GB (62.3%)
+2016-11-12T19:30:32.812-0200	[###############.........] impeachment.tweets	1.3 GB/2.1 GB (63.4%)
+2016-11-12T19:30:35.805-0200	[###############.........] impeachment.tweets	1.3 GB/2.1 GB (64.3%)
+2016-11-12T19:30:38.805-0200	[###############.........] impeachment.tweets	1.3 GB/2.1 GB (65.4%)
+2016-11-12T19:30:41.807-0200	[###############.........] impeachment.tweets	1.4 GB/2.1 GB (66.3%)
+2016-11-12T19:30:44.809-0200	[################........] impeachment.tweets	1.4 GB/2.1 GB (67.1%)
+2016-11-12T19:30:47.805-0200	[################........] impeachment.tweets	1.4 GB/2.1 GB (68.1%)
+2016-11-12T19:30:50.814-0200	[################........] impeachment.tweets	1.4 GB/2.1 GB (68.8%)
+2016-11-12T19:30:53.811-0200	[################........] impeachment.tweets	1.4 GB/2.1 GB (69.4%)
+2016-11-12T19:30:56.805-0200	[################........] impeachment.tweets	1.5 GB/2.1 GB (70.4%)
+2016-11-12T19:30:59.822-0200	[#################.......] impeachment.tweets	1.5 GB/2.1 GB (71.5%)
+2016-11-12T19:31:02.825-0200	[#################.......] impeachment.tweets	1.5 GB/2.1 GB (72.4%)
+2016-11-12T19:31:05.807-0200	[#################.......] impeachment.tweets	1.5 GB/2.1 GB (73.7%)
+2016-11-12T19:31:08.819-0200	[#################.......] impeachment.tweets	1.5 GB/2.1 GB (74.9%)
+2016-11-12T19:31:11.810-0200	[##################......] impeachment.tweets	1.6 GB/2.1 GB (75.8%)
+2016-11-12T19:31:14.808-0200	[##################......] impeachment.tweets	1.6 GB/2.1 GB (77.3%)
+2016-11-12T19:31:17.813-0200	[##################......] impeachment.tweets	1.6 GB/2.1 GB (78.6%)
+2016-11-12T19:31:20.809-0200	[##################......] impeachment.tweets	1.6 GB/2.1 GB (79.0%)
+2016-11-12T19:31:23.844-0200	[###################.....] impeachment.tweets	1.7 GB/2.1 GB (80.2%)
+2016-11-12T19:31:26.809-0200	[###################.....] impeachment.tweets	1.7 GB/2.1 GB (81.3%)
+2016-11-12T19:31:29.844-0200	[###################.....] impeachment.tweets	1.7 GB/2.1 GB (81.9%)
+2016-11-12T19:31:32.803-0200	[####################....] impeachment.tweets	1.7 GB/2.1 GB (83.5%)
+2016-11-12T19:31:35.805-0200	[####################....] impeachment.tweets	1.8 GB/2.1 GB (85.0%)
+2016-11-12T19:31:38.812-0200	[####################....] impeachment.tweets	1.8 GB/2.1 GB (86.1%)
+2016-11-12T19:31:41.809-0200	[####################....] impeachment.tweets	1.8 GB/2.1 GB (87.3%)
+2016-11-12T19:31:44.811-0200	[#####################...] impeachment.tweets	1.8 GB/2.1 GB (88.6%)
+2016-11-12T19:31:47.811-0200	[#####################...] impeachment.tweets	1.9 GB/2.1 GB (90.1%)
+2016-11-12T19:31:50.805-0200	[#####################...] impeachment.tweets	1.9 GB/2.1 GB (91.2%)
+2016-11-12T19:31:53.832-0200	[######################..] impeachment.tweets	1.9 GB/2.1 GB (92.7%)
+2016-11-12T19:31:56.808-0200	[######################..] impeachment.tweets	1.9 GB/2.1 GB (93.5%)
+2016-11-12T19:31:59.816-0200	[######################..] impeachment.tweets	2.0 GB/2.1 GB (94.6%)
+2016-11-12T19:32:02.813-0200	[######################..] impeachment.tweets	2.0 GB/2.1 GB (95.1%)
+2016-11-12T19:32:05.810-0200	[#######################.] impeachment.tweets	2.0 GB/2.1 GB (96.6%)
+2016-11-12T19:32:08.857-0200	[#######################.] impeachment.tweets	2.0 GB/2.1 GB (98.2%)
+2016-11-12T19:32:11.808-0200	[#######################.] impeachment.tweets	2.1 GB/2.1 GB (99.7%)
+2016-11-12T19:32:13.191-0200	[########################] impeachment.tweets	2.1 GB/2.1 GB (100.0%)
+
+> db.tweets.count()
+359098
+
+
+{ "_id" : ObjectId("582789022a536f52c8730423"), "created_at" : "Sat Apr 16 00:02:51 +0000 2016", "id" : NumberLong("721126672792162304"), "id_str" : "721126672792162304", "text" : "RT @eita_br: Bahia contra o golpe! https://t.co/hThKHaJ2es", "source" : "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>", "truncated" : false, "in_reply_to_status_id" : null, "in_reply_to_status_id_str" : null, "in_reply_to_user_id" : null, "in_reply_to_user_id_str" : null, "in_reply_to_screen_name" : null, "user" : { "id" : 596819860, "id_str" : "596819860", "name" : "Dimi", "screen_name" : "Dimifer", "location" : "Rio de Janeiro, Brasil", "url" : null, "description" : null, "protected" : false, "verified" : false, "followers_count" : 536, "friends_count" : 457, "listed_count" : 6, "favourites_count" : 39, "statuses_count" : 20300, "created_at" : "Fri Jun 01 21:27:14 +0000 2012", "utc_offset" : null, "time_zone" : null, "geo_enabled" : true, "lang" : "pt", "contributors_enabled" : false, "is_translator" : false, "profile_background_color" : "C0DEED", "profile_background_image_url" : "http://abs.twimg.com/images/themes/theme1/bg.png", "profile_background_image_url_https" : "https://abs.twimg.com/images/themes/theme1/bg.png", "profile_background_tile" : false, "profile_link_color" : "0084B4", "profile_sidebar_border_color" : "C0DEED", "profile_sidebar_fill_color" : "DDEEF6", "profile_text_color" : "333333", "profile_use_background_image" : true, "profile_image_url" : "http://pbs.twimg.com/profile_images/622470805616754689/7YLEhr7l_normal.jpg", "profile_image_url_https" : "https://pbs.twimg.com/profile_images/622470805616754689/7YLEhr7l_normal.jpg", "profile_banner_url" : "https://pbs.twimg.com/profile_banners/596819860/1402832538", "default_profile" : true, "default_profile_image" : false, "following" : null, "follow_request_sent" : null, "notifications" : null }, "geo" : null, "coordinates" : null, "place" : null, "contributors" : null, "retweeted_status" : { "created_at" : "Fri Apr 15 23:57:25 +0000 2016", "id" : NumberLong("721125305226813441"), "id_str" : "721125305226813441", "text" : "Bahia contra o golpe! https://t.co/hThKHaJ2es", "source" : "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>", "truncated" : false, "in_reply_to_status_id" : null, "in_reply_to_status_id_str" : null, "in_reply_to_user_id" : null, "in_reply_to_user_id_str" : null, "in_reply_to_screen_name" : null, "user" : { "id" : 14172434, "id_str" : "14172434", "name" : "Eita!", "screen_name" : "eita_br", "location" : "Brasil", "url" : null, "description" : "http://memorialdogolpe.tumblr.com", "protected" : false, "verified" : false, "followers_count" : 18631, "friends_count" : 8916, "listed_count" : 132, "favourites_count" : 11310, "statuses_count" : 51101, "created_at" : "Tue Mar 18 20:48:02 +0000 2008", "utc_offset" : -10800, "time_zone" : "Brasilia", "geo_enabled" : true, "lang" : "pt", "contributors_enabled" : false, "is_translator" : false, "profile_background_color" : "000000", "profile_background_image_url" : "http://abs.twimg.com/images/themes/theme1/bg.png", "profile_background_image_url_https" : "https://abs.twimg.com/images/themes/theme1/bg.png", "profile_background_tile" : false, "profile_link_color" : "1B95E0", "profile_sidebar_border_color" : "000000", "profile_sidebar_fill_color" : "000000", "profile_text_color" : "000000", "profile_use_background_image" : false, "profile_image_url" : "http://pbs.twimg.com/profile_images/714981230626865152/v_BVxvyc_normal.jpg", "profile_image_url_https" : "https://pbs.twimg.com/profile_images/714981230626865152/v_BVxvyc_normal.jpg", "profile_banner_url" : "https://pbs.twimg.com/profile_banners/14172434/1459228154", "default_profile" : false, "default_profile_image" : false, "following" : null, "follow_request_sent" : null, "notifications" : null }, "geo" : null, "coordinates" : null, "place" : null, "contributors" : null, "quoted_status_id" : NumberLong("721080096598159360"), "quoted_status_id_str" : "721080096598159360", "quoted_status" : { "created_at" : "Fri Apr 15 20:57:46 +0000 2016", "id" : NumberLong("721080096598159360"), "id_str" : "721080096598159360", "text" : "AGORA em SALVADOR\n\nCaminhada do Campo Grande até a Pça Castro Alves\n\ncontra o golpe e p/Democracia\n\n#naovaitergolpe https://t.co/4rujTowPG0", "source" : "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>", "truncated" : false, "in_reply_to_status_id" : null, "in_reply_to_status_id_str" : null, "in_reply_to_user_id" : null, "in_reply_to_user_id_str" : null, "in_reply_to_screen_name" : null, "user" : { "id" : NumberLong("3090382647"), "id_str" : "3090382647", "name" : "jornalistaslivres", "screen_name" : "j_livres", "location" : "Brasil", "url" : "http://jornalistaslivres.org/", "description" : "Somos uma rede de coletivos originada na diversidade. Os valores que nos unem são a paixão pela democracia e a defesa radical dos direitos humanos.", "protected" : false, "verified" : false, "followers_count" : 32754, "friends_count" : 420, "listed_count" : 270, "favourites_count" : 1394, "statuses_count" : 6994, "created_at" : "Fri Mar 13 02:05:24 +0000 2015", "utc_offset" : -10800, "time_zone" : "Brasilia", "geo_enabled" : true, "lang" : "pt", "contributors_enabled" : false, "is_translator" : false, "profile_background_color" : "000000", "profile_background_image_url" : "http://abs.twimg.com/images/themes/theme1/bg.png", "profile_background_image_url_https" : "https://abs.twimg.com/images/themes/theme1/bg.png", "profile_background_tile" : false, "profile_link_color" : "4A913C", "profile_sidebar_border_color" : "000000", "profile_sidebar_fill_color" : "000000", "profile_text_color" : "000000", "profile_use_background_image" : false, "profile_image_url" : "http://pbs.twimg.com/profile_images/679044821185638401/z4oIn3rC_normal.png", "profile_image_url_https" : "https://pbs.twimg.com/profile_images/679044821185638401/z4oIn3rC_normal.png", "profile_banner_url" : "https://pbs.twimg.com/profile_banners/3090382647/1460295724", "default_profile" : false, "default_profile_image" : false, "following" : null, "follow_request_sent" : null, "notifications" : null }, "geo" : null, "coordinates" : null, "place" : null, "contributors" : null, "is_quote_status" : false, "retweet_count" : 0, "favorite_count" : 0, "entities" : { "hashtags" : [ { "text" : "naovaitergolpe", "indices" : [ 100, 115 ] } ], "urls" : [ ], "user_mentions" : [ ], "symbols" : [ ], "media" : [ { "id" : NumberLong("721080094819753984"), "id_str" : "721080094819753984", "indices" : [ 116, 139 ], "media_url" : "http://pbs.twimg.com/media/CgHKhppWIAAM2VO.jpg", "media_url_https" : "https://pbs.twimg.com/media/CgHKhppWIAAM2VO.jpg", "url" : "https://t.co/4rujTowPG0", "display_url" : "pic.twitter.com/4rujTowPG0", "expanded_url" : "http://twitter.com/j_livres/status/721080096598159360/photo/1", "type" : "photo", "sizes" : { "thumb" : { "w" : 150, "h" : 150, "resize" : "crop" }, "large" : { "w" : 720, "h" : 960, "resize" : "fit" }, "medium" : { "w" : 600, "h" : 800, "resize" : "fit" }, "small" : { "w" : 340, "h" : 453, "resize" : "fit" } } } ] }, "extended_entities" : { "media" : [ { "id" : NumberLong("721080094819753984"), "id_str" : "721080094819753984", "indices" : [ 116, 139 ], "media_url" : "http://pbs.twimg.com/media/CgHKhppWIAAM2VO.jpg", "media_url_https" : "https://pbs.twimg.com/media/CgHKhppWIAAM2VO.jpg", "url" : "https://t.co/4rujTowPG0", "display_url" : "pic.twitter.com/4rujTowPG0", "expanded_url" : "http://twitter.com/j_livres/status/721080096598159360/photo/1", "type" : "photo", "sizes" : { "thumb" : { "w" : 150, "h" : 150, "resize" : "crop" }, "large" : { "w" : 720, "h" : 960, "resize" : "fit" }, "medium" : { "w" : 600, "h" : 800, "resize" : "fit" }, "small" : { "w" : 340, "h" : 453, "resize" : "fit" } } } ] }, "favorited" : false, "retweeted" : false, "possibly_sensitive" : false, "filter_level" : "low", "lang" : "pt" }, "is_quote_status" : true, "retweet_count" : 2, "favorite_count" : 2, "entities" : { "hashtags" : [ ], "urls" : [ { "url" : "https://t.co/hThKHaJ2es", "expanded_url" : "https://twitter.com/j_livres/status/721080096598159360", "display_url" : "twitter.com/j_livres/statu…", "indices" : [ 22, 45 ] } ], "user_mentions" : [ ], "symbols" : [ ] }, "favorited" : false, "retweeted" : false, "possibly_sensitive" : false, "filter_level" : "low", "lang" : "pt" }, "is_quote_status" : true, "retweet_count" : 0, "favorite_count" : 0, "entities" : { "hashtags" : [ ], "urls" : [ { "url" : "https://t.co/hThKHaJ2es", "expanded_url" : "https://twitter.com/j_livres/status/721080096598159360", "display_url" : "twitter.com/j_livres/statu…", "indices" : [ 35, 58 ] } ], "user_mentions" : [ { "screen_name" : "eita_br", "name" : "Eita!", "id" : 14172434, "id_str" : "14172434", "indices" : [ 3, 11 ] } ], "symbols" : [ ] }, "favorited" : false, "retweeted" : false, "possibly_sensitive" : false, "filter_level" : "low", "lang" : "pt", "timestamp_ms" : "1460764971336" }
+
+
+ $ mongoimport --db impeachment --collection tweets --upsertFields id --numInsertionWorkers=3 --drop --file RT_democracia_golpe_Abr2016.txt
+demora muuuuuito
+
+> db.tweets.find().forEach(function(doc) { if(doc.created_at instanceof Date) { print(doc.id)} })
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+https://docs.mongodb.com/manual/reference/bson-types/#document-bson-type-date
+https://docs.mongodb.com/manual/reference/method/Date/
+
+> db.tweets.find().forEach(function(doc) { doc.created_at_as_date = new Date(doc.created_at); db.tweets.save(doc); })
+
+db.tweets.find().forEach(function(doc) { doc.created_at_date = new Date(doc.created_at).getUTD; db.tweets.save(doc); })
+
+
+Tweet especifico
+
+> db.tweets.find( { 'id': 721126672792162304 } )
+
+
+Tweets de uma pessoa específica
+
+> db.tweets.find( {  "user.screen_name" : "Dimifer" } )
+
+> db.tweets.find( {  "user.screen_name" : "Dimifer" } ).count()
+97
+
+db.tweets.find( {  "user.screen_name" : "Dimifer" } ).next()
+
+db.tweets.find( {  "user.screen_name" : "Dimifer" } ).next().created_at
+Sat Apr 16 00:05:14 +0000 2016
+
+db.tweets.find( {  "user.screen_name" : "Dimifer" } ).next().created_at_as_date
+ISODate("2016-04-16T00:05:14Z")
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+
+> db.tweets.find( {  "user.screen_name" : "Dimifer" } ).next().created_at_as_date.getDate()
+15
+> db.tweets.find( {  "user.screen_name" : "Dimifer" } ).next().created_at_as_date.getUTCDate()
+16
+
+> db.tweets.find( {  "user.screen_name" : "Dimifer" } ).next().created_at_as_date.getDay()
+5  # Friday ??!?! (Local)
+> db.tweets.find( {  "user.screen_name" : "Dimifer" } ).next().created_at_as_date.getUTCDay()
+6
+
+> db.tweets.find( {  "user.screen_name" : "Dimifer" } ).next().created_at_as_date.getMonth()
+3  # Jan = 0
+> db.tweets.find( {  "user.screen_name" : "Dimifer" } ).next().created_at_as_date.getUTCMonth()
+3
+
+> db.tweets.find( {  "user.screen_name" : "Dimifer" } ).next().created_at_as_date.getYear()
+116 # DEPRECATED
+
+> db.tweets.find( {  "user.screen_name" : "Dimifer" } ).next().created_at_as_date.getFullYear()
+2016
+> db.tweets.find( {  "user.screen_name" : "Dimifer" } ).next().created_at_as_date.getUTCFullYear()
+2016
+
+> db.tweets.find( {  "user.screen_name" : "Dimifer" } ).next().created_at_as_date.getHours()
+21 # Local time (00 GMT, 21 GTM-3)
+> db.tweets.find( {  "user.screen_name" : "Dimifer" } ).next().created_at_as_date.getUTCHours()
+0
+
+> db.tweets.find( {  "user.screen_name" : "Dimifer" } ).next().created_at_as_date.getMinutes()
+5
+> db.tweets.find( {  "user.screen_name" : "Dimifer" } ).next().created_at_as_date.getUTCMinutes()
+5
+
+> db.tweets.find( {  "user.screen_name" : "Dimifer" } ).next().created_at_as_date.getSeconds()
+14
+> db.tweets.find( {  "user.screen_name" : "Dimifer" } ).next().created_at_as_date.getUTCSeconds()
+14
+
+
+
+Tweets só de um periodo
+
+# "2011-10-10T14:48:00"
+
+> db.tweets.count()
+359098
+> db.tweets.find( { "created_at_as_date": ISODate('2016-04-15') } ).count()
+0
+> db.tweets.find( { "created_at_as_date": ISODate('2016-04-16') } ).count()
+0
+> db.tweets.find( { "created_at_as_date": ISODate('2016-04-17') } ).count()
+0
+> db.tweets.find( { "created_at_as_date": ISODate('2016-04-18') } ).count()
+0
+
+Por quê?
+
+> db.tweets.find( { "created_at_as_date": { $gt : ISODate('2016-04-15') } } ).count()
+359098
+> db.tweets.find( { "created_at_as_date": { $gt : ISODate('2016-04-16') } } ).count()
+359098 # 15 = 0
+> db.tweets.find( { "created_at_as_date": { $gt : ISODate('2016-04-17') } } ).count()
+258666 # 16 = 359.098 - 258.666 = 100.423
+> db.tweets.find( { "created_at_as_date": { $gt : ISODate('2016-04-18') } } ).count()
+164506 # 17 = 258.666 - 164.506 = 94.160
+> db.tweets.find( { "created_at_as_date": { $gt : ISODate('2016-04-19') } } ).count()
+0      # 18 = 164.506 
+
+100423 + 94160 + 164506 = 359098 !!
+
+Como pegar de um dia especifico?
+
+> db.tweets.find( { "created_at_as_date": { $gt : ISODate('2016-04-16'), $lt : ISODate("2016-04-17") }  } ).count()
+100432
+> db.tweets.find( { "created_at_as_date": { $gt : ISODate('2016-04-17'), $lt : ISODate("2016-04-18") }  } ).count()
+94160
+> db.tweets.find( { "created_at_as_date": { $gt : ISODate('2016-04-18'), $lt : ISODate("2016-04-19") }  } ).count()
+164506
+> db.tweets.find( { "created_at_as_date": { $gt : ISODate('2016-04-19'), $lt : ISODate("2016-04-20") }  } ).count()
+0
+
+
+> db.tweets.find( { "created_at_as_date": { $gt : ISODate('2016-04-18'), $lt : ISODate("2016-04-19") }  } ).count()
+164506
+> db.tweets.find( { "created_at_as_date": { $gt : ISODate('2016-04-18'), $lt : ISODate("2016-04-18T23:59:59") }  } ).count()
+164503
+> db.tweets.find( { "created_at_as_date": ISODate("2016-04-18T23:59:59Z")  } ).count()
+3
+> db.tweets.find( { "created_at_as_date": { $gt : ISODate('2016-04-18'), $lte : ISODate("2016-04-18T23:59:59") }  } ).count()
+164506
+
+Coletamos tweets de quantos usuarios distintos?
+
+> db.tweets.distinct("user.screen_name").length
+140247
+
+> db.tweets.distinct("lang").length
+27
+> db.tweets.distinct("lang")
+[
+	"pt",
+	"es",
+	"und",
+	"en",
+	"da",
+	"fr",
+	"tl",
+	"de",
+	"it",
+	"nl",
+	"et",
+	"cy",
+	"cs",
+	"sl",
+	"lv",
+	"pl",
+	"lt",
+	"tr",
+	"ja",
+	"in",
+	"ht",
+	"fi",
+	"eu",
+	"ro",
+	"vi",
+	"hu",
+	"sv"
+]
+
+Quantos tweets para cada idioma?
+
+> db.tweets.group({ key: {lang:1}, reduce: function(curr,result) {result.total += 1; }, initial: {total:0}  })
+[
+	{
+		"lang" : "pt",
+		"total" : 239968
+	},
+	{
+		"lang" : "es",
+		"total" : 113556
+	},
+	{
+		"lang" : "und",
+		"total" : 4369
+	},
+	{
+		"lang" : "en",
+		"total" : 522
+	},
+	{
+		"lang" : "da",
+		"total" : 25
+	},
+	{
+		"lang" : "fr",
+		"total" : 121
+	},
+	{
+		"lang" : "tl",
+		"total" : 58
+	},
+	{
+		"lang" : "de",
+		"total" : 47
+	},
+	{
+		"lang" : "it",
+		"total" : 222
+	},
+	{
+		"lang" : "nl",
+		"total" : 3
+	},
+	{
+		"lang" : "et",
+		"total" : 4
+	},
+	{
+		"lang" : "cy",
+		"total" : 42
+	},
+	{
+		"lang" : "cs",
+		"total" : 7
+	},
+	{
+		"lang" : "sl",
+		"total" : 7
+	},
+	{
+		"lang" : "lv",
+		"total" : 2
+	},
+	{
+		"lang" : "pl",
+		"total" : 4
+	},
+	{
+		"lang" : "lt",
+		"total" : 4
+	},
+	{
+		"lang" : "tr",
+		"total" : 33
+	},
+	{
+		"lang" : "ja",
+		"total" : 34
+	},
+	{
+		"lang" : "in",
+		"total" : 26
+	},
+	{
+		"lang" : "ht",
+		"total" : 18
+	},
+	{
+		"lang" : "fi",
+		"total" : 1
+	},
+	{
+		"lang" : "eu",
+		"total" : 7
+	},
+	{
+		"lang" : "ro",
+		"total" : 12
+	},
+	{
+		"lang" : "vi",
+		"total" : 1
+	},
+	{
+		"lang" : "hu",
+		"total" : 4
+	},
+	{
+		"lang" : "sv",
+		"total" : 1
+	}
+]
+
+Usando map-reduce
+
+db.tweets.mapReduce( function() { emit(this.lang, 1); },
+					 function(k,v) { return Array.sum(v); },
+					 {
+					 	out: { inline: 1 }
+					 })
+
+{
+	"results" : [
+		{
+			"_id" : "cs",
+			"value" : 7
+		},
+		{
+			"_id" : "cy",
+			"value" : 42
+		},
+		{
+			"_id" : "da",
+			"value" : 25
+		},
+		{
+			"_id" : "de",
+			"value" : 47
+		},
+		{
+			"_id" : "en",
+			"value" : 522
+		},
+		{
+			"_id" : "es",
+			"value" : 113556
+		},
+		{
+			"_id" : "et",
+			"value" : 4
+		},
+		{
+			"_id" : "eu",
+			"value" : 7
+		},
+		{
+			"_id" : "fi",
+			"value" : 1
+		},
+		{
+			"_id" : "fr",
+			"value" : 121
+		},
+		{
+			"_id" : "ht",
+			"value" : 18
+		},
+		{
+			"_id" : "hu",
+			"value" : 4
+		},
+		{
+			"_id" : "in",
+			"value" : 26
+		},
+		{
+			"_id" : "it",
+			"value" : 222
+		},
+		{
+			"_id" : "ja",
+			"value" : 34
+		},
+		{
+			"_id" : "lt",
+			"value" : 4
+		},
+		{
+			"_id" : "lv",
+			"value" : 2
+		},
+		{
+			"_id" : "nl",
+			"value" : 3
+		},
+		{
+			"_id" : "pl",
+			"value" : 4
+		},
+		{
+			"_id" : "pt",
+			"value" : 239968
+		},
+		{
+			"_id" : "ro",
+			"value" : 12
+		},
+		{
+			"_id" : "sl",
+			"value" : 7
+		},
+		{
+			"_id" : "sv",
+			"value" : 1
+		},
+		{
+			"_id" : "tl",
+			"value" : 58
+		},
+		{
+			"_id" : "tr",
+			"value" : 33
+		},
+		{
+			"_id" : "und",
+			"value" : 4369
+		},
+		{
+			"_id" : "vi",
+			"value" : 1
+		}
+	],
+	"timeMillis" : 17971,
+	"counts" : {
+		"input" : 359098,
+		"emit" : 359098,
+		"reduce" : 4861,
+		"output" : 27
+	},
+	"ok" : 1
+}		
+
+> db.tweets.find({lang:"de"}).next()
+{
+	"_id" : ObjectId("582852b6a6e51390b3c5fddc"),
+	"created_at" : "Sat Apr 16 00:07:08 +0000 2016",
+	"id" : NumberLong("721127751743365121"),
+	"id_str" : "721127751743365121",
+	"text" : "RT @Strandreporter: Schon mal antanzen: die Rhythmen für Brasiliens Massendemos am kommenden Wochenende (hier: Version Pro Regierung) https…",
+	"source" : "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+	"truncated" : false,
+	"in_reply_to_status_id" : null,
+	"in_reply_to_status_id_str" : null,
+	"in_reply_to_user_id" : null,
+	"in_reply_to_user_id_str" : null,
+	"in_reply_to_screen_name" : null,
+	"user" : {
+		"id" : 266703523,
+		"id_str" : "266703523",
+		"name" : "Dagmar Dehmer",
+		"screen_name" : "dpomondi",
+		"location" : null,
+		"url" : null,
+		"description" : "Journalist for Der Tagesspiegel, Berlin. Topics: Environment, Africa.",
+		"protected" : false,
+		"verified" : false,
+		"followers_count" : 2461,
+		"friends_count" : 2310,
+		"listed_count" : 187,
+		"favourites_count" : 3232,
+		"statuses_count" : 23266,
+		"created_at" : "Tue Mar 15 17:24:22 +0000 2011",
+		"utc_offset" : 10800,
+		"time_zone" : "Athens",
+		"geo_enabled" : false,
+		"lang" : "en",
+		"contributors_enabled" : false,
+		"is_translator" : false,
+		"profile_background_color" : "352726",
+		"profile_background_image_url" : "http://abs.twimg.com/images/themes/theme5/bg.gif",
+		"profile_background_image_url_https" : "https://abs.twimg.com/images/themes/theme5/bg.gif",
+		"profile_background_tile" : false,
+		"profile_link_color" : "D02B55",
+		"profile_sidebar_border_color" : "829D5E",
+		"profile_sidebar_fill_color" : "99CC33",
+		"profile_text_color" : "3E4415",
+		"profile_use_background_image" : true,
+		"profile_image_url" : "http://pbs.twimg.com/profile_images/494418331756015616/NJEAwnd9_normal.jpeg",
+		"profile_image_url_https" : "https://pbs.twimg.com/profile_images/494418331756015616/NJEAwnd9_normal.jpeg",
+		"profile_banner_url" : "https://pbs.twimg.com/profile_banners/266703523/1381587200",
+		"default_profile" : false,
+		"default_profile_image" : false,
+		"following" : null,
+		"follow_request_sent" : null,
+		"notifications" : null
+	},
+	"geo" : null,
+	"coordinates" : null,
+	"place" : null,
+	"contributors" : null,
+	"retweeted_status" : {
+		"created_at" : "Fri Apr 15 23:21:14 +0000 2016",
+		"id" : NumberLong("721116199921143808"),
+		"id_str" : "721116199921143808",
+		"text" : "Schon mal antanzen: die Rhythmen für Brasiliens Massendemos am kommenden Wochenende (hier: Version Pro Regierung) https://t.co/5shaDu6w4N",
+		"source" : "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+		"truncated" : false,
+		"in_reply_to_status_id" : null,
+		"in_reply_to_status_id_str" : null,
+		"in_reply_to_user_id" : null,
+		"in_reply_to_user_id_str" : null,
+		"in_reply_to_screen_name" : null,
+		"user" : {
+			"id" : 1417796198,
+			"id_str" : "1417796198",
+			"name" : "Strandreporter",
+			"screen_name" : "Strandreporter",
+			"location" : "Rio de Janeiro",
+			"url" : "http://www.linkedin.com/in/fischermann",
+			"description" : "Tom Fischermann, ZEIT-Büroleiter #Südamerika, slow-tweeting von der #Copacabana. #Brasilien #Kuba #Olympia #Lateinamerika #EmergingMarkets #Rio2016",
+			"protected" : false,
+			"verified" : false,
+			"followers_count" : 1790,
+			"friends_count" : 1015,
+			"listed_count" : 83,
+			"favourites_count" : 3983,
+			"statuses_count" : 3446,
+			"created_at" : "Fri May 10 10:56:25 +0000 2013",
+			"utc_offset" : -10800,
+			"time_zone" : "Brasilia",
+			"geo_enabled" : true,
+			"lang" : "de",
+			"contributors_enabled" : false,
+			"is_translator" : false,
+			"profile_background_color" : "C0DEED",
+			"profile_background_image_url" : "http://abs.twimg.com/images/themes/theme1/bg.png",
+			"profile_background_image_url_https" : "https://abs.twimg.com/images/themes/theme1/bg.png",
+			"profile_background_tile" : false,
+			"profile_link_color" : "0084B4",
+			"profile_sidebar_border_color" : "C0DEED",
+			"profile_sidebar_fill_color" : "DDEEF6",
+			"profile_text_color" : "333333",
+			"profile_use_background_image" : true,
+			"profile_image_url" : "http://pbs.twimg.com/profile_images/634367921603637248/ISTPZHod_normal.jpg",
+			"profile_image_url_https" : "https://pbs.twimg.com/profile_images/634367921603637248/ISTPZHod_normal.jpg",
+			"profile_banner_url" : "https://pbs.twimg.com/profile_banners/1417796198/1368185836",
+			"default_profile" : true,
+			"default_profile_image" : false,
+			"following" : null,
+			"follow_request_sent" : null,
+			"notifications" : null
+		},
+		"geo" : null,
+		"coordinates" : null,
+		"place" : null,
+		"contributors" : null,
+		"is_quote_status" : false,
+		"retweet_count" : 1,
+		"favorite_count" : 1,
+		"entities" : {
+			"hashtags" : [ ],
+			"urls" : [
+				{
+					"url" : "https://t.co/5shaDu6w4N",
+					"expanded_url" : "http://osamigosdopresidentelula.blogspot.com.br/2016/04/funk-contra-o-golpe-esquentando-pro.html?utm_source=twitterfeed&utm_medium=twitter&utm_campaign=Feed:+blogspot/Eemp+(Os+Amigos+do+Presidente+Lula)&m=1",
+					"display_url" : "…migosdopresidentelula.blogspot.com.br/2016/04/funk-c…",
+					"indices" : [
+						114,
+						137
+					]
+				}
+			],
+			"user_mentions" : [ ],
+			"symbols" : [ ]
+		},
+		"favorited" : false,
+		"retweeted" : false,
+		"possibly_sensitive" : false,
+		"filter_level" : "low",
+		"lang" : "de"
+	},
+	"is_quote_status" : false,
+	"retweet_count" : 0,
+	"favorite_count" : 0,
+	"entities" : {
+		"hashtags" : [ ],
+		"urls" : [
+			{
+				"url" : "https://t.co/5shaDu6w4N",
+				"expanded_url" : "http://osamigosdopresidentelula.blogspot.com.br/2016/04/funk-contra-o-golpe-esquentando-pro.html?utm_source=twitterfeed&utm_medium=twitter&utm_campaign=Feed:+blogspot/Eemp+(Os+Amigos+do+Presidente+Lula)&m=1",
+				"display_url" : "…migosdopresidentelula.blogspot.com.br/2016/04/funk-c…",
+				"indices" : [
+					139,
+					140
+				]
+			}
+		],
+		"user_mentions" : [
+			{
+				"screen_name" : "Strandreporter",
+				"name" : "Strandreporter",
+				"id" : 1417796198,
+				"id_str" : "1417796198",
+				"indices" : [
+					3,
+					18
+				]
+			}
+		],
+		"symbols" : [ ]
+	},
+	"favorited" : false,
+	"retweeted" : false,
+	"possibly_sensitive" : false,
+	"filter_level" : "low",
+	"lang" : "de",
+	"timestamp_ms" : "1460765228578",
+	"created_at_as_date" : ISODate("2016-04-16T00:07:08Z")
+}
+
+> db.tweets.find({lang:"sv"}).next()
+{
+	"_id" : ObjectId("5828533ea6e51390b3cac0ee"),
+	"created_at" : "Mon Apr 18 19:30:24 +0000 2016",
+	"id" : NumberLong("722145272797659140"),
+	"id_str" : "722145272797659140",
+	"text" : "RT @pdevechi: Haja mortadela!! https://t.co/9JawQ1zyaO",
+	"source" : "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+	"truncated" : false,
+	"in_reply_to_status_id" : null,
+	"in_reply_to_status_id_str" : null,
+	"in_reply_to_user_id" : null,
+	"in_reply_to_user_id_str" : null,
+	"in_reply_to_screen_name" : null,
+	"user" : {
+		"id" : 14692201,
+		"id_str" : "14692201",
+		"name" : "Fabio Moraes ن",
+		"screen_name" : "fabiomoraes",
+		"location" : "Sorocaba-SP",
+		"url" : "http://drinks365.tumblr.com",
+		"description" : "Já tava quebrado por dentro quando cheguei",
+		"protected" : false,
+		"verified" : false,
+		"followers_count" : 1733,
+		"friends_count" : 505,
+		"listed_count" : 74,
+		"favourites_count" : 152529,
+		"statuses_count" : 206677,
+		"created_at" : "Wed May 07 21:34:23 +0000 2008",
+		"utc_offset" : -10800,
+		"time_zone" : "Brasilia",
+		"geo_enabled" : true,
+		"lang" : "en",
+		"contributors_enabled" : false,
+		"is_translator" : false,
+		"profile_background_color" : "9AE4E8",
+		"profile_background_image_url" : "http://pbs.twimg.com/profile_background_images/23530547/wp-sakura-1600.jpg",
+		"profile_background_image_url_https" : "https://pbs.twimg.com/profile_background_images/23530547/wp-sakura-1600.jpg",
+		"profile_background_tile" : false,
+		"profile_link_color" : "0000FF",
+		"profile_sidebar_border_color" : "87BC44",
+		"profile_sidebar_fill_color" : "E0FF92",
+		"profile_text_color" : "000000",
+		"profile_use_background_image" : true,
+		"profile_image_url" : "http://pbs.twimg.com/profile_images/629466329536425984/rbZDwij5_normal.jpg",
+		"profile_image_url_https" : "https://pbs.twimg.com/profile_images/629466329536425984/rbZDwij5_normal.jpg",
+		"profile_banner_url" : "https://pbs.twimg.com/profile_banners/14692201/1363902382",
+		"default_profile" : false,
+		"default_profile_image" : false,
+		"following" : null,
+		"follow_request_sent" : null,
+		"notifications" : null
+	},
+	"geo" : null,
+	"coordinates" : null,
+	"place" : null,
+	"contributors" : null,
+	"retweeted_status" : {
+		"created_at" : "Mon Apr 18 19:22:39 +0000 2016",
+		"id" : NumberLong("722143323670970369"),
+		"id_str" : "722143323670970369",
+		"text" : "Haja mortadela!! https://t.co/9JawQ1zyaO",
+		"source" : "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+		"truncated" : false,
+		"in_reply_to_status_id" : null,
+		"in_reply_to_status_id_str" : null,
+		"in_reply_to_user_id" : null,
+		"in_reply_to_user_id_str" : null,
+		"in_reply_to_screen_name" : null,
+		"user" : {
+			"id" : 114356391,
+			"id_str" : "114356391",
+			"name" : "Joga Bosta no Xico",
+			"screen_name" : "pdevechi",
+			"location" : "Brasil, Terra da Impunidade",
+			"url" : null,
+			"description" : "Indiscutivelmente, um cara fino e elegante. Mas sem paciência com iMundos, traíras e gente sonsa.",
+			"protected" : false,
+			"verified" : false,
+			"followers_count" : 16637,
+			"friends_count" : 1867,
+			"listed_count" : 158,
+			"favourites_count" : 2262,
+			"statuses_count" : 341925,
+			"created_at" : "Mon Feb 15 04:02:25 +0000 2010",
+			"utc_offset" : -10800,
+			"time_zone" : "Brasilia",
+			"geo_enabled" : false,
+			"lang" : "en",
+			"contributors_enabled" : false,
+			"is_translator" : false,
+			"profile_background_color" : "1A1B1F",
+			"profile_background_image_url" : "http://abs.twimg.com/images/themes/theme9/bg.gif",
+			"profile_background_image_url_https" : "https://abs.twimg.com/images/themes/theme9/bg.gif",
+			"profile_background_tile" : false,
+			"profile_link_color" : "2F49ED",
+			"profile_sidebar_border_color" : "FFFFFF",
+			"profile_sidebar_fill_color" : "252429",
+			"profile_text_color" : "666666",
+			"profile_use_background_image" : true,
+			"profile_image_url" : "http://pbs.twimg.com/profile_images/635299041933291520/Y_cOWTS9_normal.jpg",
+			"profile_image_url_https" : "https://pbs.twimg.com/profile_images/635299041933291520/Y_cOWTS9_normal.jpg",
+			"profile_banner_url" : "https://pbs.twimg.com/profile_banners/114356391/1353201058",
+			"default_profile" : false,
+			"default_profile_image" : false,
+			"following" : null,
+			"follow_request_sent" : null,
+			"notifications" : null
+		},
+		"geo" : null,
+		"coordinates" : null,
+		"place" : null,
+		"contributors" : null,
+		"quoted_status_id" : NumberLong("722142904660176896"),
+		"quoted_status_id_str" : "722142904660176896",
+		"quoted_status" : {
+			"created_at" : "Mon Apr 18 19:20:59 +0000 2016",
+			"id" : NumberLong("722142904660176896"),
+			"id_str" : "722142904660176896",
+			"text" : "Boulos: golpe terá 'resistência popular intransigente' | Brasil 24/7 https://t.co/QUydboQCCT via @brasil247",
+			"source" : "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+			"truncated" : false,
+			"in_reply_to_status_id" : null,
+			"in_reply_to_status_id_str" : null,
+			"in_reply_to_user_id" : null,
+			"in_reply_to_user_id_str" : null,
+			"in_reply_to_screen_name" : null,
+			"user" : {
+				"id" : 248890506,
+				"id_str" : "248890506",
+				"name" : "Brasil 247",
+				"screen_name" : "brasil247",
+				"location" : "São Paulo, SP",
+				"url" : "http://www.brasil247.com",
+				"description" : "Primeiro jornal para tablets e smartphones do Brasil. 24 horas por dia, 7 dias por semana, 100% digital, com participação ativa dos leitores.",
+				"protected" : false,
+				"verified" : false,
+				"followers_count" : 184175,
+				"friends_count" : 29740,
+				"listed_count" : 920,
+				"favourites_count" : 33,
+				"statuses_count" : 65124,
+				"created_at" : "Mon Feb 07 23:03:07 +0000 2011",
+				"utc_offset" : -10800,
+				"time_zone" : "Santiago",
+				"geo_enabled" : true,
+				"lang" : "pt",
+				"contributors_enabled" : false,
+				"is_translator" : false,
+				"profile_background_color" : "FFFFFF",
+				"profile_background_image_url" : "http://pbs.twimg.com/profile_background_images/217549920/Twitter_v04.jpg",
+				"profile_background_image_url_https" : "https://pbs.twimg.com/profile_background_images/217549920/Twitter_v04.jpg",
+				"profile_background_tile" : true,
+				"profile_link_color" : "005FA7",
+				"profile_sidebar_border_color" : "EBEBEB",
+				"profile_sidebar_fill_color" : "EBEBEB",
+				"profile_text_color" : "333333",
+				"profile_use_background_image" : true,
+				"profile_image_url" : "http://pbs.twimg.com/profile_images/1848930001/imagem_twitter_247_normal.jpg",
+				"profile_image_url_https" : "https://pbs.twimg.com/profile_images/1848930001/imagem_twitter_247_normal.jpg",
+				"default_profile" : false,
+				"default_profile_image" : false,
+				"following" : null,
+				"follow_request_sent" : null,
+				"notifications" : null
+			},
+			"geo" : null,
+			"coordinates" : null,
+			"place" : null,
+			"contributors" : null,
+			"is_quote_status" : false,
+			"retweet_count" : 0,
+			"favorite_count" : 0,
+			"entities" : {
+				"hashtags" : [ ],
+				"urls" : [
+					{
+						"url" : "https://t.co/QUydboQCCT",
+						"expanded_url" : "http://www.brasil247.com/pt/247/brasil/226905/Boulos-golpe-ter%C3%A1-'resist%C3%AAncia-popular-intransigente'.htm",
+						"display_url" : "brasil247.com/pt/247/brasil/…",
+						"indices" : [
+							69,
+							92
+						]
+					}
+				],
+				"user_mentions" : [
+					{
+						"screen_name" : "brasil247",
+						"name" : "Brasil 247",
+						"id" : 248890506,
+						"id_str" : "248890506",
+						"indices" : [
+							97,
+							107
+						]
+					}
+				],
+				"symbols" : [ ]
+			},
+			"favorited" : false,
+			"retweeted" : false,
+			"possibly_sensitive" : false,
+			"filter_level" : "low",
+			"lang" : "pt"
+		},
+		"is_quote_status" : true,
+		"retweet_count" : 1,
+		"favorite_count" : 1,
+		"entities" : {
+			"hashtags" : [ ],
+			"urls" : [
+				{
+					"url" : "https://t.co/9JawQ1zyaO",
+					"expanded_url" : "https://twitter.com/brasil247/status/722142904660176896",
+					"display_url" : "twitter.com/brasil247/stat…",
+					"indices" : [
+						17,
+						40
+					]
+				}
+			],
+			"user_mentions" : [ ],
+			"symbols" : [ ]
+		},
+		"favorited" : false,
+		"retweeted" : false,
+		"possibly_sensitive" : false,
+		"filter_level" : "low",
+		"lang" : "sv"
+	},
+	"is_quote_status" : true,
+	"retweet_count" : 0,
+	"favorite_count" : 0,
+	"entities" : {
+		"hashtags" : [ ],
+		"urls" : [
+			{
+				"url" : "https://t.co/9JawQ1zyaO",
+				"expanded_url" : "https://twitter.com/brasil247/status/722142904660176896",
+				"display_url" : "twitter.com/brasil247/stat…",
+				"indices" : [
+					31,
+					54
+				]
+			}
+		],
+		"user_mentions" : [
+			{
+				"screen_name" : "pdevechi",
+				"name" : "Joga Bosta no Xico",
+				"id" : 114356391,
+				"id_str" : "114356391",
+				"indices" : [
+					3,
+					12
+				]
+			}
+		],
+		"symbols" : [ ]
+	},
+	"favorited" : false,
+	"retweeted" : false,
+	"possibly_sensitive" : false,
+	"filter_level" : "low",
+	"lang" : "sv",
+	"timestamp_ms" : "1461007824502",
+	"created_at_as_date" : ISODate("2016-04-18T19:30:24Z")
+}
+
+Temos tweets de quais dias específicos?
+
+> db.tweets.distinct("created_at_as_date")
+[
+	ISODate("2016-04-16T00:01:33Z"),
+	ISODate("2016-04-16T00:01:54Z"),
+	…
+	ISODate("2016-04-18T23:59:14Z"),
+	ISODate("2016-04-18T23:59:39Z"),
+	ISODate("2016-04-18T23:59:57Z")
+]
+
+db.tweets.aggregate([{ $project: { year : { "$year": "$created_at_as_date"} }}]) 
+db.tweets.aggregate([{ $project: { year : { "$year": "$created_at_as_date"}, month : { "$month" : "$created_at_as_date" } } }])
+
+https://docs.mongodb.com/manual/core/aggregation-pipeline/
+https://docs.mongodb.com/manual/meta/aggregation-quick-reference/#aggregation-expressions
+https://docs.mongodb.com/manual/reference/operator/aggregation/month/#exp._S_month
+
+db.tweets.aggregate([{ $project: { year : { "$year": "$created_at_as_date"}, month : { "$month" : "$created_at_as_date" }, day : { "$dayOfMonth" : "$created_at_as_date" }  } }, { "$group": { "_id" : null, "distinctDate" : {"$addToSet": {"year":"$year","month":"$month","day":"$day"} } }}])
+
+{ "_id" : null, "distinctDate" : [ { "year" : 2016, "month" : 4, "day" : 18 }, { "year" : 2016, "month" : 4, "day" : 17 }, { "year" : 2016, "month" : 4, "day" : 16 } ] }
+
+
+Tweets que tenha golpe
+
+Usando regex
+
+> db.tweets.find({ text : /golp/ }).count()
+171140
+> db.tweets.find({ text : /golpe/ }).count()
+166924
+> db.tweets.find({ text : /golpistas/ }).count()
+3603
+
+> db.tweets.find({ text : /demo/ }).count()
+97133
+> db.tweets.find({ text : /democr/ }).count()
+94114
+> db.tweets.find({ text : /democracia/ }).count()
+91318
+
+> db.tweets.find({ text : /democr.*golp/ }).count()
+7022
+> db.tweets.find({ text : /golp.*democr/ }).count()
+10645
+
+Usando Text Search
+
+https://docs.mongodb.com/manual/text-search/
+https://docs.mongodb.com/manual/reference/operator/query/text/#op._S_text
+
+> db.tweets.find( { "$text": { "$search" : "golpe" } } )
+Error: error: {
+	"waitedMS" : NumberLong(0),
+	"ok" : 0,
+	"errmsg" : "text index required for $text query",
+	"code" : 27
+
+Criar o índice
+
+> db.tweets.createIndex( { text: "text"} )
+{
+	"createdCollectionAutomatically" : false,
+	"numIndexesBefore" : 1,
+	"numIndexesAfter" : 2,
+	"ok" : 1
+}
+
+> db.tweets.getIndexes()
+[
+	{
+		"v" : 1,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "impeachment.tweets"
+	},
+	{
+		"v" : 1,
+		"key" : {
+			"_fts" : "text",
+			"_ftsx" : 1
+		},
+		"name" : "text_text",
+		"ns" : "impeachment.tweets",
+		"weights" : {
+			"text" : 1
+		},
+		"default_language" : "english",
+		"language_override" : "language",
+		"textIndexVersion" : 3
+	}
+]
+
+
+> db.tweets.find( { "$text": { "$search" : "golpe" } } ).count()
+216771
+> db.tweets.find( { "$text": { "$search" : "golp" } } ).count()
+216771
+> db.tweets.find( { "$text": { "$search" : "golpista" } } ).count()
+8117
+
+Vamos incluir o text do retweeted_status no indice pra ver se muda alguma coisa
+
+> db.tweets.getIndexes()
+[
+	{
+		"v" : 1,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "impeachment.tweets"
+	},
+	{
+		"v" : 1,
+		"key" : {
+			"_fts" : "text",
+			"_ftsx" : 1
+		},
+		"name" : "text_text",
+		"ns" : "impeachment.tweets",
+		"weights" : {
+			"text" : 1
+		},
+		"default_language" : "english",
+		"language_override" : "language",
+		"textIndexVersion" : 3
+	}
+]
+> db.tweets.dropIndex("text_text")
+{ "nIndexesWas" : 2, "ok" : 1 }
+> db.tweets.createIndex( { text: "text", "retweeted_status.text": "text" } )
+{
+	"createdCollectionAutomatically" : false,
+	"numIndexesBefore" : 1,
+	"numIndexesAfter" : 2,
+	"ok" : 1
+}
+> db.tweets.getIndexes()
+[
+	{
+		"v" : 1,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "impeachment.tweets"
+	},
+	{
+		"v" : 1,
+		"key" : {
+			"_fts" : "text",
+			"_ftsx" : 1
+		},
+		"name" : "text_text_retweeteed_status.text_text",
+		"ns" : "impeachment.tweets",
+		"weights" : {
+			"retweeteed_status.text" : 1,
+			"text" : 1
+		},
+		"default_language" : "english",
+		"language_override" : "language",
+		"textIndexVersion" : 3
+	}
+]
+
+> db.tweets.find( { "$text": { "$search" : "golpe" } } ).count()
+226641 (era 216771)
+> db.tweets.find( { "$text": { "$search" : "golp" } } ).count()
+226641 (era 216771)
+> db.tweets.find( { "$text": { "$search" : "golpista" } } ).count()
+9267   (era 8117)
+
+
+Vamos agora indexar pra portugues
+
+> db.tweets.getIndexes()
+[
+	{
+		"v" : 1,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "impeachment.tweets"
+	},
+	{
+		"v" : 1,
+		"key" : {
+			"_fts" : "text",
+			"_ftsx" : 1
+		},
+		"name" : "text_text_retweeted_status.text_text",
+		"ns" : "impeachment.tweets",
+		"weights" : {
+			"retweeted_status.text" : 1,
+			"text" : 1
+		},
+		"default_language" : "english",
+		"language_override" : "language",
+		"textIndexVersion" : 3
+	}
+]
+> db.tweets.dropIndex('text_text_retweeted_status.text_text')
+{ "nIndexesWas" : 2, "ok" : 1 }
+> db.tweets.createIndex( { text: "text", "retweeted_status.text": "text" }, { "default_language": "pt" } )
+{
+	"createdCollectionAutomatically" : false,
+	"numIndexesBefore" : 1,
+	"numIndexesAfter" : 2,
+	"ok" : 1
+}
+> db.tweets.find( { "$text": { "$search" : "golpe" } } ).count()
+230036 (216771 -> 226641)
+> db.tweets.find( { "$text": { "$search" : "golp" } } ).count()
+230036
+> db.tweets.find( { "$text": { "$search" : "golpista" } } ).count()
+9284 (mesma coisa)
+
+https://docs.mongodb.com/manual/reference/text-search-languages/#text-search-languages
+https://docs.mongodb.com/manual/tutorial/text-search-in-aggregation/#specify-a-language-for-text-search
+https://docs.mongodb.com/manual/reference/operator/query/text/#search-a-different-language
+
+> db.tweets.find( { "$text": { $search: "golpe", $language: "pt" } } ).count()
+230036
+> db.tweets.find( { "$text": { $search: "golp", $language: "pt" } } ).count()
+230036
+> db.tweets.find( { "$text": { $search: "golpista", $language: "pt" } } ).count()
+9284
+
+
+> db.tweets.createIndex( { text: "text", "retweeted_status.text": "text" }, { "default_language": "pt" }, { "language_override" : "lang" } )
+{
+	"createdCollectionAutomatically" : false,
+	"numIndexesBefore" : 1,
+	"numIndexesAfter" : 2,
+	"ok" : 1
+}
+> db.tweets.find( { "$text": { $search: "golpe" } } ).count()
+230036
+> db.tweets.find( { "$text": { $search: "golpe", $language: "pt" } } ).count()
+230036
+> db.tweets.find( { "$text": { $search: "golpe", $language: "es" } } ).count()
+230036
+> db.tweets.find( { "$text": { $search: "golpe", $language: "de" } } ).count()
+230036
+
+:-/
+
+db.tweets.find( { "$text": { $search: "golpe \"democr\" " } } ).count()
+
+> db.tweets.find({ text : /golpe/ }).count()
+166924
+> db.tweets.find( { "$text": { "$search" : "golpe" } } ).count()
+230036
+
+> db.tweets.find({ text : /golpe/, "retweeted_status.text": /golpe/ }).count()
+166868 (Era 166924. Pq diminuiu? Pq eh AND)
+
+> db.tweets.find({ $or : [ {text : /golpe/}, {"retweeted_status.text": /golpe/} ]}).count()
+173688
+> db.tweets.find({ $or : [ {text : /golp/}, {"retweeted_status.text": /golp/} ]}).count()
+177367
+
+Quantos sao retweets
+
+https://docs.mongodb.com/manual/reference/operator/query/exists/#op._S_exists
+
+> db.tweets.count()
+359098
+> db.tweets.find( { "retweeted_status" : { $exists: false } }).count()
+0
+> db.tweets.find( { "retweeted_status" : { $exists: true } }).count()
+359098
+
+$ grep -i 'retweeted_status' RT_democracia_golpe_Abr2016.txt| wc -l
+  359098
+
+
+Todos?!?!
+
+Pesquisa sobre Golpe e Democracia
+
+> db.tweets.find( { "$text": { $search: "golpe \"democr\" " } } ).count()
+27949
+
+> db.tweets.find( { "$text": { $search: "golpe democracia " } } ).count()
+332909
+> db.tweets.find( { "$text": { $search: "democracia golpe" } } ).count()
+332909
+
+> db.tweets.find( { "$text": { $search: "democracia" } } ).count()
+126504
+
+> db.tweets.find( { "$text": { $search: "golpe \"democracia\" " } } ).count()
+128216
+> db.tweets.find( { "$text": { $search: "democracia \"golpe\" " } } ).count()
+239634
+
+
+
+
+Quantos usuarios retweetaram
+
+> db.tweets.distinct("user.screen_name").length
+140247
+
+Quantos usuarios foram retweetados
+
+> db.tweets.distinct("retweeted_status.user.id").length
+28808
+
+Quantos tweets retweetados unicos
+
+> db.tweets.count()
+359098
+> db.tweets.distinct("retweeted_status.id").length
+57858
+
+Quais foram os 10 mais retweetados?
+
+> db.tweets.group({ key: {"retweeted_status.id":1}, reduce: function(curr,result) {result.total += 1; }, initial: {total:0}  })
+2016-11-14T17:31:50.253-0200 E QUERY    [thread1] Error: group command failed: {
+	"waitedMS" : NumberLong(0),
+	"ok" : 0,
+	"errmsg" : "errmsg: \"group() can't handle more than 20000 unique keys\"",
+	"code" : 2
+}
+
+https://docs.mongodb.com/manual/reference/method/db.collection.group/#limits-and-restrictions
+"For group by operations that results in more than 20,000 unique groupings, use mapReduce"
+
+db.tweets.aggregate([ 
+	{ $project: { rt_status_id : "$retweeted_status.id", 
+				  rt_user : "$retweeted_status.user.screen_name", 
+				  rt_text : "$retweeted_status.text" }}, 
+	{ $group  : { _id: {rt_status_id : "$rt_status_id", rt_user: "$rt_user", rt_text: "$rt_text" }, 
+				  total: {$sum:1} }},
+	{ $sort   : { total : -1 }},
+	{ $limit  : 10 }
+])
+
+
+{ "_id" : { "rt_status_id" : NumberLong("721530620778823680"), "rt_user" : "luscas", "rt_text" : "golpe é o q eu gasto com xerox todo mes" }, "total" : 1562 }
+{ "_id" : { "rt_status_id" : NumberLong("721895148381212676"), "rt_user" : "hramosallup", "rt_text" : "Régimen moribundo tilda d \"golpe a la democracia brasileña\" juicio a Dilma Rousseff. Resto combo (Ortega,Evo,Correa y castros)no ha opinado." }, "total" : 1490 }
+{ "_id" : { "rt_status_id" : NumberLong("721886820192161792"), "rt_user" : "hramosallup", "rt_text" : "Ganó Brasil. Poco a poco la democracia latinoamericana va diluyendo sus pesadillas." }, "total" : 1304 }
+{ "_id" : { "rt_status_id" : NumberLong("721714160954843137"), "rt_user" : "EugenioDerbez", "rt_text" : "Ahora la naturaleza golpeó a nuestros hermanos de Ecuador, mis oraciones están con ustedes 🙏🏼" }, "total" : 1178 }
+{ "_id" : { "rt_status_id" : NumberLong("721851541204951041"), "rt_user" : "jeanwyllys_real", "rt_text" : "\"Em nome da população LGBT, do povo negro exterminado nas periferias, dos trabalhadores da cultura, dos sem-teto/terra, voto NÃO AO GOLPE!\"" }, "total" : 1157 }
+{ "_id" : { "rt_status_id" : NumberLong("720949325052907520"), "rt_user" : "matheuss_pe", "rt_text" : "ATENÇÃO!!!! NOVO GOLPE NA PRAÇA!!!! https://t.co/xjF1jMkidU" }, "total" : 1116 }
+{ "_id" : { "rt_status_id" : NumberLong("721827901247766533"), "rt_user" : "dukechargista", "rt_text" : "Uma dúvida: o \"Tchau, Querida\" se refere à Dilma ou a Democracia?" }, "total" : 1073 }
+{ "_id" : { "rt_status_id" : NumberLong("721446141922041858"), "rt_user" : "evoespueblo", "rt_text" : "No al golpe congresal. Defendamos la democracia del Brasil, su liderazgo regional y la estabilidad de América Latina." }, "total" : 1004 }
+{ "_id" : { "rt_status_id" : NumberLong("721160973000663040"), "rt_user" : "diImabr", "rt_text" : "PRONUNCIAMENTO À NAÇÃO CONTRA O GOLPE!\nhttps://t.co/SO4umYBhwT" }, "total" : 925 }
+{ "_id" : { "rt_status_id" : NumberLong("721870461638979584"), "rt_user" : "RitaLisauskas", "rt_text" : "O cara foi no microfone, dedicou o voto ao torturador-mor de 64, louvou o golpe de 2016 e cês tão chocados é com o cuspe? Esse país tá louco" }, "total" : 809 }
+
+Mudando a ordem da saída.
+
+db.tweets.aggregate([ 
+	{ $project: { rt_status_id : "$retweeted_status.id", 
+				  rt_user : "$retweeted_status.user.screen_name", 
+				  rt_text : "$retweeted_status.text" }}, 
+	{ $group  : { _id: {rt_status_id : "$rt_status_id", rt_user: "$rt_user", rt_text: "$rt_text" }, 
+				  total: {$sum:1} }},
+	{ $sort   : { total : -1 }},
+	{ $limit  : 10 },
+	{ $project: { _id : 0, total: "$total", rt_user: "$_id.rt_user", rt_text: "$_id.rt_text"}}
+])
+
+{ "total" : 1562, "rt_user" : "luscas", "rt_text" : "golpe é o q eu gasto com xerox todo mes" }
+{ "total" : 1490, "rt_user" : "hramosallup", "rt_text" : "Régimen moribundo tilda d \"golpe a la democracia brasileña\" juicio a Dilma Rousseff. Resto combo (Ortega,Evo,Correa y castros)no ha opinado." }
+{ "total" : 1304, "rt_user" : "hramosallup", "rt_text" : "Ganó Brasil. Poco a poco la democracia latinoamericana va diluyendo sus pesadillas." }
+{ "total" : 1178, "rt_user" : "EugenioDerbez", "rt_text" : "Ahora la naturaleza golpeó a nuestros hermanos de Ecuador, mis oraciones están con ustedes 🙏🏼" }
+{ "total" : 1157, "rt_user" : "jeanwyllys_real", "rt_text" : "\"Em nome da população LGBT, do povo negro exterminado nas periferias, dos trabalhadores da cultura, dos sem-teto/terra, voto NÃO AO GOLPE!\"" }
+{ "total" : 1116, "rt_user" : "matheuss_pe", "rt_text" : "ATENÇÃO!!!! NOVO GOLPE NA PRAÇA!!!! https://t.co/xjF1jMkidU" }
+{ "total" : 1073, "rt_user" : "dukechargista", "rt_text" : "Uma dúvida: o \"Tchau, Querida\" se refere à Dilma ou a Democracia?" }
+{ "total" : 1004, "rt_user" : "evoespueblo", "rt_text" : "No al golpe congresal. Defendamos la democracia del Brasil, su liderazgo regional y la estabilidad de América Latina." }
+{ "total" : 925, "rt_user" : "diImabr", "rt_text" : "PRONUNCIAMENTO À NAÇÃO CONTRA O GOLPE!\nhttps://t.co/SO4umYBhwT" }
+{ "total" : 809, "rt_user" : "RitaLisauskas", "rt_text" : "O cara foi no microfone, dedicou o voto ao torturador-mor de 64, louvou o golpe de 2016 e cês tão chocados é com o cuspe? Esse país tá louco" }
+
+Refazer a agregação acima com map-reduce
+
+db.tweets.mapReduce(function() { emit(this.retweeted_status.id,1); }, function(key,values) {return Array.sum(values)}, { out: "total"} )
+
+
+Todos os textos
+
+db.tweets.aggregate([ {$project: { _id:0, text : "$retweeted_status.text"} } ])
+
+db.tweets.mapReduce( function() { emit(this.lang, 1); },
+					 function(k,v) { return Array.sum(v); },
+					 {
+					 	out: { inline: 1 }
+					 })
+
+db.tweets.mapReduce( function() { 
+						words = this.retweeted_status.text.replace(/\./g,"").split(" ").forEach(function(w) { 
+							emit(w,1);
+						})
+					 },
+					 function(k,v) { return Array.sum(v); },
+					 {
+					 	out: { inline: 1 }
+					 })
+
+Demorou 25min, mas imprimiu. Vamos agora salvar numa collection pra analisar depois.
+
+db.tweets.mapReduce( function() { 
+						words = this.retweeted_status.text.replace(/\./g,"").split(" ").forEach(function(w) { 
+							emit(w,1);
+						})
+					 },
+					 function(k,v) { return Array.sum(v); },
+					 {
+					 	out: "words"
+					 })
+
+{
+	"result" : "words",
+	"timeMillis" : 129004,
+	"counts" : {
+		"input" : 359098,
+		"emit" : 5834876,
+		"reduce" : 918291,
+		"output" : 135659
+	},
+	"ok" : 1
+}
+
+Frequencia de palavras
+
+> db.words.find().sort({ value: -1}).limit(20)
+{ "_id" : "de", "value" : 184008 }
+{ "_id" : "a", "value" : 133356 }
+{ "_id" : "o", "value" : 128919 }
+{ "_id" : "golpe", "value" : 128591 }
+{ "_id" : "que", "value" : 92818 }
+{ "_id" : "e", "value" : 81227 }
+{ "_id" : "la", "value" : 70977 }
+{ "_id" : "democracia", "value" : 70484 }
+{ "_id" : "é", "value" : 60104 }
+{ "_id" : "da", "value" : 55557 }
+{ "_id" : "do", "value" : 54606 }
+{ "_id" : "contra", "value" : 50385 }
+{ "_id" : "", "value" : 49224 }
+{ "_id" : "en", "value" : 46026 }
+{ "_id" : "no", "value" : 43262 }
+{ "_id" : "não", "value" : 40166 }
+{ "_id" : "Brasil", "value" : 36361 }
+{ "_id" : "y", "value" : 34788 }
+{ "_id" : "el", "value" : 33794 }
+{ "_id" : "em", "value" : 31785 }
+{ "_id" : "se", "value" : 29344 }
+{ "_id" : "por", "value" : 28667 }
+{ "_id" : "O", "value" : 27312 }
+{ "_id" : "para", "value" : 27225 }
+{ "_id" : "um", "value" : 25710 }
+{ "_id" : "un", "value" : 25366 }
+{ "_id" : "Golpe", "value" : 24900 }
+{ "_id" : "na", "value" : 24429 }
+{ "_id" : "Dilma", "value" : 24064 }
+{ "_id" : "vai", "value" : 23370 }
+{ "_id" : "es", "value" : 23123 }
+{ "_id" : "com", "value" : 20387 }
+{ "_id" : "pela", "value" : 19892 }
+{ "_id" : "A", "value" : 18010 }
+{ "_id" : "los", "value" : 17390 }
+{ "_id" : "ter", "value" : 16973 }
+{ "_id" : "q", "value" : 16948 }
+{ "_id" : "ao", "value" : 16024 }
+{ "_id" : "dos", "value" : 15676 }
+{ "_id" : "GOLPE", "value" : 15573 }
+
+
+
+
+db.tweets.group({ key: {"entities.hashtags.text":1}, reduce: function(curr,result) {result.total += 1; }, initial: {total:0}  })
+
+Nao funcionou.
+
+db.tweets.aggregate([ 
+	{ $project: { hashtag : "$entities.hashtags.text"} }, 
+	{ $group  : { _id: {hashtag : "$hashtag" }, 
+				  total: {$sum : 1} }},
+	{ $sort   : { total : -1 }},
+	{ $limit  : 20 }
+])
+
+{ "_id" : { "hashtag" : [ ] }, "total" : 267687 }
+{ "_id" : { "hashtag" : [ "DilmaFicaGolpeSai" ] }, "total" : 6032 }
+{ "_id" : { "hashtag" : [ "RespeiteAsUrnas" ] }, "total" : 5494 }
+{ "_id" : { "hashtag" : [ "GolpeAquiNãoPassa" ] }, "total" : 5307 }
+{ "_id" : { "hashtag" : [ "NoAlGolpeADilma" ] }, "total" : 5261 }
+{ "_id" : { "hashtag" : [ "ImpeachmentDay" ] }, "total" : 3885 }
+{ "_id" : { "hashtag" : [ "NaoVaiTerGolpe" ] }, "total" : 3429 }
+{ "_id" : { "hashtag" : [ "AlutaComeçou" ] }, "total" : 2714 }
+{ "_id" : { "hashtag" : [ "Impeachment" ] }, "total" : 2712 }
+{ "_id" : { "hashtag" : [ "Brasil" ] }, "total" : 2072 }
+{ "_id" : { "hashtag" : [ "GolpeAquiNaoPassa" ] }, "total" : 1871 }
+{ "_id" : { "hashtag" : [ "ElMundoConDilma" ] }, "total" : 1639 }
+{ "_id" : { "hashtag" : [ "ALutaComeçou" ] }, "total" : 1483 }
+{ "_id" : { "hashtag" : [ "NãoVaiTerGolpe" ] }, "total" : 1223 }
+{ "_id" : { "hashtag" : [ "OBrasilPrecisa" ] }, "total" : 770 }
+{ "_id" : { "hashtag" : [ "ForaDilmaFueraMaduro" ] }, "total" : 675 }
+{ "_id" : { "hashtag" : [ "InternetJusta" ] }, "total" : 492 }
+{ "_id" : { "hashtag" : [ "BrasilContraOGolpe" ] }, "total" : 491 }
+{ "_id" : { "hashtag" : [ "ALutaContinua" ] }, "total" : 470 }
+{ "_id" : { "hashtag" : [ "ondeOsFracosNaoTêmVez" ] }, "total" : 464 }
+
+
+
+$ cp AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv textos-preclassificados-abril-e-agosto-20161117.csv
+$ wc -l textos-preclassificados-abril-e-agosto-20161117.csv                                        
+     970 textos-preclassificados-abril-e-agosto-20161117.csv
+$ wc -l AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv                                                 
+     970 AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv
+$ wc -l AmostraAGOSTOREVIS1411.utf8.csv                                                            
+     981 AmostraAGOSTOREVIS1411.utf8.csv
+$ cat AmostraAGOSTOREVIS1411.utf8.csv >> textos-preclassificados-abril-e-agosto-20161117.csv       
+$ wc -l textos-preclassificados-abril-e-agosto-20161117.csv
+
+# 15/11 18:04
+# Bag of words com stopwords
+# Planilha do GDcos
+# 	contra = 655
+# 	pro = 133
+# 	indefinido = 195
+# training_features= 736
+# test_features= 247
+# accuracy= 0.4939271255060729
+# Most Informative Features
+#                    mesmo = True           indefi : contra =     12.3 : 1.0
+#                    dando = True           indefi : contra =     12.3 : 1.0
+#                      fez = True           indefi : contra =     12.3 : 1.0
+#                    renan = True           indefi : contra =     12.3 : 1.0
+#                       12 = True              pro : contra =     11.5 : 1.0
+
+# 15/11 21:12 - Com nova classificacao de Abril enviada pela Tayrine
+# Bagofwords ainda co stopwords
+# training_features= 726
+# test_features= 244
+# accuracy= 0.6598360655737705
+# most_informative_features= [('quando', True), ('vou', True), ('corao', True), ("sim'", True), ('dizer', True), ('imagina', True), ('deu', True), ('copa', True), ('10', True), ('manter', True), ('coisa', True), ("'eu", True), ('algum', True), ('militncia', True), ('sei', True), ('p', True), ('te', True), ('dias', True), ('proibido', True), ('&gt;', True), ('silvio', True), ('deixar', True), ('ai', True), ('funkeiros', True), ('perto', True), ('boca', True), ('entender', True), ('gritando', True), ('mesmo', True), ('faz', True), ('tu', True), ('realmente', True), ('total', True), ('segue', True), ('dinheiro', True), ('pouco', True), ('quanto', True), ('legalidade', True), ('sade', True), ('preo', True), ('ela', True), ('eu', True), ('#impeachmentday', True), ('hora', True), ('stf', True), ('eh', True), ('fala', True), ('democracia', True), ('#golpeaquinopassa', True), ('6', True), ('engraado', True), ('20', True), ('escolher', True), ('100', True), ('vida', True), ('continua', True), ('ok', True), ('costa', True), ('br', True), ('farsa', True), ('houver', True), ('quero', True), ('casa', True), ('juntos', True), ('moraes', True), ('amigos', True), ('for', True), ('bola', True), ('portal', True), ('querido', True), ('cozinha', True), ("'se", True), ('mostra', True), ('protestos', True), ('participar', True), ('gavies', True), ('3', True), ('voltar', True), ('pessoa', True), ('ba', True), ("'nunca", True), ('caia', True), ('numa', True), ('sero', True), ('senador', True), ("'no", True), ('@portalvermelho', True), ('indo', True), ('pr-golpe', True), ('vitria', True), ('transmitir', True), ('filha', True), ('ah', True), ('galera', True), ('tbm', True), ('oq', True), ('@brasil_de_fato', True), ('vejo', True), ('17/04', True), ('@folha', True)]
+# -------
+# Most Informative Features
+#                   quando = True              pro : contra =     20.0 : 1.0
+#                      vou = True              pro : contra =     14.7 : 1.0
+#                    corao = True              pro : contra =     14.7 : 1.0
+#                     sim' = True           indefi : contra =     14.6 : 1.0
+#                    dizer = True              pro : contra =     12.0 : 1.0
+
+# 16/11 08:36 - Com a nova classificacao de Agosto enviada pela Tayrine
+# Bagofwords ainda com stopwords
+# training_features= 735
+# test_features= 246
+# accuracy= 0.4959349593495935
+# most_informative_features= [('pt', True), ('#somostodosgolpistas', True), ('fez', True), ('lewandowski', True), ('manobra', True), ('dois', True), ('dando', True), ('ftima', True), ('dizer', True), ('william', True), ('collor', True), ('salvar', True), ('esses', True), ('12', True), ('dinheiro', True), ('te', True), ('pf', True), ('@o_antagonista', True), ('perde', True), ('deram', True), ('mulher', True), ('isto', True), ('venezuela', True), ('verdadeiro', True), ('homofbico', True), ('democracia', True), ('processo', True), ('porque', True), ('separao', True), ('renan', True), ('mesmo', True), ('constituio', True), ('pessoal', True), ('vendo', True), ('serviu', True), ('estava', True), ('inabilitao', True), ('certo', True), ('piada', True), ('poderia', True), ('passo', True), ('cedo', True), ('fatima', True), ('ri', True), ('deu', True), ('@ronaldocaiado', True), ('janaina', True), ('lolla', True), ('bonner', True), ('olha', True), ('deste', True), ('rs', True), ('palavras', True), ('defesa', True), ('votou', True), ('dias', True), ('continuar', True), ('anos', True), ('eua', True), ('voces', True), ('racista', True), ('juntos', True), ("'o", True), ('serem', True), ('di', True), ('urgente', True), ('paz', True), ('64', True), ("querida'", True), ('coisas', True), ('federal', True), ('amigos', True), ('lula', True), ('fui', True), ('limpa', True), ('ms', True), ('chegando', True), ('verso', True), ('populares', True), ('meios', True), ('dele', True), ('reclamando', True), ('confiar', True), ('faa', True), ('editorial', True), ('porm', True), ('august', True), ('internet', True), ('duro', True), ('x', True), ('elegvel', True), ('14', True), ('deciso', True), ('temos', True), ('fcil', True), ('comunista', True), ('@jannettepaz58', True), ('joaquim', True), ('prouni', True), ('rolar', True)]
+# -------
+# Most Informative Features
+#                       pt = True              pro : contra =     16.3 : 1.0
+#     #somostodosgolpistas = True              pro : contra =     16.3 : 1.0
+#                      fez = True           indefi : contra =     12.7 : 1.0
+#              lewandowski = True              pro : contra =     12.4 : 1.0
+#                  manobra = True              pro : contra =     11.2 : 1.0
+
+# 16/11 08:48 - Uniao dos arquivos de Abril e Agosto enviados pela Tayrine
+# Bagofwords com stopwords
+# training_features= 1462
+# test_features= 489
+# accuracy= 0.48261758691206547
+# most_informative_features= [('outra', True), ('isto', True), ('#foradilma', True), ('#somostodosgolpistas', True), ("sim'", True), ('dias', True), ('10', True), ('sei', True), ('continuar', True), ('crimes', True), ('corao', True), ('funkeiros', True), ('acontecendo', True), ('ftima', True), ('reitera', True), ('dizer', True), ('falando', True), ('chamar', True), ('#golpeaquinopassa', True), ('estava', True), ('sade', True), ('dillma', True), ('total', True), ('dinheiro', True), ('jnior', True), ('vi', True), ('preo', True), ('tchau', True), ('entendeu', True), ('u', True), ('duvida', True), ('quase', True), ('eleger', True), ('legalidade', True), ('tu', True), ('palavras', True), ('pt', True), ('vou', True), ('medo', True), ('atual', True), ('chama', True), ('vendo', True), ('poderia', True), ('vejo', True), ('silvio', True), ('mandato', True), ('&gt;', True), ('deu', True), ('6', True), ('candidato', True), ('2014', True), ('proibido', True), ('esperando', True), ('100', True), ('te', True), ('pr', True), ('#psdb', True), ('inabilitao', True), ('texto', True), ("'eu", True), ('janaina', True), ('br', True), ('@ronaldocaiado', True), ('saiu', True), ('gritando', True), ('manter', True), ('constituio', True), ('crime', True), ('luta', True), ('mesmo', True), ('acordo', True), ('rolando', True), ('boca', True), ('deixar', True), ('salvar', True), ('lei', True), ('ai', True), ('copa', True), ('imagina', True), ('c', True), ('lewandowski', True), ('faz', True), ('petistas', True), ('golpistas', True), ('quando', True), ('estado', True), ('digo', True), ('perto', True), ('stf', True), ('pmdb', True), ('democracia', True), ('gente', True), ('coisa', True), ('fala', True), ('vamos', True), ('#impeachmentday', True), ('tem', True), ('#naovaitergolpe', True), ('dedo', True), ('corrigir', True)]
+# -------
+# Most Informative Features
+#                    outra = True              pro : contra =     16.0 : 1.0
+#                     isto = True              pro : contra =     13.1 : 1.0
+#               #foradilma = True              pro : contra =     13.1 : 1.0
+#     #somostodosgolpistas = True              pro : contra =     13.1 : 1.0
+#                     sim' = True           indefi : contra =     12.2 : 1.0

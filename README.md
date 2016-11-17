@@ -297,7 +297,9 @@ Testamos a acurácia com diferentes bases de treinamento:
 5. AmostraABRIL-AriadneeMarisaREDUZIDA.utf8.csv (Planilha do Google v20161111)
 
 
-#### Classificação em termos de Apoio
+## Classificação em termos de Apoio
+
+#### Testes de Acurácia
 
 |Base de Treinamento|#Pros|#Contras|#Indiferente|Acurácia|
 |:--|--:|--:|--:|:--:|
@@ -307,7 +309,17 @@ Testamos a acurácia com diferentes bases de treinamento:
 |4|303|1323|325|48.26%|
 |5|167|267|137|60.41%|
 
-#### Classificação em termos de Enquadramento
+#### Classificação com arquivo 2
+
+|Cenário|# Textos|Tempo|# Pró|# Contra|# Indefinido|
+|:--|--:|:--:|--:|--:|--:|
+|Todos os tweets de Abr|359.098|17:16.73|49.778 (14%)|254.180 (71%)|55.140 (15%)|
+|Todos de Abr só os com 'golp'|247.839|04:08.84|40.366 (16%)|162.769 (66%)|44.704 (18%)|
+|Abr+Ago só os com 'golp'|785.551|14:13.94|143.891 (18%)|505.791 (64%)|135.869 (17%)|
+
+## Classificação em termos de Enquadramento
+
+#### Testes de Acurácia
 
 |Base|#Dem|#Eco|#Min|#Cor|#Int|#Ide|#Cot|#Mid|#His|#Mob|#Ofe|#Out|Acurácia|
 |:--|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|:--:|
@@ -317,39 +329,37 @@ Testamos a acurácia com diferentes bases de treinamento:
 |4|391|64|42|119|99|82|164|126|105|173|158|428|17.69%|
 |5|103|22|10|40|27|22|64|28|19|60|37|139|16.43%|
 
-Vamos utilizar apenas o arquivo `AmostraABRIL-AriadneeMarisaREVIS2.xls` para fazer a classificação de Apoio.
+#### Classificação com arquivo 4
 
-|Cenário|# Textos|Tempo|# Pró|# Contra|# Indefinido|
-|:--|--:|:--:|--:|--:|--:|
-|Todos os tweets de Abr|359.098|17:16.73|49.778 (14%)|254.180 (71%)|55.140 (15%)|
-|Todos de Abr com 'golp'|247.839|04:08.84|40.366 (16%)|162.769 (66%)|44.704 (18%)|
+|Cenário|Total de Twets|Total Classificado ('golp')|
+|:--|--:|--:|
+|Só Abr|359.098|247.839|
+|Abr+Ago|1.191.347|803.941|
 
-Usamos o arquivo `textos-preclassificados-abril-e-agosto-20161117.csv` para rodar a classificação de enquadramento. Segue resultado das classes mais prováveis.
+Distribuição da classe de maior probabilidade:
 
-Total de tweets: 359.098
+|Classe|Só Abr|Abr+Ago|
+|:--:|--:|--:|
+|MINORIAS|60.953|139.852|
+|INTERNACIONAL|32.456|140.105|
+|HISTORIA|31.128|119.381|
+|ECONOMIA|21.834|57.723|
+|MOBILIZACAO|18.867|33.089|
+|IDEOLOGIA|18.729|93.549|
+|OUTROS|16.664|12.280|
+|DEMOCRACIA|13.913|93.549|
+|COTIDIANO|12.000|41.251|
+|OFENSAS|7.511|263.90|
+|MIDIA|7.376|26.158|
+|CORRUPCAO|6.408|46.472|
 
-Total de tweets classificados (apenas aqueles com o termo 'golp'): 247.839
+Ainda tem muito o que ser feito, como:
 
-Distribuição:
-
-|Classe|Qtd|
-|:--:|--:|
-|MINORIAS|60.953|
-|INTERNACIONAL|32.456|
-|HISTORIA|31.128|
-|ECONOMIA|21.834|
-|MOBILIZACAO|18.867|
-|IDEOLOGIA|18.729|
-|OUTROS|16.664|
-|DEMOCRACIA|13.913|
-|COTIDIANO|12.000|
-|OFENSAS|7.511|
-|MIDIA|7.376|
-|CORRUPCAO|6.408|
-
-Ainda tem muito o que ser feito, como
-
-* Agregar os dados também do período de agosto
+* ~~Agregar os dados também do período de agosto~~
 * Ajustar a geração de features pra classificação
-* ~Balancear as quantidades de cada categoria na base de treinamento.~
+* ~~Balancear as quantidades de cada categoria na base de treinamento.~~
+ - Não balanceou, mas já deu uma melhorada boa no arquivo `AmostraABRIL-AriadneeMarisaREDUZIDA`. Infelizmente, não impactou no resultado.
 * Consultas georeferenciadas
+* ~~Confirmar se carga da base de treinamentos está inserindo corpus em mais de uma chave.~~
+  - Não estava. Foi corrigido. 
+* Refazer testes de acurácia apos correção do item acima.

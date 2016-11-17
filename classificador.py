@@ -60,7 +60,9 @@ def load_preclassified_corpora(filename,classification):
 		# 1.2.1.2. Ler como Dict e acessar os campos atraves de chaves: row['nome'], row['endereco']...
 		reader = csv.DictReader(csvfile, delimiter=',', quotechar='"')
 
+		i =0
 		for row in reader:
+			i += 1
 			# 1.2.1.1 
 			# print(row[4],row[5],row[6],row[7])
 
@@ -73,8 +75,9 @@ def load_preclassified_corpora(filename,classification):
 			# ao 'enquadramento' do tweet em uma taxonomia de termos
 			# por nos definida.
 			for category in categories:
-				if row[category] is not None and len(row[category]) and int(row[category]):
+				if row[category] is not None and len(row[category]) > 0 and int(row[category]):
 					label = category
+					classified_corpora[label].append(row['TEXTO'])
 
 				# O for acima eh a mesma coisa que a sequencia de ifs abaixo, 
 				# para o caso da classificacao por 'apoio':
@@ -87,8 +90,13 @@ def load_preclassified_corpora(filename,classification):
 				# 	label = 'INDEFINIDO' 
 			
 			
-			classified_corpora[label].append(row['TEXTO'])
+			
 
+		qtd = 0
+		for category in categories:
+			qtd += len(classified_corpora[category])
+
+		print('!!!!!!!!! %i de %i' % (qtd,i))
 
 		if classification == 'apoio':
 			print('%s|%i|%i|%i||' % (filename,
@@ -289,7 +297,7 @@ def classify_text(classifier):
 			'probabilidades' : probabilidades
 		}
 		
-		id_texto_classificado = db.tweets_classificados_201611162016.insert_one(texto_classificado)
+		id_texto_classificado = db.tweets_classificados_apo_201611170606.insert_one(texto_classificado)
 		# print("  Resultado da classificacao salvo no banco com id",id_texto_classificado)
 
 

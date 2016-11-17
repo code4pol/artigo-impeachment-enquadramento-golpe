@@ -41,43 +41,53 @@ CATEGORY_GROUP = {
 
 
 # 1.2. Carregado a partir do CSV
-def load_preclassified_corpora(filename,classification):
+def load_preclassified_corpora(filenames):
 
-	categories = CATEGORY_GROUP[classification]
+	# categories = CATEGORY_GROUP[classification]
 
-	classified_corpora = collections.defaultdict(list) # um dict como outro qualquer, que atribuiu 
-													   # uma lista vazia automaticamente a novas chaves
-													   # criadas, evitando fazer d['k'] = {} 
-													   # So isso :-)
+	total_classified_corpora = {}
 
-	with open(filename, newline='') as csvfile:
-		
-		# 1.2.1. Como acessar os campos do CSV
 
-		# 1.2.1.1 Ler CSV como Array e acessar os campos atraves de indices: row[0], row[1]...
-		# reader = csv.reader(csvfile, delimiter=',', quotechar='"')
+	# TODO Que nome horrivel de variavel
+	for classification in filenames:
 
-		# 1.2.1.2. Ler como Dict e acessar os campos atraves de chaves: row['nome'], row['endereco']...
-		reader = csv.DictReader(csvfile, delimiter=',', quotechar='"')
+		categories = CATEGORY_GROUP[classification]
+		filename = filenames[classification]
+		category_classified_corpora = collections.defaultdict(list) # um dict como outro qualquer, que atribuiu 
+														   # uma lista vazia automaticamente a novas chaves
+														   # criadas, evitando fazer d['k'] = {} 
+														   # So isso :-)
 
-		i =0
-		for row in reader:
-			i += 1
-			# 1.2.1.1 
-			# print(row[4],row[5],row[6],row[7])
 
-			# 1.2.1.2.
-			# print(row['TEXTO'],row['PRO'],row['CONTRA'],row['INDEFINIDO'],bag_of_words(row['TEXTO']))
+		with open(filename, newline='') as csvfile:
+			
+			# 1.2.1. Como acessar os campos do CSV
 
-			# 'categories' eh utilizado para se definir qual classificacao 
-			# se deseja fazer. No nosso caso, temos duas possibilidades:
-			# quanto ao 'apoio' do tweet ao impeachment e quanto
-			# ao 'enquadramento' do tweet em uma taxonomia de termos
-			# por nos definida.
-			for category in categories:
-				if row[category] is not None and len(row[category]) > 0 and int(row[category]):
-					label = category
-					classified_corpora[label].append(row['TEXTO'])
+			# 1.2.1.1 Ler CSV como Array e acessar os campos atraves de indices: row[0], row[1]...
+			# reader = csv.reader(csvfile, delimiter=',', quotechar='"')
+
+			# 1.2.1.2. Ler como Dict e acessar os campos atraves de chaves: row['nome'], row['endereco']...
+			reader = csv.DictReader(csvfile, delimiter=',', quotechar='"')
+
+			i =0
+			for row in reader:
+				i += 1
+
+				# 1.2.1.1 
+				# print(row[4],row[5],row[6],row[7])
+
+				# 1.2.1.2.
+				# print(row['TEXTO'],row['PRO'],row['CONTRA'],row['INDEFINIDO'],bag_of_words(row['TEXTO']))
+
+				# 'categories' eh utilizado para se definir qual classificacao 
+				# se deseja fazer. No nosso caso, temos duas possibilidades:
+				# quanto ao 'apoio' do tweet ao impeachment e quanto
+				# ao 'enquadramento' do tweet em uma taxonomia de termos
+				# por nos definida.
+				for category in categories:
+					if row[category] is not None and len(row[category]) > 0 and int(row[category]):
+						label = category
+						category_classified_corpora[label].append(row['TEXTO'])
 
 				# O for acima eh a mesma coisa que a sequencia de ifs abaixo, 
 				# para o caso da classificacao por 'apoio':
@@ -88,38 +98,42 @@ def load_preclassified_corpora(filename,classification):
 				# 	label = 'CONTRA'
 				# elif int(row('INDEFINIDO']):
 				# 	label = 'INDEFINIDO' 
-			
-			
-			
 
-		qtd = 0
-		for category in categories:
-			qtd += len(classified_corpora[category])
-
-		print('!!!!!!!!! %i de %i' % (qtd,i))
-
-		if classification == 'apoio':
-			print('%s|%i|%i|%i||' % (filename,
-									len(classified_corpora['PRO']),
-									len(classified_corpora['CONTRA']),
-									len(classified_corpora['INDEFINIDO'])))
-		elif classification == 'enquadramento':
-			print('%s|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|' % (filename,
-															len(classified_corpora['DEMOCRACIA']),
-															len(classified_corpora['ECONOMIA']),
-															len(classified_corpora['MINORIAS']),
-															len(classified_corpora['CORRUPCAO']),
-															len(classified_corpora['INTERNACIONAL']),
-															len(classified_corpora['IDEOLOGIA']),
-															len(classified_corpora['COTIDIANO']),
-															len(classified_corpora['MIDIA']),
-															len(classified_corpora['HISTORIA']),
-															len(classified_corpora['MOBILIZACAO']),
-															len(classified_corpora['OFENSAS']),
-															len(classified_corpora['OUTROS'])))
+				total_classified_corpora[classification] = category_classified_corpora
 
 
-	return classified_corpora
+			qtd = 0
+			for category in categories:
+				qtd += len(category_classified_corpora[category])
+
+			print('[%s] %i registros totais. %i classificações' % (classification,i,qtd))
+
+			if classification == 'apoio':
+				print('%s|%i|%i|%i|%i|%i||' % (filename,
+							i,
+							qtd,
+							len(category_classified_corpora['PRO']),
+							len(category_classified_corpora['CONTRA']),
+							len(category_classified_corpora['INDEFINIDO'])))
+			elif classification == 'enquadramento':
+				print('%s|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|' % (filename,
+							i,
+							qtd,
+							len(category_classified_corpora['DEMOCRACIA']),
+							len(category_classified_corpora['ECONOMIA']),
+							len(category_classified_corpora['MINORIAS']),
+							len(category_classified_corpora['CORRUPCAO']),
+							len(category_classified_corpora['INTERNACIONAL']),
+							len(category_classified_corpora['IDEOLOGIA']),
+							len(category_classified_corpora['COTIDIANO']),
+							len(category_classified_corpora['MIDIA']),
+							len(category_classified_corpora['HISTORIA']),
+							len(category_classified_corpora['MOBILIZACAO']),
+							len(category_classified_corpora['OFENSAS']),
+							len(category_classified_corpora['OUTROS'])))
+
+
+	return total_classified_corpora
 
 # 1.3. Lido diretamente a partir do Google Spreadsheet
 # TODO (ver gsheet.py)
@@ -305,16 +319,15 @@ if __name__ == '__main__':
 
 	# PASSO 1. Carregar os dados pre-classificados
 
-	# filename = 'datasets/20161116/AmostraABRIL-AriadneeMarisaREDUZIDA.utf8.csv' # 60%, Enquadramento: 16.43
-	# filename = 'datasets/treinamento/20161115/textos-preclassificados-abril-e-agosto-20161117.csv'	# 48%, Enquadramento: 17.69%
-	# filename = 'datasets/20161115/AmostraAGOSTOREVIS1411.utf8.csv' # 50%, Enquadramento: 17.26%
-	filename = 'datasets/treinamento/20161115/AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv' # 66%, Enquadramento: 14.69%
-	# filename = 'datasets/AmostraAGOSTO - AMOSTRAAGO10003110-2.csv' # Apoio: 49%, Enquadramento: 14%
+	filename5 = 'datasets/treinamento/20161116/AmostraABRIL-AriadneeMarisaREDUZIDA.utf8.csv' # 60%, Enquadramento: 16.43, 19.66
+	# filename4 = 'datasets/treinamento/20161115/textos-preclassificados-abril-e-agosto-20161117.csv'	# 48%, Enquadramento: 17.69%, 18.22%
+	# filename3 = 'datasets/treinamento/20161115/AmostraAGOSTOREVIS1411.utf8.csv' # 50%, Enquadramento: 17.26%, 18.58%
+	filename2 = 'datasets/treinamento/20161115/AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv' # 66%, Enquadramento: 14.69%, 16.72%
+	# filename1 = 'datasets/treinamento/AmostraAGOSTO - AMOSTRAAGO10003110-2.csv' # Apoio: 49%, Enquadramento: 14%, 12.76%
 
-	classification = 'apoio'
-	# classification = 'enquadramento'
-
-	preclassified_corpora = load_preclassified_corpora(filename,classification) 
+	preclassified_corpora = load_preclassified_corpora({
+		"apoio" : filename2,
+		"enquadramento" : filename5})
 
 	# PASSO 2. Cálculo das features dos textos pre-classificados
 	preclassified_features = get_features(preclassified_corpora)
@@ -337,6 +350,6 @@ if __name__ == '__main__':
 	# adhoc_classification_tests(classifier)
 
 	# PASSO 6. Classificacao da base de dados real
-	classify_text(classifier)
+	# classify_text(classifier)
 
 

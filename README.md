@@ -290,11 +290,11 @@ No entanto, nem todos os tweets seguem o idioma presente na proporiedade `lang`.
 
 Testamos a acurácia com diferentes bases de treinamento:
 
-1. AmostraAGOSTO - AMOSTRAAGO10003110-2.csv
+1. AmostraAGOSTO - AMOSTRAAGO10003110-2.csv (Planilha do Google v20161111)
 2. AmostraABRIL-AriadneeMarisaREVIS2.utf8.csv
 3. AmostraAGOSTOREVIS1411.utf8.csv
 4. textos-preclassificados-abril-e-agosto-2016111.csv (AmostraABRIL-AriadneeMarisaREVIS2.xls+AmostraAGOSTOREVIS1411.xls)
-5. AmostraABRIL-AriadneeMarisaREDUZIDA.utf8.csv (Planilha do Google v20161111)
+5. AmostraABRIL-AriadneeMarisaREDUZIDA.utf8.csv 
 
 
 ## Classificação em termos de Apoio

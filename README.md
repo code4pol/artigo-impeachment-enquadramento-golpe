@@ -353,6 +353,25 @@ Distribuição da classe de maior probabilidade:
 |MIDIA|7.376|26.158|
 |CORRUPCAO|6.408|46.472|
 
+Lembram que o algoritmo de classificação, na verdade, calcula a probabilidade de cada uma das classes e aponta aquela com maior valor? Pois é, eu somei todas as probabilidades de cada classe. Vejam abaixo. 
+
+|Enquadramento|∑Probabilidade|
+|:--|--:|
+|CORRUPCAO|60101.098497207546|
+|COTIDIANO|40882.65259785218|
+|DEMOCRACIA|56122.21306812528|
+|ECONOMIA|75491.73388663886|
+|HISTORIA|117251.04461587015|
+|IDEOLOGIA|82426.73380597659|
+|INTERNACIONAL|97365.68430156795|
+|MIDIA|44937.85497099285|
+|MINORIAS|124484.76946453906|
+|MOBILIZACAO|36989.14343670376|
+|OFENSAS|46429.29648471466|
+|OUTROS|21458.774869916313|
+
+Significa que, no geral, a classe que ganhou maior probabilidade global de enquadramento foi CORRUPCAO, seguida de COTIDIANO etc.
+
 Ainda tem muito o que ser feito, como:
 
 * ~~Agregar os dados também do período de agosto~~

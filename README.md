@@ -372,6 +372,15 @@ Lembram que o algoritmo de classificação, na verdade, calcula a probabilidade 
 
 Significa que, no geral, a classe que ganhou maior probabilidade global de enquadramento foi CORRUPCAO, seguida de COTIDIANO etc.
 
+Fiz o mesmo para a classificação sobre o apoio ao impeachment.
+
+|Apoio|∑Probabilidade|
+|:--|--:|
+|CONTRA|427846.87994303973|
+|INDEFINIDO|186325.4502970152|
+|PRO|171378.66976033096|
+
+
 Ainda tem muito o que ser feito, como:
 
 * ~~Agregar os dados também do período de agosto~~

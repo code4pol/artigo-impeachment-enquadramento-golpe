@@ -43,13 +43,9 @@ CATEGORY_GROUP = {
 # 1.2. Carregado a partir do CSV
 def load_preclassified_corpora(filenames):
 
-	# categories = CATEGORY_GROUP[classification]
-
 	total_classified_corpora = {}
 
-
-	# TODO Que nome horrivel de variavel
-	for classification in filenames:
+	for classification in filenames.keys():
 
 		categories = CATEGORY_GROUP[classification]
 		filename = filenames[classification]
@@ -106,17 +102,17 @@ def load_preclassified_corpora(filenames):
 			for category in categories:
 				qtd += len(category_classified_corpora[category])
 
-			print('[%s] %i registros totais. %i classificações' % (classification,i,qtd))
+			# print('[%s] %i registros totais. %i classificações' % (classification,i,qtd))
 
 			if classification == 'apoio':
-				print('%s|%i|%i|%i|%i|%i||' % (filename,
+				print('|apoio|%s|%i|%i|%i|%i|%i||' % (filename,
 							i,
 							qtd,
 							len(category_classified_corpora['PRO']),
 							len(category_classified_corpora['CONTRA']),
 							len(category_classified_corpora['INDEFINIDO'])))
 			elif classification == 'enquadramento':
-				print('%s|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|' % (filename,
+				print('enquadramento|%s|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|%i|' % (filename,
 							i,
 							qtd,
 							len(category_classified_corpora['DEMOCRACIA']),
@@ -137,6 +133,51 @@ def load_preclassified_corpora(filenames):
 
 # 1.3. Lido diretamente a partir do Google Spreadsheet
 # TODO (ver gsheet.py)
+
+
+# 2.1. Exemplo hardcoded
+# [({:},),({:},)]
+# features_treinamento = [({'golpe':True},'contra'),
+# 	
+
+# 2.2. Calculo dinamico das features
+#
+# Transforma {	'apoio : {
+#					'pos' : ['texto1','texto2',...], 
+#					'neg' : ['texto',...]}},
+#				'enquadramento' : {
+#					'democracia' : ['texto1','texto2',...],
+#					'cotidiano' : [...,...]}
+#
+# em 		 {	'apoio : {
+#					'pos' : [{'': True, 'reformular': True, 'a': True, '@islent': True, "'golpe'": True, 'para': True, 'e': True, 'da': True, 'qual': True, 'no': True, 'ponto': True, 'contra': True, 'soluo': True, 'favor': True, 'seu': True, 'vc': True, 'vamos': True, 'o': True, 'seria': True, 'de': True, 'democracia': True, 'vista': True, 'ento': True, 'pas': True}, 
+#							 {}, {}...], 
+#					'neg' : [{},{},...] }},
+#				'enquadramento' : {
+#					...
+#				}
+def get_features(corpora):
+	
+	features = {}
+
+	# apoio e enquadramento
+	for classification in corpora.keys():
+		
+		classification_features = collections.defaultdict(list)
+
+		# pro/contra/indefinido ou democracia/economia/politica...
+		for category in corpora[classification].keys(): 
+
+			corpus_list = corpora[classification][category]
+			print('[%s] %s: %d' % (classification,category,len(corpus_list)))
+
+			# Pra cada texto da atual categoria
+			for corpus in corpus_list:
+				classification_features[category].append(bag_of_words(corpus))
+
+		features[classification] = classification_features
+
+	return features  
 
 ####################
 # 1. Funcao geradora de features
@@ -159,30 +200,6 @@ def bag_of_words(sentence):
 	return dict([(word, True) for word in words])
 	# TODO1 Remover stopwords
 	# TODO2 Incluir bigramas
-
-# 1. Exemplo
-# [({:},),({:},)]
-# features_treinamento = [({'golpe':True},'contra'),
-# 	
-
-# Transforma {	'pos' : ['texto1','texto2',...], 
-#				'neg' : ['texto',...]}
-#
-# em 		 {	'pos' : [{'plot':True, ':':True, 'teen':True ...}, {}, {}...], 
-#				'neg' : [{},{},...] }
-def get_features(corpora):
-	features = collections.defaultdict(list)
-
-	# Pra cada categoria .e pos, contra e indefinido
-	for category in corpora.keys(): 
-
-		print(' %s: %d' % (category,len(corpora[category])))
-
-		# Pra cada texto da atual categoria
-		for corpus in corpora[category]:
-			features[category].append(bag_of_words(corpus))
-
-	return features  
 
 
 # Funcao auxiliar

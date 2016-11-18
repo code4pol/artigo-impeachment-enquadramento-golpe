@@ -203,7 +203,7 @@ def bag_of_words(sentence):
 def split_features(features, split):
 
 	# splitted = training : {
-	# 	apoio : [],
+	# 	apoio : [({'se': True, 'motivo': True,...},'PRO'),({'o': True, 'golpe': True,…}, 'CONTRA'), ...],
 	# 	enquadramento : []
 	# },
 	# testing : {
@@ -225,6 +225,7 @@ def split_features(features, split):
 
 		# e.g. (pro,[...]) ou (contra,[]) ou ...
 		for label, feats in classification_features.items():
+			# print('[%s] label=%s feats=%i' % (classification,label,len(feats)))
 			# label=contra 		len(feats)=655 (492+163)
 			# label=pro 		len(feats)=133
 			# label=indefinido  len(feats)=195
@@ -246,7 +247,7 @@ def get_classifiers(training_features):
 	classifiers = {}
 
 	for classification in training_features.keys():
-		# print('training_features[classification]=',training_features[classification])
+		# print('training_features[%s]=%i' %(classification,len(training_features[classification]['DEMOCRACIA'])))
 		classifiers[classification] = nltk.NaiveBayesClassifier.train(training_features[classification])
 
 	return classifiers
@@ -255,10 +256,13 @@ def get_classifiers(training_features):
 def check_accuracy(classifiers, testing_features):
 
 	for classification in testing_features:
+		
 		classifier = classifiers[classification]
+
+		print('testing_features=',testing_features[classification][0])
 		accuracy = nltk.classify.accuracy(classifier, testing_features[classification])
 
-		print('Accuracy for %s: %i' % (classification,accuracy))
+		print('Accuracy for',classification,':',accuracy)
 
 		# Listagem das features mais relevantes
 		# print('most_informative_features=',classifier.most_informative_features())
@@ -397,6 +401,6 @@ if __name__ == '__main__':
 	# adhoc_classification_tests(classifier)
 
 	# PASSO 6. Classificacao da base de dados real
-	# classify_text(classifier)
+	classify_text(classifier)
 
 

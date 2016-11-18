@@ -163,7 +163,7 @@ def get_features(corpora):
 		for category in corpora[classification].keys(): 
 
 			corpus_list = corpora[classification][category]
-			print('[%s] %s: %d' % (classification,category,len(corpus_list)))
+			# print('[%s] %s: %d' % (classification,category,len(corpus_list)))
 
 			# Pra cada texto da atual categoria
 			for corpus in corpus_list:
@@ -202,26 +202,24 @@ def bag_of_words(sentence):
 # uma das categorias.
 def split_features(features, split):
 
-	# splitted = apoio : {
-	# 	trainning : [],
-	# 	testing : []
+	# splitted = training : {
+	# 	apoio : [],
+	# 	enquadramento : []
 	# },
-	# enquadramento : {
-	# 	training : [],
-	# 	testing : []
+	# testing : {
+	# 	apoio : [],
+	# 	enquadramento : []
 	# }
-	splitted = {}
-
-	train_feats = []
-	test_feats = []
+	splitted = {
+		'training' : {},
+		'testing' : {}
+	}
 
 	# apoio ou enquadramento
 	for classification in features.keys():
 
-		splitted[classification] = {
-			'training' : [],
-			'testing' : []
-		}
+		splitted['training'][classification] = []
+		splitted['testing'][classification] = []
 
 		classification_features = features[classification]
 
@@ -233,16 +231,39 @@ def split_features(features, split):
 			cutoff = int(len(feats) * split)
 
 			# os primeiros 75% de features do label, vao para treinamento
-			splitted[classification]['training'].extend([(feat, label) for feat in feats[:cutoff]])
+			splitted['training'][classification].extend([(feat, label) for feat in feats[:cutoff]])
 			# os 25% restantes, para teste
-			splitted[classification]['testing'].extend([(feat, label) for feat in feats[cutoff:]])
+			splitted['testing'][classification].extend([(feat, label) for feat in feats[cutoff:]])
 		
 			# [arquivo2] apoio: 970 training: 726 testing: 244
 			# [arquivo5] enquadramento: 689, training: 511, testing: 178
 	return splitted
 
+# Cria e treina um classificador NaiveBayes para cada uma das classificacoes. 
+# No nosso caso, 2 classificacoes: por apoio e por enquadramento.
+def get_classifiers(training_features):
+
+	classifiers = {}
+
+	for classification in training_features.keys():
+		# print('training_features[classification]=',training_features[classification])
+		classifiers[classification] = nltk.NaiveBayesClassifier.train(training_features[classification])
+
+	return classifiers
 
 
+def chack_accuracy(classifiers, testing_features):
+
+	for classification in testing_features:
+		classifier = classifiers[classification]
+		accuracy = nltk.classify.accuracy(classifier, testing_features[classification])
+
+		print('Accuracy for %s: %i' % (classification,accuracy))
+
+		# Listagem das features mais relevantes
+		# print('most_informative_features=',classifier.most_informative_features())
+		# print('-------')
+		# classifier.show_most_informative_features(5)
 
 
 def adhoc_classification_tests(classifier):
@@ -365,19 +386,14 @@ if __name__ == '__main__':
 
 	# PASSO 3. Definição das bases de teste (75%) e treinamento (25%)
 	splitted_features = split_features(preclassified_features, split=0.75)
-	print('splitted_features=',len(splitted_features['enquadramento']['testing']))
-	sys.exit()
 
 	# PASSO 4. Criacao e treinamento do classificador
-	classifier = nltk.NaiveBayesClassifier.train(train_features)
+	classifiers = get_classifiers(splitted_features['training'])
+	print('classifiers=',classifiers)
+	sys.exit()
 
 	# PASSO 5. Verificação da acurácia a partir da base de teste
-	print('accuracy=',nltk.classify.accuracy(classifier, test_features))
-
-	# Listagem das features mais relevantes
-	print('most_informative_features=',classifier.most_informative_features())
-	print('-------')
-	classifier.show_most_informative_features(5)
+	ckeck_accuracy(splitted_features['testing'])
 
 	# Testes ad-hoc
 	# adhoc_classification_tests(classifier)

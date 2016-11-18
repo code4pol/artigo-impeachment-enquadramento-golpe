@@ -4,6 +4,7 @@ import re
 import nltk
 import sys
 import collections
+from datetime import datetime
 
 from pymongo import MongoClient
 
@@ -322,7 +323,7 @@ def adhoc_classification_tests(classifier):
 	# 			# print('%s,%s,%s' % (id, id_retweetado, texto_retweetado))
 	# 			print('%d,%s,%s' % (i,texto_retweetado, classifier.classify(impeachment_features(texto_retweetado))))
 
-def classify_text(classifier):
+def run_classification(classifiers):
 	print('Iniciando classificao dos textos do banco')
 
 	# acessar o mongo
@@ -330,9 +331,12 @@ def classify_text(classifier):
 	client = MongoClient()
 	db = client.impeachment
 
+	now = datetime.now().strftime('%Y%m%d%H%M')
+	collection = 'classification_%s' % (now)
+
 	# Remove documentos da classificacao anterior
 	print('Removendo documentos da classificacao anterior...')
-	db.tweets_classificados.delete_many({})
+	db[collection].delete_many({})
 
 	# Busca apenas textos dos tweets
 	print('Buscando texto dos tweets retweetados...')
@@ -341,25 +345,34 @@ def classify_text(classifier):
 				{'$project': { '_id':0, 'text' : "$retweeted_status.text"} } ])
 	print("XX tweets encontrados")
 
-	i = 0
+	# i = 0
 	# Classifica cada um dos textos e salva o resultado de volta no banco
 	for doc in texts:
 		text = doc['text']
 
-		i += 1
+		# i += 1
 		# print('Classificando tweet %i (%s)' % (i,text))
-
-		probs = classifier.prob_classify(bag_of_words(text))
-
+		
 		probabilidades = {}
-		for category in classifier.labels():
-			probabilidades[category] = probs.prob(category)
+		for classification in classifiers.keys():
 
-			# {
-			# 	'pro': probs.prob('pro'),
-			# 	'contra': probs.prob('contra'),
-			# 	'indefinido': probs.prob('indefinido'),
-			# }
+			probabilidades[classification] = {}
+			classifier = classifiers[classification]
+
+			probs = classifier.prob_classify(bag_of_words(text))
+
+			for category in classifier.labels():
+				probabilidades[classification][category] = probs.prob(category)
+
+				# { apoio: {
+				# 		'pro': probs.prob('pro'),
+				# 		'contra': probs.prob('contra'),
+				# 		'indefinido': probs.prob('indefinido'),
+				# 	},
+				#   enquadramento : {
+				# 		'demorcacia' : ...
+				# 	}
+				# }
 
 		texto_classificado = {
 			'texto': text,
@@ -367,7 +380,7 @@ def classify_text(classifier):
 			'probabilidades' : probabilidades
 		}
 		
-		id_texto_classificado = db.tweets_classificados_apo_201611170606.insert_one(texto_classificado)
+		id_texto_classificado = db[collection].insert_one(texto_classificado)
 		# print("  Resultado da classificacao salvo no banco com id",id_texto_classificado)
 
 
@@ -401,6 +414,6 @@ if __name__ == '__main__':
 	# adhoc_classification_tests(classifier)
 
 	# PASSO 6. Classificacao da base de dados real
-	classify_text(classifier)
+	run_classification(classifiers)
 
 

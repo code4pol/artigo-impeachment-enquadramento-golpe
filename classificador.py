@@ -134,13 +134,7 @@ def load_preclassified_corpora(filenames):
 # 1.3. Lido diretamente a partir do Google Spreadsheet
 # TODO (ver gsheet.py)
 
-
-# 2.1. Exemplo hardcoded
-# [({:},),({:},)]
-# features_treinamento = [({'golpe':True},'contra'),
-# 	
-
-# 2.2. Calculo dinamico das features
+# Transforma colecao de corpus em colecao de features
 #
 # Transforma {	'apoio : {
 #					'pos' : ['texto1','texto2',...], 
@@ -180,9 +174,9 @@ def get_features(corpora):
 	return features  
 
 ####################
-# 1. Funcao geradora de features
+# X. Funcao geradora de features
 
-# 1.1. Features muito muito simples
+# X.1. Features muito muito simples
 # def impeachment_features(sentence):
 # 	if 'golpe' in sentence:
 # 		return {'golpe' : True}
@@ -190,7 +184,7 @@ def get_features(corpora):
 # 		return {'golpe' : False}
 
 
-# 1.2. Estrategia de features com bag of words.
+# X.2. Estrategia de features com bag of words.
 # sentence= um homem no ônibus nos perguntou se o motivo de estarmos de preto era o golpe.
 # words= ['um', 'homem', 'no', 'ônibus', 'nos', 'perguntou', 'se', 'o', 'motivo', 'de', 'estarmos', 'de', 'preto', 'era', 'o', 'golpe']
 # bagofwords= {'se': True, 'motivo': True, 'era': True, 'de': True, 'o': True, 'golpe': True, 'um': True, 'nos': True, 'ônibus': True, 'homem': True, 'estarmos': True, 'no': True, 'perguntou': True, 'preto': True}
@@ -202,30 +196,50 @@ def bag_of_words(sentence):
 	# TODO2 Incluir bigramas
 
 
-# Funcao auxiliar
-# Reparte as features classificadas em dois grupos: 
+# 3. Funcao que quebra a colecao de features em dois grupos: 
 # um para treinamento (75%) e outro para testes (25%).
 # Em ambos, quantidades identicas de features de cada
 # uma das categorias.
-def split_features(lfeats, split):
+def split_features(features, split):
+
+	# splitted = apoio : {
+	# 	trainning : [],
+	# 	testing : []
+	# },
+	# enquadramento : {
+	# 	training : [],
+	# 	testing : []
+	# }
+	splitted = {}
+
 	train_feats = []
 	test_feats = []
 
-	for label, feats in lfeats.items():
-		# label=contra 		len(feats)=655 (492+163)
-		# label=pro 		len(feats)=133
-		# label=indefinido  len(feats)=195
-		cutoff = int(len(feats) * split)
+	# apoio ou enquadramento
+	for classification in features.keys():
 
-		# os primeiros 75% de features do label, vao para treinamento
-		train_feats.extend([(feat, label) for feat in feats[:cutoff]])
-		# os 25% restantes, para teste
-		test_feats.extend([(feat, label) for feat in feats[cutoff:]])
-	
-	print('training_features=',len(train_feats))
-	print('test_features=',len(test_feats))
+		splitted[classification] = {
+			'training' : [],
+			'testing' : []
+		}
 
-	return train_feats, test_feats
+		classification_features = features[classification]
+
+		# e.g. (pro,[...]) ou (contra,[]) ou ...
+		for label, feats in classification_features.items():
+			# label=contra 		len(feats)=655 (492+163)
+			# label=pro 		len(feats)=133
+			# label=indefinido  len(feats)=195
+			cutoff = int(len(feats) * split)
+
+			# os primeiros 75% de features do label, vao para treinamento
+			splitted[classification]['training'].extend([(feat, label) for feat in feats[:cutoff]])
+			# os 25% restantes, para teste
+			splitted[classification]['testing'].extend([(feat, label) for feat in feats[cutoff:]])
+		
+			# [arquivo2] apoio: 970 training: 726 testing: 244
+			# [arquivo5] enquadramento: 689, training: 511, testing: 178
+	return splitted
 
 
 
@@ -350,7 +364,9 @@ if __name__ == '__main__':
 	preclassified_features = get_features(preclassified_corpora)
 
 	# PASSO 3. Definição das bases de teste (75%) e treinamento (25%)
-	train_features, test_features = split_features(preclassified_features, split=0.75)
+	splitted_features = split_features(preclassified_features, split=0.75)
+	print('splitted_features=',len(splitted_features['enquadramento']['testing']))
+	sys.exit()
 
 	# PASSO 4. Criacao e treinamento do classificador
 	classifier = nltk.NaiveBayesClassifier.train(train_features)

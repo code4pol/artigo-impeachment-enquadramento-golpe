@@ -252,7 +252,7 @@ def get_classifiers(training_features):
 	return classifiers
 
 
-def chack_accuracy(classifiers, testing_features):
+def check_accuracy(classifiers, testing_features):
 
 	for classification in testing_features:
 		classifier = classifiers[classification]
@@ -391,7 +391,7 @@ if __name__ == '__main__':
 	classifiers = get_classifiers(splitted_features['training'])
 
 	# PASSO 5. Verificação da acurácia a partir da base de teste
-	ckeck_accuracy(splitted_features['testing'])
+	check_accuracy(classifiers,splitted_features['testing'])
 
 	# Testes ad-hoc
 	# adhoc_classification_tests(classifier)

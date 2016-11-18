@@ -389,8 +389,6 @@ if __name__ == '__main__':
 
 	# PASSO 4. Criacao e treinamento do classificador
 	classifiers = get_classifiers(splitted_features['training'])
-	print('classifiers=',classifiers)
-	sys.exit()
 
 	# PASSO 5. Verificação da acurácia a partir da base de teste
 	ckeck_accuracy(splitted_features['testing'])

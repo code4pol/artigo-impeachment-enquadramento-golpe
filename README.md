@@ -24,15 +24,20 @@ Quantitativos
 |Mês|Qtd|
 |:--:|--:|
 |Abr|359.098|
-|Ago|   | 
+|Ago|617.303| 
+|Set|214.946|
+|TOTAL|1.191.347|
 
 #### Quantos são retweets?
 
 |Mês|Qtd|%|
 |:--:|--:|:--:|
 |Abr|359.098|100%|
-|Ago|   | |
+|Ago|617.303|100%|
+|Set|214.946|100%|
+|TOTAL|1.191.347|100%|
 
+Achei estranho isso...
 
 #### Total por Data
 
@@ -40,11 +45,14 @@ Quantitativos
 |:---:|---:|
 |16/04/2016|100.432|
 |17/04/2016|94.160|
-|18/04/2016|16.4506|
+|18/04/2016|164.506|
+|30/08/2016|165.514|
+|13/08/2016|451.789|
+|01/09/2016|214.946|
 
 #### Quantidade de Usuários Distintos
 ```
-user.screen_name: 140.247
+user.screen_name: 394.914
 ```
 #### Quantidade de Idiomas Distintos
 ```
@@ -185,22 +193,29 @@ No entanto, nem todos os tweets seguem o idioma presente na proporiedade `lang`.
 
 |Tweets Originais|Retweets|
 |---:|--:|
-|57.858|359.098|
+|150.486 (13%)|1.191.347|
 
-#### Tweets mais retweetados
+### Tweets mais retweetados
+
+#### Tweets mais retweetados, geral
 
 |Qtd Retweets|Usuário|Texto|
 |:--:|:--:|:--|
-|1562|luscas|golpe é o q eu gasto com xerox todo mes|
-|1490|hramosallup|Régimen moribundo tilda d \"golpe a la democracia brasileña\" juicio a Dilma Rousseff. Resto combo (Ortega,Evo,Correa y castros)no ha opinado.|
-|1304|hramosallup|Ganó Brasil. Poco a poco la democracia latinoamericana va diluyendo sus pesadillas.|
-|1178|EugenioDerbez|Ahora la naturaleza golpeó a nuestros hermanos de Ecuador, mis oraciones están con ustedes 🙏🏼|
-|1157|jeanwyllys_real|\"Em nome da população LGBT, do povo negro exterminado nas periferias, dos trabalhadores da cultura, dos sem-teto/terra, voto NÃO AO GOLPE!\"|
-|1116|matheuss_pe|ATENÇÃO!!!! NOVO GOLPE NA PRAÇA!!!! https://t.co/xjF1jMkidU|
-|1073|dukechargista|Uma dúvida: o \"Tchau, Querida\" se refere à Dilma ou a Democracia?|
-|1004|evoespueblo|No al golpe congresal. Defendamos la democracia del Brasil, su liderazgo regional y la estabilidad de América Latina.|
-|925|diImabr|PRONUNCIAMENTO À NAÇÃO CONTRA O GOLPE!\nhttps://t.co/SO4umYBhwT|
-|809|RitaLisauskas|O cara foi no microfone, dedicou o voto ao torturador-mor de 64, louvou o golpe de 2016 e cês tão chocados é com o cuspe? Esse país tá louco|
+|10344|dilmabr|O golpe é contra o povo e a Nação. É misógino. É homofóbico. É racista. É a imposição da intolerância, preconceito, violência #LutarSempre|
+|7170|liliantintori|Que hable la calle, y que hable la calle con gente, y que hable la calle en paz y que hable la calle en democracia. https://t.co/Ed0q5ASztp|
+|6810|dilmabr|Um carinhoso abraço a todo povo brasileiro, que compartilha comigo a crença na democracia e o sonho da justiça #LutarSempre|
+|4268|CFKArgentina|Se consumó en Brasil el golpe institucional: Nueva forma de violentar la soberanía popular. #dilmarousseff|
+|3920|diImabr|Hoje nossa democracia foi ferida. O Brasil perdeu. Eu perdi. Mas eu detestaria estar no lugar dos que me venceram. A luta está só começando.|
+|3637|NicolasMaduro|Toda la Solidaridad con @dilmabr y el PueblodeBrasil,condenamos el GolpeOligárquico de la derecha¡Quién Lucha Vence! https://t.co/0MkBrgsTwE|
+|3451|ricardope|Tem dois grupos comemorando o GOLPE contra Dilma: os que vão tirar direitos dos trabalhadores e os que ainda não sabem que vão perdê-los.|
+|3149|evoespueblo|Condenamos el golpe parlamentario contra la democracia brasileña. Acompañamos a Dilma, Lula y su pueblo en esta hora difícil. #FuerzaDilma|
+|3016|dilmabr|O golpe é contra os movimentos sociais e sindicais e contra os que lutam por direitos em todas as suas acepções #LutarSempre|
+|2979|leandraleal|Estou extremamente triste e decepcionada com essa farsa. Feliz é aquele que acredita que isso foi justo, que isso ñ é um golpe.|
+
+
+#### Tweets mais retweetados, mês a mês.
+
+
 
 #### Quantidade de Tweets por Termos
 

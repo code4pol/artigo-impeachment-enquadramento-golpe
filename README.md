@@ -315,7 +315,7 @@ No entanto, nem todos os tweets seguem o idioma presente na proporiedade `lang`.
 |dos|15.676|
 |GOLPE|15.573|
 
-#### Hashtags mais Recorrentes
+#### Hashtags mais recorrentes (Geral)
 
 |Hashtag|Qtd
 |:--:|--:|
@@ -339,6 +339,83 @@ No entanto, nem todos os tweets seguem o idioma presente na proporiedade `lang`.
 |LatinoaméricaConDilma|3597|
 |NaoVaiTerGolpe|3447|
 |AlutaComeçou|2714|
+
+#### Hashtags mais recorrentes em Abril
+
+|Hashtag|Qtd
+|:--:|--:|
+||267687|
+|DilmaFicaGolpeSai|6032|
+|RespeiteAsUrnas|5494|
+|GolpeAquiNãoPassa|5307|
+|NoAlGolpeADilma|5261|
+|ImpeachmentDay|3885|
+|NaoVaiTerGolpe|3429|
+|AlutaComeçou|2714|
+|Impeachment|2712|
+|Brasil|2072|
+|GolpeAquiNaoPassa|1871|
+|ElMundoConDilma|1639|
+|ALutaComeçou|1483|
+|NãoVaiTerGolpe|1223|
+|OBrasilPrecisa|770|
+|ForaDilmaFueraMaduro|675|
+|InternetJusta|492|
+|BrasilContraOGolpe|491|
+|ALutaContinua|470|
+|ondeOsFracosNaoTêmVez|464|
+
+#### Hashtags mais recorrentes em Agosto
+
+|Hashtag|Qtd
+|:--:|--:|
+||438822|
+|LutarSempre|30202|
+|ImpeachmentDay|14555|
+|PelaDemocracia|9433|
+|ForaTemer|6541|
+|DilmaRousseff|6148|
+|dilmarousseff|4872|
+|impeachmentday|3493|
+|FuerzaDilma|3101|
+|Brasil|2234|
+|investiduraRajoy|2116|
+|CadenaNacional", "1SepCalleHastaQueSeVaya|1695|
+|Golpe|1678|
+|1S|1563|
+|JN|1422|
+|ChavismoEsCalleYPaz|1408|
+|impeachment|1335|
+|foratemer|1295|
+|LaCalleEsChavista|1141|
+|democracia", "Golpe", "Brasil|1036|
+
+Ish. Tem um problema aí em cima. Depois eu corrijo.
+
+#### Hashtags mais recorrentes em Setembro
+
+|Hashtag|Qtd
+|:--:|--:|
+||146243|
+|1S|5548|
+|LutarSempre|4916|
+|ChavismoQuierePaz|3738|
+|LatinoaméricaConDilma|3597|
+|1SeptReclamoDeLibertad|1928|
+|ForaTemer|1742|
+|SomosTodosGolpistas|1669|
+|DilmaRousseff|1181|
+|Brasil|1135|
+|foratemer|1098|
+|RT|999|
+|FuerzaDilma|975|
+|dilmarousseff|850|
+|Uruguay", "Brasil|843|
+|Venezuela|663|
+|ImpeachmentDay|659|
+|ElChavismoQuierePaz|650|
+|PuebloComunicador", "ChavismoQuierePaz|614|
+|DeOlhoNoSTF|567|
 
 
 # Classificação

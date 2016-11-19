@@ -215,6 +215,7 @@ No entanto, nem todos os tweets seguem o idioma presente na proporiedade `lang`.
 **Abril**
 
 |Qtd Retweets|Usuário|Texto|
+|:--:|:--:|:--|
 |1562|luscas|golpe é o q eu gasto com xerox todo mes|
 |1490|hramosallup|Régimen moribundo tilda d \"golpe a la democracia brasileña\" juicio a Dilma Rousseff. Resto combo (Ortega,Evo,Correa y castros)no ha opinado.|
 |1304|hramosallup|Ganó Brasil. Poco a poco la democracia latinoamericana va diluyendo sus pesadillas.|
@@ -229,6 +230,7 @@ No entanto, nem todos os tweets seguem o idioma presente na proporiedade `lang`.
 **Agosto**
 
 |Qtd Retweets|Usuário|Texto|
+|:--:|:--:|:--|
 |8362|dilmabr|O golpe é contra o povo e a Nação. É misógino. É homofóbico. É racista. É a imposição da intolerância, preconceito, violência #LutarSempre|
 |5449|dilmabr|Um carinhoso abraço a todo povo brasileiro, que compartilha comigo a crença na democracia e o sonho da justiça #LutarSempre|
 |3740|diImabr|Hoje nossa democracia foi ferida. O Brasil perdeu. Eu perdi. Mas eu detestaria estar no lugar dos que me venceram. A luta está só começando.|
@@ -243,6 +245,7 @@ No entanto, nem todos os tweets seguem o idioma presente na proporiedade `lang`.
 **Setembro**
 
 |Qtd Retweets|Usuário|Texto|
+|:--:|:--:|:--|
 |7170|liliantintori|Que hable la calle, y que hable la calle con gente, y que hable la calle en paz y que hable la calle en democracia. https://t.co/Ed0q5ASztp|
 |2578|MichelPesquera|Mi solidaridad y respeto a todos los venezolanos que hoy luchan por su libertad y su democracia enhorabuena!!! https://t.co/iq5Ivsk9rB|
 |2023|Albert_Rivera|Todo mi apoyo a los cientos de miles de venezolanos que hoy tomaron Caracas, pidiendo democracia y libertad ¡Fuerza! https://t.co/a6PugU6zs8|

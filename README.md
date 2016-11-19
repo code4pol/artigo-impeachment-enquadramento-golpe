@@ -13,9 +13,6 @@ Overview tecnológico
 Análise descritiva
 ===================
 
-**!!! ATENÇÃO !!!** 
-> Análise preliminar apenas do período referente à votação na Câmara dos Deputados.
-
 Quantitativos
 -------------
 

@@ -215,7 +215,44 @@ No entanto, nem todos os tweets seguem o idioma presente na proporiedade `lang`.
 
 #### Tweets mais retweetados, mês a mês.
 
+**Abril**
+|Qtd Retweets|Usuário|Texto|
+|1562|luscas|golpe é o q eu gasto com xerox todo mes|
+|1490|hramosallup|Régimen moribundo tilda d \"golpe a la democracia brasileña\" juicio a Dilma Rousseff. Resto combo (Ortega,Evo,Correa y castros)no ha opinado.|
+|1304|hramosallup|Ganó Brasil. Poco a poco la democracia latinoamericana va diluyendo sus pesadillas.|
+|1178|EugenioDerbez|Ahora la naturaleza golpeó a nuestros hermanos de Ecuador, mis oraciones están con ustedes 🙏🏼|
+|1157|jeanwyllys_real|\"Em nome da população LGBT, do povo negro exterminado nas periferias, dos trabalhadores da cultura, dos sem-teto/terra, voto NÃO AO GOLPE!\"|
+|1116|matheuss_pe|ATENÇÃO!!!! NOVO GOLPE NA PRAÇA!!!! https://t.co/xjF1jMkidU|
+|1073|dukechargista|Uma dúvida: o \"Tchau, Querida\" se refere à Dilma ou a Democracia?|
+|1004|evoespueblo|No al golpe congresal. Defendamos la democracia del Brasil, su liderazgo regional y la estabilidad de América Latina.|
+|925|diImabr|PRONUNCIAMENTO À NAÇÃO CONTRA O GOLPE!\nhttps://t.co/SO4umYBhwT|
+|809|RitaLisauskas|O cara foi no microfone, dedicou o voto ao torturador-mor de 64, louvou o golpe de 2016 e cês tão chocados é com o cuspe? Esse país tá louco|
 
+**Agosto**
+|Qtd Retweets|Usuário|Texto|
+|8362|dilmabr|O golpe é contra o povo e a Nação. É misógino. É homofóbico. É racista. É a imposição da intolerância, preconceito, violência #LutarSempre|
+|5449|dilmabr|Um carinhoso abraço a todo povo brasileiro, que compartilha comigo a crença na democracia e o sonho da justiça #LutarSempre|
+|3740|diImabr|Hoje nossa democracia foi ferida. O Brasil perdeu. Eu perdi. Mas eu detestaria estar no lugar dos que me venceram. A luta está só começando.|
+|3535|CFKArgentina|Se consumó en Brasil el golpe institucional: Nueva forma de violentar la soberanía popular. #dilmarousseff|
+|3267|ricardope|Tem dois grupos comemorando o GOLPE contra Dilma: os que vão tirar direitos dos trabalhadores e os que ainda não sabem que vão perdê-los.|
+|2743|dilmabr|O golpe é contra os movimentos sociais e sindicais e contra os que lutam por direitos em todas as suas acepções #LutarSempre|
+|2718|leandraleal|Estou extremamente triste e decepcionada com essa farsa. Feliz é aquele que acredita que isso foi justo, que isso ñ é um golpe.|
+|2621|NicolasMaduro|Toda la Solidaridad con @dilmabr y el PueblodeBrasil,condenamos el GolpeOligárquico de la derecha¡Quién Lucha Vence! https://t.co/0MkBrgsTwE|
+|2334|evoespueblo|Condenamos el golpe parlamentario contra la democracia brasileña. Acompañamos a Dilma, Lula y su pueblo en esta hora difícil. #FuerzaDilma|
+|2250|evoespueblo|Si prospera golpe parlamentario contra gobierno democrático de @dilmabr, Bolivia convocará a su embajador. Defendamos la democracia y la paz|
+
+**Setembro**
+|Qtd Retweets|Usuário|Texto|
+|7170|liliantintori|Que hable la calle, y que hable la calle con gente, y que hable la calle en paz y que hable la calle en democracia. https://t.co/Ed0q5ASztp|
+|2578|MichelPesquera|Mi solidaridad y respeto a todos los venezolanos que hoy luchan por su libertad y su democracia enhorabuena!!! https://t.co/iq5Ivsk9rB|
+|2023|Albert_Rivera|Todo mi apoyo a los cientos de miles de venezolanos que hoy tomaron Caracas, pidiendo democracia y libertad ¡Fuerza! https://t.co/a6PugU6zs8|
+|1982|dilmabr|O golpe é contra o povo e a Nação. É misógino. É homofóbico. É racista. É a imposição da intolerância, preconceito, violência #LutarSempre|
+|1884|MariaCorinaYA|Pero este #1S hay una diferencia respecto a 1958: esta será la última dictadura. Vzla conquista la democracia https://t.co/3TKrNCs1Bg|
+|1361|dilmabr|Um carinhoso abraço a todo povo brasileiro, que compartilha comigo a crença na democracia e o sonho da justiça #LutarSempre|
+|1292|MariaCorinaYA|Pero este #1S hay una diferencia respecto a 1958: esta será la última dictadura. Vzla conquista la democracia https://t.co/rvzkFyi3WI|
+|1208|InfoVzlaNet|Grande, grande Venezuela, los paranoicos hablando de golpe violento y el pueblo hablo claro y fuerte PACIFICAMENTE https://t.co/s9GmHKaHoe|
+|1063|MariaCorinaYA|Gral @vladimirpadrino, sobre su conciencia descansa paz d la República.Los venezolanos y democracia internac. vigilan respeto a Constitución|
+|1039|leandraleal|Se vc acha q artista q é contra o golpe foi comprado pela lei rouanet, 1o #foratemer, 2o pesquise a lei, 3o minha ideologia ñ esta a venda|
 
 #### Quantidade de Tweets por Termos
 

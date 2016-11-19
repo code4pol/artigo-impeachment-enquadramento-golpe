@@ -1,7 +1,7 @@
 Introdução
 ==========
 
-Este repositório refere-se a trabalho de pesquisa realizado no âmbito do grupo Resocie do Instituto de Ciência Política da Univesidade de Brasília - IPL/UnB referente às diferentes formas de enquadramento da palavra "golpe" durante os períodos de votação do processo de impeachment da ex-presidente Dilma.
+Este repositório refere-se a trabalho de pesquisa realizado no âmbito do grupo Resocie do Instituto de Ciência Política da Univesidade de Brasília - IPOL/UnB referente às diferentes formas de enquadramento da palavra "golpe" durante os períodos de votação do processo de impeachment da ex-presidente Dilma.
 
 Overview tecnológico
 ====================
@@ -51,11 +51,11 @@ Achei estranho isso...
 ```
 user.screen_name: 394.914
 ```
-#### Quantidade de Idiomas Distintos
+#### Quantidade de Idiomas Distintos (só Abr)
 ```
 lang: 27 (pt,es,und,en,da,fr,tl,de,it,nl,et,cy,cs,sl,lv,pl,lt,tr,ja,in,ht,fi,eu,ro,vi,hu,sv)
 ```
-#### Quantidade de Tweets por Idioma
+#### Quantidade de Tweets por Idioma (só Abr)
 
 |Idoma|Qtd|
 |:-----:|:---:|
@@ -257,7 +257,7 @@ No entanto, nem todos os tweets seguem o idioma presente na proporiedade `lang`.
 |1063|MariaCorinaYA|Gral @vladimirpadrino, sobre su conciencia descansa paz d la República.Los venezolanos y democracia internac. vigilan respeto a Constitución|
 |1039|leandraleal|Se vc acha q artista q é contra o golpe foi comprado pela lei rouanet, 1o #foratemer, 2o pesquise a lei, 3o minha ideologia ñ esta a venda|
 
-#### Quantidade de Tweets por Termos
+#### Quantidade de Tweets por Termos (só Abr)
 
 |Termo|Qtd|
 |:--|--:|
@@ -270,7 +270,7 @@ No entanto, nem todos os tweets seguem o idioma presente na proporiedade `lang`.
 |democr.*golp|7.022|
 |golp.*democr|10.645|
 
-#### Termos mais Recorrentes
+#### Termos mais Recorrentes (só Abr)
 
 |Termo|Qtd|
 |:--:|--:|
@@ -319,26 +319,26 @@ No entanto, nem todos os tweets seguem o idioma presente na proporiedade `lang`.
 
 |Hashtag|Qtd
 |:--:|--:|
-||267.687|
-|DilmaFicaGolpeSai|6.032|
-|RespeiteAsUrnas|5.494|
-|GolpeAquiNãoPassa|5.307|
-|NoAlGolpeADilma|5.261|
-|ImpeachmentDay|3.885|
-|NaoVaiTerGolpe|3.429|
-|AlutaComeçou|2.714|
-|Impeachment|2.712|
-|Brasil|2.072|
-|GolpeAquiNaoPassa|1.871|
-|ElMundoConDilma|1.639|
-|ALutaComeçou|1.483|
-|NãoVaiTerGolpe|1.223|
-|OBrasilPrecisa|770|
-|ForaDilmaFueraMaduro|675|
-|InternetJusta|492|
-|BrasilContraOGolpe|491|
-|ALutaContinua|470|
-|ondeOsFracosNaoTêmVez|464|
+||852752|
+|LutarSempre|35118|
+|ImpeachmentDay|19099|
+|PelaDemocracia|9530|
+|ForaTemer|8291|
+|DilmaRousseff|7518|
+|1S|7111|
+|DilmaFicaGolpeSai|6032|
+|dilmarousseff|5735|
+|RespeiteAsUrnas|5494|
+|Brasil|5441|
+|GolpeAquiNãoPassa|5307|
+|NoAlGolpeADilma|5267|
+|FuerzaDilma|4202|
+|impeachmentday|3752|
+|ChavismoQuierePaz|3738|
+|Impeachment|3620|
+|LatinoaméricaConDilma|3597|
+|NaoVaiTerGolpe|3447|
+|AlutaComeçou|2714|
 
 
 # Classificação

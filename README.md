@@ -213,6 +213,7 @@ No entanto, nem todos os tweets seguem o idioma presente na proporiedade `lang`.
 #### Tweets mais retweetados, mês a mês.
 
 **Abril**
+
 |Qtd Retweets|Usuário|Texto|
 |1562|luscas|golpe é o q eu gasto com xerox todo mes|
 |1490|hramosallup|Régimen moribundo tilda d \"golpe a la democracia brasileña\" juicio a Dilma Rousseff. Resto combo (Ortega,Evo,Correa y castros)no ha opinado.|
@@ -226,6 +227,7 @@ No entanto, nem todos os tweets seguem o idioma presente na proporiedade `lang`.
 |809|RitaLisauskas|O cara foi no microfone, dedicou o voto ao torturador-mor de 64, louvou o golpe de 2016 e cês tão chocados é com o cuspe? Esse país tá louco|
 
 **Agosto**
+
 |Qtd Retweets|Usuário|Texto|
 |8362|dilmabr|O golpe é contra o povo e a Nação. É misógino. É homofóbico. É racista. É a imposição da intolerância, preconceito, violência #LutarSempre|
 |5449|dilmabr|Um carinhoso abraço a todo povo brasileiro, que compartilha comigo a crença na democracia e o sonho da justiça #LutarSempre|
@@ -239,6 +241,7 @@ No entanto, nem todos os tweets seguem o idioma presente na proporiedade `lang`.
 |2250|evoespueblo|Si prospera golpe parlamentario contra gobierno democrático de @dilmabr, Bolivia convocará a su embajador. Defendamos la democracia y la paz|
 
 **Setembro**
+
 |Qtd Retweets|Usuário|Texto|
 |7170|liliantintori|Que hable la calle, y que hable la calle con gente, y que hable la calle en paz y que hable la calle en democracia. https://t.co/Ed0q5ASztp|
 |2578|MichelPesquera|Mi solidaridad y respeto a todos los venezolanos que hoy luchan por su libertad y su democracia enhorabuena!!! https://t.co/iq5Ivsk9rB|

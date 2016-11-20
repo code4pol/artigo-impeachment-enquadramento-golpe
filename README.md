@@ -51,41 +51,47 @@ Achei estranho isso...
 ```
 user.screen_name: 394.914
 ```
-#### Quantidade de Idiomas Distintos (só Abr)
+#### Quantidade de Idiomas Distintos 
 ```
-lang: 27 (pt,es,und,en,da,fr,tl,de,it,nl,et,cy,cs,sl,lv,pl,lt,tr,ja,in,ht,fi,eu,ro,vi,hu,sv)
+lang: 33 (pt,es,ja,und,fr,en,tr,ht,it,in,tl,no,eu,vi,de,cs,ro,is,hu,da,sv,et,pl,uk,lt,cy,nl,lv,sl,fi,ru,el,"ar")
 ```
-#### Quantidade de Tweets por Idioma (só Abr)
+#### Quantidade de Tweets por Idioma 
 
 |Idoma|Qtd|
 |:-----:|:---:|
-|pt|239.968|
-|es|113.556|
-|und|4.369|
-|en|522|
-|da|25|
-|fr|121|
-|tl|58|
-|de|47|
-|it|222|
-|nl|3|
-|et|4|
-|cy|42|
-|cs|7|
-|sl|7|
-|lv|2|
-|pl|4|
-|lt|4|
-|ja|34|
-|tr|33|
-|in|26|
-|ht|18|
-|fi|1|
-|eu|7|
-|ro|12|
-|vi|1|
-|hu|4|
-|sv|1|
+|pt|672651|
+|es|501244|
+|ja|96|
+|und|9457|
+|fr|660|
+|en|5007|
+|tr|145|
+|ht|66|
+|it|1223|
+|in|80|
+|tl|206|
+|no|7|
+|eu|46|
+|vi|13|
+|de|99|
+|cs|11|
+|ro|21|
+|is|2|
+|hu|13|
+|da|33|
+|sv|14|
+|et|43|
+|pl|18|
+|uk|1|
+|lt|16|
+|cy|48|
+|nl|8|
+|lv|13|
+|sl|8|
+|fi|6|
+|ru|1|
+|el|2|
+|ar|89|
 
 No entanto, nem todos os tweets seguem o idioma presente na proporiedade `lang`. 
 

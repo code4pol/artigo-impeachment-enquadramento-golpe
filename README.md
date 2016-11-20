@@ -371,8 +371,6 @@ No entanto, nem todos os tweets seguem o idioma presente na proporiedade `lang`.
 |impeachmentday|4627|
 |FuerzaDilma|3785|
 
-Ish. Tem um problema aí em cima. Depois eu corrijo.
-
 #### Hashtags mais recorrentes em Setembro
 
 |Hashtag|Qtd
